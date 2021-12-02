@@ -1,7 +1,7 @@
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/index.html"
   status = 200
-  force = false
+  query = {p = ":path"} # apply this rule for /?p=example  
+  # force = false
   # hash = ":path" # does hash work, or do we need to use the query string?
-  query = {p = ":path"} # apply this rule for /?p=example
