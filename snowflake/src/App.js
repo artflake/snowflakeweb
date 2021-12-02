@@ -10,6 +10,10 @@ import Footer from "./components/Footer";
 //Pages
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Signup from "./pages/signup";
+import ForgotPassword from "./pages/forgotpassword";
+import AuctionHouse from "./pages/auctionhouse";
+import TradeHouse from "./pages/tradehouse";
 
 function App() {
   return (
@@ -18,6 +22,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="auctionhouse" element={<AuctionHouse />} />
+        <Route path="tradehouse" element={<TradeHouse />} />
         <Route
           path="protected"
           element={
