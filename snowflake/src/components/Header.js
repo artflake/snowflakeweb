@@ -1,9 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { SITE_NAME } from "../utils/constants";
+import "./Header.css";
 
 export default function Header() {
+  const onboard = useSelector((state) => state.web3.onboard);
+
+  const selectWallet = async () => {
+    try {
+      const selected = await onboard?.walletSelect();
+      console.log("selected", selected);
+      if (selected) {
+        await onboard?.walletCheck();
+      }
+    } catch {
+      console.log("unable to connect to web3");
+    }
+  };
   return (
     <nav className="navbar navbar-expand-lg nav-down navbar-absolute navbar-transparent">
       <div className="container">
@@ -61,6 +76,15 @@ export default function Header() {
               <Link className="nav-link" to="/signup">
                 Signup
               </Link>
+            </li>
+            <li className="nav-item">
+              <button
+                onClick={selectWallet}
+                type="button"
+                className="btn btn-neutral btn-link nav-link"
+              >
+                Metamask
+              </button>
             </li>
           </ul>
         </div>

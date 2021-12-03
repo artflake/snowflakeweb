@@ -15,7 +15,12 @@ import ForgotPassword from "./pages/forgotpassword";
 import AuctionHouse from "./pages/auctionhouse";
 import TradeHouse from "./pages/tradehouse";
 
+//Web3
+import { useWeb3 } from "./web3/useWeb3";
+
 function App() {
+  // initialize web3
+  useWeb3();
   return (
     <div className="App">
       <Header />
