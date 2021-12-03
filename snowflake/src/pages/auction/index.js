@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function AuctionHouse() {
+export default function Auction() {
   useEffect(() => {
     window.pk.initSliders();
   });

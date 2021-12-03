@@ -6,10 +6,10 @@ export default function Home() {
       <div
         className="page-header"
         data-parallax="true"
-        style={{
-          backgroundImage: "url(../assets/img/sections/david-marcu.jpg)",
-        }}
       >
+        <video autoPlay muted loop id="myVideo">
+          <source src="../assets/video/Snowflake_Overlay.mp4" type="video/mp4" />
+        </video>
         <div className="filter"></div>
         <div className="content-center">
           <div className="container">
