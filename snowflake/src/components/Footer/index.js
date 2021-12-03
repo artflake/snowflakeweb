@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { SITE_NAME } from "../utils/constants";
+import { SITE_NAME } from "../../utils/constants";
 
 export default function Footer() {
   const location = useLocation();

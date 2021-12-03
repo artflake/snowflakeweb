@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { SITE_NAME } from "../utils/constants";
+import { SITE_NAME } from "../../utils/constants";
 import "./Header.css";
 
 export default function Header() {
   const onboard = useSelector((state) => state.web3.onboard);
 
-  const selectWallet = async () => {
+  const selectWallet = async (e) => {
+    e.preventDefault();
+    
     try {
       const selected = await onboard?.walletSelect();
       console.log("selected", selected);
@@ -19,6 +21,7 @@ export default function Header() {
       console.log("unable to connect to web3");
     }
   };
+
   return (
     <nav className="navbar navbar-expand-lg nav-down navbar-absolute navbar-transparent">
       <div className="container">
@@ -52,19 +55,19 @@ export default function Header() {
           data-color="orange"
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Home
+          <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/auctionhouse">
-                Auction House
+              <Link className="nav-link" to="/auction">
+                Auction
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/tradehouse">
-                Trade House
+              <Link className="nav-link" to="/exchange">
+                Exchange
               </Link>
             </li>
             <li className="nav-item">
@@ -74,17 +77,18 @@ export default function Header() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/signup">
-                Signup
+                Create Account
               </Link>
             </li>
             <li className="nav-item">
-              <button
+              <a
                 onClick={selectWallet}
                 type="button"
-                className="btn btn-neutral btn-link nav-link"
+                className="nav-link"
+                href="/"
               >
                 Metamask
-              </button>
+              </a>
             </li>
           </ul>
         </div>
