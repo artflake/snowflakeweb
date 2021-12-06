@@ -1,8 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-  force = true
-  query = {page = ":path"} # apply this rule for /?page=example  
-  # force = false
-  # hash = ":path" # does hash work, or do we need to use the query string?

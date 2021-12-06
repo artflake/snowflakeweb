@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 
 //Components
@@ -18,8 +18,16 @@ import About from "./pages/about";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
+import { getToken } from "./utils";
+import { login } from "./redux/reducers/loginSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    checkLogin(dispatch);
+  }, [dispatch]);
+
   // initialize web3
   useWeb3();
   return (
@@ -56,6 +64,13 @@ function RequireAuth({ children }) {
   }
 
   return children;
+}
+
+function checkLogin(dispatch) {
+  const token = getToken();
+  if (token) {
+    dispatch(login());
+  }
 }
 
 export default App;

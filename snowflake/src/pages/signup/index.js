@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { SITE_NAME } from "../../utils/constants";
+import { registerAPI } from "../../redux/apis/login";
 
 export default function Signup() {
   const [state, setState] = useState({
@@ -20,6 +21,7 @@ export default function Signup() {
     e.preventDefault();
 
     console.log(state);
+    registerAPI();
   };
 
   return (

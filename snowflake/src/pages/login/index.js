@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import { SITE_NAME } from "../../utils/constants";
+import { login } from "../../redux/reducers/loginSlice";
+import { setToken } from "../../utils";
+import { loginAPI } from "../../redux/apis/login";
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -18,7 +25,12 @@ export default function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(state);
+    loginAPI().then(() => {
+      dispatch(login());
+      setToken("asgfk234asowqhjkeur789edkl");
+    });
+    dispatch(login());
+    setToken("asgfk234asowqhjkeur789edkl");
   };
 
   return (
