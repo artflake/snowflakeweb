@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
@@ -15,6 +15,7 @@ import ForgotPassword from "./pages/forgotpassword";
 import Auction from "./pages/auction";
 import Exchange from "./pages/exchange";
 import About from "./pages/about";
+import Wallet from "./pages/wallet";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
@@ -35,17 +36,38 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route
+          path="login"
+          element={
+            <RequireNoAuth>
+              <Login />
+            </RequireNoAuth>
+          }
+        />
+        <Route
+          path="signup"
+          element={
+            <RequireNoAuth>
+              <Signup />
+            </RequireNoAuth>
+          }
+        />
+        <Route
+          path="forgotpassword"
+          element={
+            <RequireNoAuth>
+              <ForgotPassword />
+            </RequireNoAuth>
+          }
+        />
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
         <Route
-          path="protected"
+          path="wallet"
           element={
             <RequireAuth>
-              <p>Protected route</p>
+              <Wallet />
             </RequireAuth>
           }
         />
@@ -56,11 +78,30 @@ function App() {
 }
 
 function RequireAuth({ children }) {
-  const isloggedIn = useSelector(({ login }) => login.loggedIn);
+  let isloggedIn = useSelector(({ login }) => login.loggedIn);
   const location = useLocation();
+
+  if (getToken()) {
+    isloggedIn = true;
+  }
 
   if (!isloggedIn) {
     return <Navigate to="/login" state={{ from: location }} />;
+  }
+
+  return children;
+}
+
+function RequireNoAuth({ children }) {
+  let isloggedIn = useSelector(({ login }) => login.loggedIn);
+  const location = useLocation();
+
+  if (getToken()) {
+    isloggedIn = true;
+  }
+
+  if (isloggedIn) {
+    return <Navigate to="/wallet" state={{ from: location }} />;
   }
 
   return children;

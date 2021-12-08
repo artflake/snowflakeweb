@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import classnames from "classnames";
 
 import { SITE_NAME } from "../../utils/constants";
 import { login } from "../../redux/reducers/loginSlice";
 import { setToken } from "../../utils";
 import { loginAPI } from "../../redux/apis/login";
+import validateInput from "../../utils/validations/login";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [state, setState] = useState({
     email: "",
     password: "",
+    errors: {},
   });
 
   const onChange = (e, name) => {
@@ -22,16 +26,32 @@ export default function Login() {
     });
   };
 
+  const isValid = () => {
+    const { errors, isValid } = validateInput({
+      email: state.email,
+      password: state.password,
+    });
+
+    if (!isValid) setState({ ...state, errors });
+
+    return isValid;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    loginAPI().then(() => {
+    if (isValid()) {
+      loginAPI().then(() => {
+        dispatch(login());
+        setToken("asgfk234asowqhjkeur789edkl");
+      });
       dispatch(login());
       setToken("asgfk234asowqhjkeur789edkl");
-    });
-    dispatch(login());
-    setToken("asgfk234asowqhjkeur789edkl");
+      navigate('/wallet');
+    }
   };
+
+  const { errors } = state;
 
   return (
     <div className="wrapper full-screen login-page">
@@ -48,21 +68,35 @@ export default function Login() {
               <div className="card card-register">
                 <h3 className="card-title">Welcome</h3>
                 <form className="register-form" onSubmit={onSubmit}>
-                  <label>Email</label>
-                  <input
-                    className="form-control no-border"
-                    placeholder="Email"
-                    onChange={(e) => onChange(e, "email")}
-                    value={state.email}
-                  />
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    className="form-control no-border"
-                    placeholder="Password"
-                    onChange={(e) => onChange(e, "password")}
-                    value={state.password}
-                  />
+                  <div
+                    className={classnames("", { "has-error": errors.email })}
+                  >
+                    <label>Email</label>
+                    <input
+                      className="form-control no-border"
+                      placeholder="Email"
+                      onChange={(e) => onChange(e, "email")}
+                      value={state.email}
+                    />
+                    {errors.email && (
+                      <div className="text-danger">{errors.email}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.email })}
+                  >
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      className="form-control no-border"
+                      placeholder="Password"
+                      onChange={(e) => onChange(e, "password")}
+                      value={state.password}
+                    />
+                    {errors.password && (
+                      <div className="text-danger">{errors.password}</div>
+                    )}
+                  </div>
                   <button
                     type="submit"
                     className="btn btn-danger btn-block btn-round"
