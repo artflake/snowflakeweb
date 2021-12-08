@@ -1,16 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { SITE_NAME } from "../../utils/constants";
 import "./Header.css";
+import { logout } from "../../redux/reducers/loginSlice";
+import { removeToken } from "../../utils";
 
 export default function Header() {
   const onboard = useSelector((state) => state.web3.onboard);
+  const isloggedIn = useSelector(({ login }) => login.loggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const selectWallet = async (e) => {
     e.preventDefault();
-    
+
     try {
       const selected = await onboard?.walletSelect();
       console.log("selected", selected);
@@ -20,6 +25,14 @@ export default function Header() {
     } catch {
       console.log("unable to connect to web3");
     }
+  };
+
+  const logOut = (e) => {
+    e.preventDefault();
+
+    removeToken();
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -55,7 +68,7 @@ export default function Header() {
           data-color="orange"
         >
           <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About
               </Link>
@@ -71,16 +84,6 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Create Account
-              </Link>
-            </li>
-            <li className="nav-item">
               <a
                 onClick={selectWallet}
                 type="button"
@@ -90,6 +93,26 @@ export default function Header() {
                 Metamask
               </a>
             </li>
+            {!isloggedIn ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup">
+                    Create Account
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <a onClick={logOut} className="nav-link" href="/">
+                  Logout
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>

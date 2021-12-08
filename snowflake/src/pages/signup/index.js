@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import classnames from "classnames";
+
 import { SITE_NAME } from "../../utils/constants";
+import { registerAPI } from "../../redux/apis/login";
+import validateInput from "../../utils/validations/signup";
 
 export default function Signup() {
   const [state, setState] = useState({
     email: "",
     password: "",
     confirmationPassword: "",
+    errors: {},
   });
 
   const onChange = (e, name) => {
@@ -16,11 +21,28 @@ export default function Signup() {
     });
   };
 
+  const isValid = () => {
+    const { errors, isValid } = validateInput({
+      email: state.email,
+      password: state.password,
+      confirmationPassword: state.confirmationPassword
+    });
+
+    if (!isValid) setState({ ...state, errors });
+
+    return isValid;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(state);
+    if (isValid()) {
+      console.log(state);
+      registerAPI();
+    }
   };
+
+  const { errors } = state;
 
   return (
     <div className="wrapper full-screen register-page">
@@ -102,27 +124,52 @@ export default function Signup() {
                   <div className="line r"></div>
                 </div>
                 <form className="register-form" onSubmit={onSubmit}>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Email"
-                    onChange={(e) => onChange(e, "email")}
-                    value={state.email}
-                  />
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    onChange={(e) => onChange(e, "password")}
-                    value={state.password}
-                  />
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Confirm Password"
-                    onChange={(e) => onChange(e, "confirmationPassword")}
-                    value={state.confirmationPassword}
-                  />
+                  <div
+                    className={classnames("", { "has-error": errors.email })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Email"
+                      onChange={(e) => onChange(e, "email")}
+                      value={state.email}
+                    />
+                    {errors.email && (
+                      <div className="text-danger">{errors.email}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.password })}
+                  >
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Password"
+                      onChange={(e) => onChange(e, "password")}
+                      value={state.password}
+                    />
+                    {errors.password && (
+                      <div className="text-danger">{errors.password}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", {
+                      "has-error": errors.confirmationPassword,
+                    })}
+                  >
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Confirm Password"
+                      onChange={(e) => onChange(e, "confirmationPassword")}
+                      value={state.confirmationPassword}
+                    />
+                    {errors.confirmationPassword && (
+                      <div className="text-danger">
+                        {errors.confirmationPassword}
+                      </div>
+                    )}
+                  </div>
                   <button type="submit" className="btn btn-block btn-round">
                     Register
                   </button>

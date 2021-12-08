@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import classnames from "classnames";
+
 import { SITE_NAME } from "../../utils/constants";
+import validateInput from "../../utils/validations/forgotpassword";
 
 export default function ForgotPassword() {
   const [state, setState] = useState({
     email: "",
+    errors: {},
   });
 
   const onChange = (e, name) => {
@@ -13,12 +17,25 @@ export default function ForgotPassword() {
     });
   };
 
+  const isValid = () => {
+    const { errors, isValid } = validateInput({
+      email: state.email,
+    });
+
+    if (!isValid) setState({ ...state, errors });
+
+    return isValid;
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(state);
+    if (isValid()) {
+      console.log(state);
+    }
   };
 
+  const { errors } = state;
   return (
     <div className="wrapper full-screen login-page">
       <div
@@ -34,13 +51,20 @@ export default function ForgotPassword() {
               <div className="card card-register">
                 <h3 className="card-title">Reset your password</h3>
                 <form className="register-form" onSubmit={onSubmit}>
-                  <label>Email</label>
-                  <input
-                    className="form-control no-border"
-                    placeholder="Email"
-                    onChange={(e) => onChange(e, "email")}
-                    value={state.email}
-                  />
+                  <div
+                    className={classnames("", { "has-error": errors.email })}
+                  >
+                    <label>Email</label>
+                    <input
+                      className="form-control no-border"
+                      placeholder="Email"
+                      onChange={(e) => onChange(e, "email")}
+                      value={state.email}
+                    />
+                    {errors.email && (
+                      <div className="text-danger">{errors.email}</div>
+                    )}
+                  </div>
                   <button
                     type="submit"
                     className="btn btn-danger btn-block btn-round"
