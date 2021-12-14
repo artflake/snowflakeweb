@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "redux/hooks";
 
 import { SITE_NAME } from "../../utils/constants";
 import "./Header.css";
-import { logout } from "../../redux/reducers/loginSlice";
+import { logout } from "../../redux/reducers/authSlice";
 import { removeToken } from "../../utils";
 
 export default function Header() {

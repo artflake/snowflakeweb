@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import classnames from "classnames";
+import { unwrapResult } from "@reduxjs/toolkit";
+import {useDispatch} from 'redux/hooks';
 
 import { SITE_NAME } from "../../utils/constants";
-import { registerAPI } from "../../redux/apis/login";
 import validateInput from "../../utils/validations/signup";
+import { signupRequest } from "../../redux/reducers/authSlice";
 
 interface State {
   email: string;
@@ -14,21 +16,26 @@ interface State {
 }
 
 export default function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
   const [state, setState] = useState<State>({
     email: "",
     password: "",
     confirmationPassword: "",
     errors: {},
   });
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e, name) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>, name: string): void => {
     setState({
       ...state,
       [name]: e.target.value,
     });
   };
 
-  const isValid = () => {
+  const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
       email: state.email,
       password: state.password,
@@ -40,12 +47,21 @@ export default function Signup() {
     return isValid;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (isValid()) {
-      console.log(state);
-      registerAPI();
+      setLoading(true);
+      dispatch(signupRequest())
+        .then(unwrapResult)
+        .then((res) => {
+          console.log("Registered");
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError("Something went wrong. Try again later.");
+          setLoading(false);
+        });
     }
   };
 
@@ -105,6 +121,7 @@ export default function Signup() {
             <div className="col-lg-6 col-md-6 col-sm-5 col-12 mr-auto">
               <div className="card card-register">
                 <h3 className="card-title text-center">Register</h3>
+                {error ? <div className="text-danger">{error}</div> : null}
                 <div className="social">
                   <button
                     //@ts-ignore
@@ -181,7 +198,7 @@ export default function Signup() {
                     )}
                   </div>
                   <button type="submit" className="btn btn-block btn-round">
-                    Register
+                    {loading ? "Loading..." : "Register"}
                   </button>
                 </form>
                 <div className="login">

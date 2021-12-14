@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "redux/hooks";
 import classnames from "classnames";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 import { SITE_NAME } from "../../utils/constants";
-import { login } from "../../redux/reducers/loginSlice";
+import { loginRequest } from "../../redux/reducers/authSlice";
 import { setToken } from "../../utils";
-import { loginAPI } from "../../redux/apis/login";
 import validateInput from "../../utils/validations/login";
 
 interface State {
@@ -24,15 +24,17 @@ export default function Login() {
     password: "",
     errors: {},
   });
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e, name) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>, name: string): void => {
     setState({
       ...state,
       [name]: e.target.value,
     });
   };
 
-  const isValid = () => {
+  const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
       email: state.email,
       password: state.password,
@@ -43,22 +45,25 @@ export default function Login() {
     return isValid;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (isValid()) {
-      loginAPI().then(() => {
-        dispatch(login());
-        setToken("asgfk234asowqhjkeur789edkl");
-      });
-      dispatch(login());
-      setToken("asgfk234asowqhjkeur789edkl");
-      navigate("/wallet");
+      setLoading(true);
+      dispatch(loginRequest())
+        .then(unwrapResult)
+        .then((res) => {
+          setToken("asgfk234asowqhjkeur789edkl");
+          navigate("/wallet");
+        })
+        .catch((err) => {
+          setError("Something went wrong. Try again later.");
+          setLoading(false);
+        });
     }
   };
 
   const { errors } = state;
-
   return (
     <div className="wrapper full-screen login-page">
       <div
@@ -73,6 +78,7 @@ export default function Login() {
             <div className="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
               <div className="card card-register">
                 <h3 className="card-title">Welcome</h3>
+                {error ? <div>{error}</div> : null}
                 <form className="register-form" onSubmit={onSubmit}>
                   <div
                     className={classnames("", { "has-error": errors.email })}
@@ -105,9 +111,10 @@ export default function Login() {
                   </div>
                   <button
                     type="submit"
+                    disabled={loading}
                     className="btn btn-danger btn-block btn-round"
                   >
-                    Login
+                    {loading ? "Loading..." : "Login"}
                   </button>
                 </form>
                 <div className="forgot">

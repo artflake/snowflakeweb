@@ -16,22 +16,22 @@ export default function Footer() {
           <nav className="footer-nav">
             <ul>
               <li>
-                <Link rel="noopener noreferrer" to="/">
+                <Link to="/">
                   {SITE_NAME}
                 </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer" to="/blog" target="_blank">
+                <Link to="/blog">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer" to="/terms" target="_blank">
+                <Link to="/terms">
                   Terms & Conditons
                 </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer" to="/contact" target="_blank">
+                <Link to="/contact">
                   Contact
                 </Link>
               </li>

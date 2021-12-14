@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { loginSlice } from "./reducers/loginSlice";
+import { authSlice } from "./reducers/authSlice";
 import { web3Slice } from "./reducers/web3Slice";
 
 const reducer = combineReducers({
-  login: loginSlice.reducer,
+  login: authSlice.reducer,
   web3: web3Slice.reducer,
 });
 

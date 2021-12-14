@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "redux/hooks";
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 //Components
@@ -20,7 +21,7 @@ import Wallet from "./pages/wallet";
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
 import { getToken } from "./utils";
-import { login } from "./redux/reducers/loginSlice";
+import { login } from "./redux/reducers/authSlice";
 
 function App() {
   const dispatch = useDispatch();
