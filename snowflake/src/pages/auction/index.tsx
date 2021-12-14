@@ -780,6 +780,7 @@ export default function Auction() {
                     </div>
                     <div className="col-md-3 offset-md-4">
                       <button
+                        //@ts-ignore
                         rel="tooltip"
                         title="This is a morphing button"
                         className="btn btn-round btn-outline-default"

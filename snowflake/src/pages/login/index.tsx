@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "redux/hooks";
 import classnames from "classnames";
 
 import { SITE_NAME } from "../../utils/constants";
@@ -9,11 +9,17 @@ import { setToken } from "../../utils";
 import { loginAPI } from "../../redux/apis/login";
 import validateInput from "../../utils/validations/login";
 
+interface State {
+  email: string;
+  password: string;
+  errors: any;
+}
+
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<State>({
     email: "",
     password: "",
     errors: {},
@@ -47,7 +53,7 @@ export default function Login() {
       });
       dispatch(login());
       setToken("asgfk234asowqhjkeur789edkl");
-      navigate('/wallet');
+      navigate("/wallet");
     }
   };
 

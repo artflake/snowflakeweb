@@ -3,12 +3,12 @@ import React from "react";
 export default function Home() {
   return (
     <>
-      <div
-        className="page-header"
-        data-parallax="true"
-      >
+      <div className="page-header" data-parallax="true">
         <video autoPlay muted loop id="myVideo">
-          <source src="../assets/video/Snowflake_Overlay.mp4" type="video/mp4" />
+          <source
+            src="../assets/video/Snowflake_Overlay.mp4"
+            type="video/mp4"
+          />
         </video>
         <div className="filter"></div>
         <div className="content-center">
@@ -294,7 +294,7 @@ export default function Home() {
                   <label>Message</label>
                   <textarea
                     className="form-control"
-                    rows="4"
+                    rows={4}
                     placeholder="Tell us your thoughts and feelings..."
                   ></textarea>
                   <div className="row">

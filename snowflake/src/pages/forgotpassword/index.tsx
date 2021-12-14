@@ -4,8 +4,13 @@ import classnames from "classnames";
 import { SITE_NAME } from "../../utils/constants";
 import validateInput from "../../utils/validations/forgotpassword";
 
+interface State {
+  email: string;
+  errors: any;
+}
+
 export default function ForgotPassword() {
-  const [state, setState] = useState({
+  const [state, setState] = useState<State>({
     email: "",
     errors: {},
   });

@@ -1,7 +1,7 @@
 import Onboard from "bnc-onboard";
 import { ethers } from "ethers";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "redux/hooks";
 import { wallets } from "./wallets";
 import {
   setAddress,

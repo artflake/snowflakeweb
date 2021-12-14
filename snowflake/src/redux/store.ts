@@ -10,7 +10,7 @@ const reducer = combineReducers({
 
 // includes useful middleware for development and redux-thunk  - https://redux-toolkit.js.org/api/getDefaultMiddleware
 
-export default configureStore({
+const store = configureStore({
   reducer,
   devTools: process.env.NODE_ENV !== "production",
   middleware: (getDefaultMiddleware) =>
@@ -19,3 +19,9 @@ export default configureStore({
       immutableCheck: true,
     }),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
+
+export default store;
