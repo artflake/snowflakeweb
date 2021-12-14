@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "redux/hooks";
 
 import { SITE_NAME } from "../../utils/constants";
 import "./Header.css";

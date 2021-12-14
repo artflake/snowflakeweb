@@ -1,7 +1,16 @@
 // web3 slice
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface Web3Slice {
+  address: string;
+  network: number;
+  onboard: any;
+  provider: any;
+  signer: any;
+  wallet: any;
+}
+
+const initialState: Web3Slice = {
   address: "",
   network: 1,
   onboard: null,

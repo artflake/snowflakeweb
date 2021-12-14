@@ -6,8 +6,15 @@ import { SITE_NAME } from "../../utils/constants";
 import { registerAPI } from "../../redux/apis/login";
 import validateInput from "../../utils/validations/signup";
 
+interface State {
+  email: string;
+  password: string;
+  confirmationPassword: string;
+  errors: any;
+}
+
 export default function Signup() {
-  const [state, setState] = useState({
+  const [state, setState] = useState<State>({
     email: "",
     password: "",
     confirmationPassword: "",
@@ -25,7 +32,7 @@ export default function Signup() {
     const { errors, isValid } = validateInput({
       email: state.email,
       password: state.password,
-      confirmationPassword: state.confirmationPassword
+      confirmationPassword: state.confirmationPassword,
     });
 
     if (!isValid) setState({ ...state, errors });
@@ -100,18 +107,21 @@ export default function Signup() {
                 <h3 className="card-title text-center">Register</h3>
                 <div className="social">
                   <button
+                    //@ts-ignore
                     href="#paper-kit"
                     className="btn btn-just-icon btn-facebook"
                   >
                     <i className="fa fa-facebook"></i>
                   </button>
                   <button
+                    //@ts-ignore
                     href="#paper-kit"
                     className="btn btn-just-icon btn-google"
                   >
                     <i className="fa fa-google"></i>
                   </button>
                   <button
+                    //@ts-ignore
                     href="#paper-kit"
                     className="btn btn-just-icon btn-twitter"
                   >

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "redux/hooks";
 import "./App.css";
 
 //Components

@@ -2,7 +2,7 @@ import Validator from "is_js";
 import { isEmpty } from "lodash";
 
 export default function validateInput(data) {
-  let errors = {};
+  let errors: any = {};
 
   if (Validator.empty(data.email)) errors.email = "Email is required.";
 
@@ -19,7 +19,8 @@ export default function validateInput(data) {
     !Validator.empty(data.confirmationPassword) &&
     !Validator.equal(data.password, data.confirmationPassword)
   )
-    errors.confirmationPassword = "Password & Confirmation Password doesn't match.";
+    errors.confirmationPassword =
+      "Password & Confirmation Password doesn't match.";
 
   return {
     errors,
