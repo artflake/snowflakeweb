@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classnames from "classnames";
 import { unwrapResult } from "@reduxjs/toolkit";
 import {useDispatch} from 'redux/hooks';
@@ -9,20 +9,29 @@ import validateInput from "../../utils/validations/signup";
 import { signupRequest } from "../../redux/reducers/authSlice";
 
 interface State {
+  username: string;
+  name: string;
+  last_name: string;
   email: string;
   password: string;
   confirmationPassword: string;
+  country: string;
+  tz: string;
   errors: any;
 }
 
 export default function Signup() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   
   const [state, setState] = useState<State>({
+    username: "",
+    name: "",
+    last_name: "",
     email: "",
     password: "",
     confirmationPassword: "",
+    country: "",
+    tz: "",
     errors: {},
   });
   const [error, setError] = useState<string>("");
@@ -37,9 +46,14 @@ export default function Signup() {
 
   const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
+      username: state.username,
+      name: state.name,
+      last_name: state.last_name,
       email: state.email,
       password: state.password,
       confirmationPassword: state.confirmationPassword,
+      country: state.country,
+      tz: state.tz
     });
 
     if (!isValid) setState({ ...state, errors });
@@ -151,6 +165,48 @@ export default function Signup() {
                   <div className="line r"></div>
                 </div>
                 <form className="register-form" onSubmit={onSubmit}>
+                <div
+                    className={classnames("", { "has-error": errors.username })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Username"
+                      onChange={(e) => onChange(e, "username")}
+                      value={state.username}
+                    />
+                    {errors.username && (
+                      <div className="text-danger">{errors.username}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.name })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Name"
+                      onChange={(e) => onChange(e, "name")}
+                      value={state.name}
+                    />
+                    {errors.name && (
+                      <div className="text-danger">{errors.name}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.last_name })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Last Name"
+                      onChange={(e) => onChange(e, "last_name")}
+                      value={state.last_name}
+                    />
+                    {errors.last_name && (
+                      <div className="text-danger">{errors.last_name}</div>
+                    )}
+                  </div>
                   <div
                     className={classnames("", { "has-error": errors.email })}
                   >
@@ -197,7 +253,35 @@ export default function Signup() {
                       </div>
                     )}
                   </div>
-                  <button type="submit" className="btn btn-block btn-round">
+                  <div
+                    className={classnames("", { "has-error": errors.country })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Country"
+                      onChange={(e) => onChange(e, "country")}
+                      value={state.country}
+                    />
+                    {errors.country && (
+                      <div className="text-danger">{errors.country}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.tz })}
+                  >
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Timezone"
+                      onChange={(e) => onChange(e, "tz")}
+                      value={state.tz}
+                    />
+                    {errors.tz && (
+                      <div className="text-danger">{errors.tz}</div>
+                    )}
+                  </div>
+                  <button type="submit" className="btn btn-block btn-round" disabled={loading}>
                     {loading ? "Loading..." : "Register"}
                   </button>
                 </form>

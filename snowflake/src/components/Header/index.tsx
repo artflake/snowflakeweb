@@ -107,11 +107,18 @@ export default function Header() {
                 </li>
               </>
             ) : (
+              <>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">
+                  Account
+                </Link>
+              </li>
               <li className="nav-item">
                 <a onClick={logOut} className="nav-link" href="/">
                   Logout
                 </a>
               </li>
+              </>
             )}
           </ul>
         </div>

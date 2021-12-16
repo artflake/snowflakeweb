@@ -4,25 +4,30 @@ import { useDispatch } from "redux/hooks";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 import { SITE_NAME } from "../../utils/constants";
-import validateInput from "../../utils/validations/forgotpassword";
-import { forgotPasswordRequest } from "redux/reducers/authSlice";
+import validateInput from "../../utils/validations/resetpassword";
+import { resetPasswordRequest } from "redux/reducers/authSlice";
 
 interface State {
-  email: string;
+  password: string;
+  confirmationPassword: string;
   errors: any;
 }
 
-export default function ForgotPassword() {
+export default function ResetPassword() {
   const dispatch = useDispatch();
 
   const [state, setState] = useState<State>({
-    email: "",
+    password: "",
+    confirmationPassword: "",
     errors: {},
   });
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>, name: string): void => {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ): void => {
     setState({
       ...state,
       [name]: e.target.value,
@@ -31,7 +36,8 @@ export default function ForgotPassword() {
 
   const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
-      email: state.email,
+      password: state.password,
+      confirmationPassword: state.confirmationPassword,
     });
 
     if (!isValid) setState({ ...state, errors });
@@ -44,10 +50,16 @@ export default function ForgotPassword() {
 
     if (isValid()) {
       setLoading(true);
-      dispatch(forgotPasswordRequest())
+      dispatch(resetPasswordRequest())
         .then(unwrapResult)
         .then((res) => {
-          console.log("email sent");
+          console.log("submitted successfully");
+          setState({
+            ...state,
+            password: "",
+            confirmationPassword: "",
+            errors: {}
+          });
           setLoading(false);
         })
         .catch((err) => {
@@ -75,17 +87,35 @@ export default function ForgotPassword() {
                 {error ? <div>{error}</div> : null}
                 <form className="register-form" onSubmit={onSubmit}>
                   <div
-                    className={classnames("", { "has-error": errors.email })}
+                    className={classnames("", { "has-error": errors.password })}
                   >
-                    <label>Email</label>
+                    <label>New Password</label>
                     <input
                       className="form-control no-border"
-                      placeholder="Email"
-                      onChange={(e) => onChange(e, "email")}
-                      value={state.email}
+                      placeholder="New Password"
+                      type="password"
+                      onChange={(e) => onChange(e, "password")}
+                      value={state.password}
                     />
-                    {errors.email && (
-                      <div className="text-danger">{errors.email}</div>
+                    {errors.password && (
+                      <div className="text-danger">{errors.password}</div>
+                    )}
+                  </div>
+                  <div
+                    className={classnames("", { "has-error": errors.email })}
+                  >
+                    <label>Confirm New Password</label>
+                    <input
+                      className="form-control no-border"
+                      placeholder="Confirm New Password"
+                      type="password"
+                      onChange={(e) => onChange(e, "confirmationPassword")}
+                      value={state.confirmationPassword}
+                    />
+                    {errors.confirmationPassword && (
+                      <div className="text-danger">
+                        {errors.confirmationPassword}
+                      </div>
                     )}
                   </div>
                   <button

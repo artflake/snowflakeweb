@@ -1,7 +1,7 @@
 // example of using a slice with redux toolkit
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loginAPI, signupAPI } from "redux/apis/auth";
+import { loginAPI, signupAPI, forgotPasswordAPI, resetPasswordAPI } from "redux/apis/auth";
 
 interface AuthSlice {
   loggedIn: boolean;
@@ -24,6 +24,30 @@ export const signupRequest = createAsyncThunk(
   async () => {
     try {
       const response = await signupAPI();
+      return response as any;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+);
+
+export const forgotPasswordRequest = createAsyncThunk(
+  'auth/asyncForgotPassword',
+  async () => {
+    try {
+      const response = await forgotPasswordAPI();
+      return response as any;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+);
+
+export const resetPasswordRequest = createAsyncThunk(
+  'auth/asyncResetPassword',
+  async () => {
+    try {
+      const response = await resetPasswordAPI();
       return response as any;
     } catch (err) {
       throw new Error(err);

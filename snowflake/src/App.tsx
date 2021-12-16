@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "redux/hooks";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 //Components
@@ -17,6 +17,8 @@ import Auction from "./pages/auction";
 import Exchange from "./pages/exchange";
 import About from "./pages/about";
 import Wallet from "./pages/wallet";
+import ResetPassword from "./pages/resetpassword";
+import Profile from "./pages/profile";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
@@ -64,6 +66,15 @@ function App() {
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
+        <Route
+          path="profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route path="resetpassword" element={<ResetPassword />} />
         <Route
           path="wallet"
           element={
