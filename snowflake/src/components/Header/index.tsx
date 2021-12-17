@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "redux/hooks";
 
 import { SITE_NAME } from "../../utils/constants";
@@ -12,6 +12,15 @@ export default function Header() {
   const isloggedIn = useSelector(({ login }) => login.loggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [nav, setNav] = useState('navbar-transparent');
+
+  useEffect(() => {
+    if(["/wallet", "/contact", "/profile"].includes(location.pathname)) {
+      setNav('bg-info');
+    }
+  }, [location]);
 
   const selectWallet = async (e) => {
     e.preventDefault();
@@ -35,8 +44,12 @@ export default function Header() {
     navigate("/login");
   };
 
+  if (["/404", "/activation"].includes(location.pathname)) {
+    return null;
+  }
+
   return (
-    <nav className="navbar navbar-expand-lg nav-down navbar-absolute navbar-transparent">
+    <nav className={`navbar navbar-expand-lg nav-down navbar-absolute ${nav}`}>
       <div className="container">
         <div className="navbar-translate">
           <Link

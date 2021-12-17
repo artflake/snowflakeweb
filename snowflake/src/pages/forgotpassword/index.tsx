@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from "react";
 import classnames from "classnames";
 import { useDispatch } from "redux/hooks";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { NotificationManager } from "react-notifications";
 
 import { SITE_NAME } from "../../utils/constants";
 import validateInput from "../../utils/validations/forgotpassword";
@@ -19,10 +20,12 @@ export default function ForgotPassword() {
     email: "",
     errors: {},
   });
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>, name: string): void => {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ): void => {
     setState({
       ...state,
       [name]: e.target.value,
@@ -44,14 +47,19 @@ export default function ForgotPassword() {
 
     if (isValid()) {
       setLoading(true);
-      dispatch(forgotPasswordRequest())
+      dispatch(forgotPasswordRequest({ email: state.email }))
         .then(unwrapResult)
         .then((res) => {
-          console.log("email sent");
+          NotificationManager.success(res.data.message, "Success", 2000);
+          setState({
+            ...state,
+            email: "",
+            errors: {},
+          });
           setLoading(false);
         })
         .catch((err) => {
-          setError("Something went wrong. Try again later.");
+          NotificationManager.error(err.message, "Error!", 3000);
           setLoading(false);
         });
     }
@@ -72,7 +80,6 @@ export default function ForgotPassword() {
             <div className="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
               <div className="card card-register">
                 <h3 className="card-title">Reset your password</h3>
-                {error ? <div>{error}</div> : null}
                 <form className="register-form" onSubmit={onSubmit}>
                   <div
                     className={classnames("", { "has-error": errors.email })}

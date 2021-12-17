@@ -1,10 +1,12 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import { unwrapResult } from "@reduxjs/toolkit";
-import {useDispatch} from 'redux/hooks';
+import { useDispatch } from "redux/hooks";
+import ReCAPTCHA from "react-google-recaptcha";
+import { NotificationManager } from "react-notifications";
 
-import { SITE_NAME } from "../../utils/constants";
+import { SITE_NAME, RECAPTCHA_SITE_KEY } from "../../utils/constants";
 import validateInput from "../../utils/validations/signup";
 import { signupRequest } from "../../redux/reducers/authSlice";
 
@@ -17,12 +19,14 @@ interface State {
   confirmationPassword: string;
   country: string;
   tz: string;
+  "g-recaptcha-response": string;
   errors: any;
 }
 
 export default function Signup() {
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
+
   const [state, setState] = useState<State>({
     username: "",
     name: "",
@@ -32,9 +36,9 @@ export default function Signup() {
     confirmationPassword: "",
     country: "",
     tz: "",
+    "g-recaptcha-response": "",
     errors: {},
   });
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>, name: string): void => {
@@ -53,7 +57,7 @@ export default function Signup() {
       password: state.password,
       confirmationPassword: state.confirmationPassword,
       country: state.country,
-      tz: state.tz
+      tz: state.tz,
     });
 
     if (!isValid) setState({ ...state, errors });
@@ -65,18 +69,25 @@ export default function Signup() {
     e.preventDefault();
 
     if (isValid()) {
+      const { errors, ...user } = state;
       setLoading(true);
-      dispatch(signupRequest())
+      dispatch(signupRequest(user))
         .then(unwrapResult)
         .then((res) => {
-          console.log("Registered");
-          setLoading(false);
+          navigate("/login", { state: { message: res.data.message } });
         })
         .catch((err) => {
-          setError("Something went wrong. Try again later.");
+          NotificationManager.error(err.message, "Error!", 3000);
           setLoading(false);
         });
     }
+  };
+
+  const onChangeRecaptcha = (recaptcha) => {
+    setState({
+      ...state,
+      "g-recaptcha-response": recaptcha,
+    });
   };
 
   const { errors } = state;
@@ -135,7 +146,6 @@ export default function Signup() {
             <div className="col-lg-6 col-md-6 col-sm-5 col-12 mr-auto">
               <div className="card card-register">
                 <h3 className="card-title text-center">Register</h3>
-                {error ? <div className="text-danger">{error}</div> : null}
                 <div className="social">
                   <button
                     //@ts-ignore
@@ -165,7 +175,7 @@ export default function Signup() {
                   <div className="line r"></div>
                 </div>
                 <form className="register-form" onSubmit={onSubmit}>
-                <div
+                  <div
                     className={classnames("", { "has-error": errors.username })}
                   >
                     <input
@@ -179,9 +189,7 @@ export default function Signup() {
                       <div className="text-danger">{errors.username}</div>
                     )}
                   </div>
-                  <div
-                    className={classnames("", { "has-error": errors.name })}
-                  >
+                  <div className={classnames("", { "has-error": errors.name })}>
                     <input
                       type="text"
                       className="form-control"
@@ -194,7 +202,9 @@ export default function Signup() {
                     )}
                   </div>
                   <div
-                    className={classnames("", { "has-error": errors.last_name })}
+                    className={classnames("", {
+                      "has-error": errors.last_name,
+                    })}
                   >
                     <input
                       type="text"
@@ -267,9 +277,7 @@ export default function Signup() {
                       <div className="text-danger">{errors.country}</div>
                     )}
                   </div>
-                  <div
-                    className={classnames("", { "has-error": errors.tz })}
-                  >
+                  <div className={classnames("", { "has-error": errors.tz })}>
                     <input
                       type="text"
                       className="form-control"
@@ -281,7 +289,16 @@ export default function Signup() {
                       <div className="text-danger">{errors.tz}</div>
                     )}
                   </div>
-                  <button type="submit" className="btn btn-block btn-round" disabled={loading}>
+                  <ReCAPTCHA
+                    name="recaptcha"
+                    sitekey={RECAPTCHA_SITE_KEY}
+                    onChange={onChangeRecaptcha}
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-block btn-round"
+                    disabled={loading || !state["g-recaptcha-response"]}
+                  >
                     {loading ? "Loading..." : "Register"}
                   </button>
                 </form>

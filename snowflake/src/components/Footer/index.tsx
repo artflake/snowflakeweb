@@ -5,7 +5,7 @@ import { SITE_NAME } from "../../utils/constants";
 export default function Footer() {
   const location = useLocation();
 
-  if (["/login", "/signup"].includes(location.pathname)) {
+  if (["/login", "/signup", "/404", "/activation"].includes(location.pathname)) {
     return null;
   }
 

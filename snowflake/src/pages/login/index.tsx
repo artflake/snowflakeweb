@@ -1,8 +1,9 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "redux/hooks";
 import classnames from "classnames";
 import { unwrapResult } from "@reduxjs/toolkit";
+import {NotificationManager} from 'react-notifications';
 
 import { SITE_NAME } from "../../utils/constants";
 import { loginRequest } from "../../redux/reducers/authSlice";
@@ -18,14 +19,21 @@ interface State {
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [state, setState] = useState<State>({
     email: "",
     password: "",
     errors: {},
   });
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(location && location.state && location.state.message) {
+      NotificationManager.success(location.state.message, 'Success', 3000);
+      navigate('/login', {state: {}});
+    }
+  }, [location, navigate]);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>, name: string): void => {
     setState({
@@ -50,14 +58,17 @@ export default function Login() {
 
     if (isValid()) {
       setLoading(true);
-      dispatch(loginRequest())
+      dispatch(loginRequest({
+        email: state.email,
+        password: state.password
+      }))
         .then(unwrapResult)
         .then((res) => {
-          setToken("asgfk234asowqhjkeur789edkl");
+          setToken(res.data.data);
           navigate("/wallet");
         })
         .catch((err) => {
-          setError("Something went wrong. Try again later.");
+          NotificationManager.error(err.message, 'Error!', 3000);
           setLoading(false);
         });
     }
@@ -78,7 +89,6 @@ export default function Login() {
             <div className="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
               <div className="card card-register">
                 <h3 className="card-title">Welcome</h3>
-                {error ? <div>{error}</div> : null}
                 <form className="register-form" onSubmit={onSubmit}>
                   <div
                     className={classnames("", { "has-error": errors.email })}

@@ -2,10 +2,12 @@ import React, { FormEvent, useState } from "react";
 import classnames from "classnames";
 import { useDispatch } from "redux/hooks";
 import { unwrapResult } from "@reduxjs/toolkit";
+import {NotificationManager} from "react-notifications";
 
 import { SITE_NAME } from "../../utils/constants";
 import validateInput from "../../utils/validations/resetpassword";
 import { resetPasswordRequest } from "redux/reducers/authSlice";
+import { useNavigate, useParams } from "react-router";
 
 interface State {
   password: string;
@@ -15,13 +17,14 @@ interface State {
 
 export default function ResetPassword() {
   const dispatch = useDispatch();
+  const { token } = useParams();
+  const navigate = useNavigate();
 
   const [state, setState] = useState<State>({
     password: "",
     confirmationPassword: "",
     errors: {},
   });
-  const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
   const onChange = (
@@ -50,20 +53,20 @@ export default function ResetPassword() {
 
     if (isValid()) {
       setLoading(true);
-      dispatch(resetPasswordRequest())
+      dispatch(
+        resetPasswordRequest({
+          token,
+          password: state.password,
+          password2: state.confirmationPassword,
+        })
+      )
         .then(unwrapResult)
         .then((res) => {
-          console.log("submitted successfully");
-          setState({
-            ...state,
-            password: "",
-            confirmationPassword: "",
-            errors: {}
-          });
-          setLoading(false);
+          NotificationManager.success(res.data.message, "Success", 3000);
+          navigate('/login');
         })
         .catch((err) => {
-          setError("Something went wrong. Try again later.");
+          NotificationManager.error(err.message, "Error!", 3000);
           setLoading(false);
         });
     }
@@ -84,7 +87,6 @@ export default function ResetPassword() {
             <div className="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
               <div className="card card-register">
                 <h3 className="card-title">Reset your password</h3>
-                {error ? <div>{error}</div> : null}
                 <form className="register-form" onSubmit={onSubmit}>
                   <div
                     className={classnames("", { "has-error": errors.password })}

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "redux/hooks";
-import "react-toastify/dist/ReactToastify.css";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import "./App.css";
 
 //Components
@@ -24,6 +25,9 @@ import Profile from "./pages/profile";
 import { useWeb3 } from "./web3/useWeb3";
 import { getToken } from "./utils";
 import { login } from "./redux/reducers/authSlice";
+import NotFound from "pages/notfound";
+import Contact from "pages/contact";
+import Activation from "pages/activation";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +42,14 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <RequireNoAuth>
+              <Home />
+            </RequireNoAuth>
+          }
+        />
         <Route
           path="login"
           element={
@@ -66,6 +77,15 @@ function App() {
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route
+          path="activation"
+          element={
+            <RequireNoAuth>
+              <Activation />
+            </RequireNoAuth>
+          }
+        />
         <Route
           path="profile"
           element={
@@ -74,7 +94,7 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="resetpassword" element={<ResetPassword />} />
+        <Route path="resetpassword/:token" element={<ResetPassword />} />
         <Route
           path="wallet"
           element={
@@ -83,8 +103,11 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
       <Footer />
+      <NotificationContainer />
     </div>
   );
 }
