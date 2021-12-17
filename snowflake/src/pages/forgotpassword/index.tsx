@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import classnames from "classnames";
+import { useDispatch } from "redux/hooks";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { NotificationManager } from "react-notifications";
 
 import { SITE_NAME } from "../../utils/constants";
 import validateInput from "../../utils/validations/forgotpassword";
+import { forgotPasswordRequest } from "redux/reducers/authSlice";
 
 interface State {
   email: string;
@@ -10,19 +14,25 @@ interface State {
 }
 
 export default function ForgotPassword() {
+  const dispatch = useDispatch();
+
   const [state, setState] = useState<State>({
     email: "",
     errors: {},
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e, name) => {
+  const onChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    name: string
+  ): void => {
     setState({
       ...state,
       [name]: e.target.value,
     });
   };
 
-  const isValid = () => {
+  const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
       email: state.email,
     });
@@ -32,11 +42,26 @@ export default function ForgotPassword() {
     return isValid;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (isValid()) {
-      console.log(state);
+      setLoading(true);
+      dispatch(forgotPasswordRequest({ email: state.email }))
+        .then(unwrapResult)
+        .then((res) => {
+          NotificationManager.success(res.data.message, "Success", 2000);
+          setState({
+            ...state,
+            email: "",
+            errors: {},
+          });
+          setLoading(false);
+        })
+        .catch((err) => {
+          NotificationManager.error(err.message, "Error!", 3000);
+          setLoading(false);
+        });
     }
   };
 
@@ -73,8 +98,9 @@ export default function ForgotPassword() {
                   <button
                     type="submit"
                     className="btn btn-danger btn-block btn-round"
+                    disabled={loading}
                   >
-                    Reset
+                    {loading ? "Loading..." : "Reset"}
                   </button>
                 </form>
               </div>

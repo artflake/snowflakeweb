@@ -1,11 +1,12 @@
 export function setToken(value) {
-    return window.localStorage.setItem('token', value);
+    window.localStorage.setItem('isLoggedIn', JSON.stringify(true));
+    return window.localStorage.setItem('data', JSON.stringify(value));
 }
 
 export function getToken() {
-    return window.localStorage.getItem('token');
+    return window.localStorage.getItem('isLoggedIn');
 }
 
 export function removeToken() {
-    return window.localStorage.removeItem('token');
+    return window.localStorage.clear();
 }

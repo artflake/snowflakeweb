@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "redux/hooks";
 import classnames from "classnames";
+import { unwrapResult } from "@reduxjs/toolkit";
+import {NotificationManager} from 'react-notifications';
 
 import { SITE_NAME } from "../../utils/constants";
-import { login } from "../../redux/reducers/loginSlice";
+import { loginRequest } from "../../redux/reducers/authSlice";
 import { setToken } from "../../utils";
-import { loginAPI } from "../../redux/apis/login";
 import validateInput from "../../utils/validations/login";
 
 interface State {
@@ -18,21 +19,30 @@ interface State {
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [state, setState] = useState<State>({
     email: "",
     password: "",
     errors: {},
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onChange = (e, name) => {
+  useEffect(() => {
+    if(location && location.state && location.state.message) {
+      NotificationManager.success(location.state.message, 'Success', 3000);
+      navigate('/login', {state: {}});
+    }
+  }, [location, navigate]);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>, name: string): void => {
     setState({
       ...state,
       [name]: e.target.value,
     });
   };
 
-  const isValid = () => {
+  const isValid = (): boolean => {
     const { errors, isValid } = validateInput({
       email: state.email,
       password: state.password,
@@ -43,22 +53,28 @@ export default function Login() {
     return isValid;
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (isValid()) {
-      loginAPI().then(() => {
-        dispatch(login());
-        setToken("asgfk234asowqhjkeur789edkl");
-      });
-      dispatch(login());
-      setToken("asgfk234asowqhjkeur789edkl");
-      navigate("/wallet");
+      setLoading(true);
+      dispatch(loginRequest({
+        email: state.email,
+        password: state.password
+      }))
+        .then(unwrapResult)
+        .then((res) => {
+          setToken(res.data.data);
+          navigate("/wallet");
+        })
+        .catch((err) => {
+          NotificationManager.error(err.message, 'Error!', 3000);
+          setLoading(false);
+        });
     }
   };
 
   const { errors } = state;
-
   return (
     <div className="wrapper full-screen login-page">
       <div
@@ -105,9 +121,10 @@ export default function Login() {
                   </div>
                   <button
                     type="submit"
+                    disabled={loading}
                     className="btn btn-danger btn-block btn-round"
                   >
-                    Login
+                    {loading ? "Loading..." : "Login"}
                   </button>
                 </form>
                 <div className="forgot">
