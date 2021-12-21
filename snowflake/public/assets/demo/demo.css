@@ -3730,3 +3730,66 @@ pre.prettyprint {
 .collapse .card-body p {
   margin-bottom: 15px;
 }
+
+.art-details {
+  font-weight: 500;
+}
+
+.art-details .user-info span {
+  color: #707a83;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.art-details .price-title {
+  color: #707a83;
+}
+
+.art-details .buy-info {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.art-details .value {
+    font-weight: 700;
+    font-size: 22px;
+    color: #353840;
+}
+
+.art-details .icon {
+  height: 20px;
+  width: 20px;
+}
+
+.art-details .price {
+  font-size: 16px;
+}
+
+.accordion .card-header {
+  background-color: #FFFFFF;
+}
+
+.accordion .collapse .card-body {
+  max-height: initial;
+}
+
+.accordion table thead tr th {
+  border-top: none;
+}  
+
+.accordion table tbody tr td {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.no-text {
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.panel-title a {
+  font-weight: 500;
+}
