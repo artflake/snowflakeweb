@@ -1,5 +1,10 @@
 import React from "react";
-
+             /* <a 
+                href=""
+                className="btn btn-neutral btn-round"
+              >
+                <i className="fa fa-play"></i>Watch video
+              </a> */
 export default function Home() {
   return (
     <>
@@ -14,21 +19,9 @@ export default function Home() {
         <div className="content-center">
           <div className="container">
             <div className="motto">
-              <h1 className="title">Digital money for a digital age</h1>
-              <h3 className="description">Global, fast, and secure</h3>
+              <h1 className="title">The only Art Coin.</h1>
+              <h3 className="description">Use anywhere you can use an a Coin or NFT.</h3>
               <br />
-              <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                className="btn btn-neutral btn-round"
-              >
-                <i className="fa fa-play"></i>Watch video
-              </a>
-              <button
-                type="button"
-                className="btn btn-outline-neutral btn-round"
-              >
-                Download
-              </button>
             </div>
           </div>
         </div>
@@ -38,21 +31,11 @@ export default function Home() {
           <div className="container">
             <div className="row">
               <div className="col-md-8 ml-auto mr-auto">
-                <h2 className="title">Let's talk product</h2>
+                <h2 className="title">Flake is the Only real NFT Coin.</h2>
                 <h5>
-                  This is the paragraph where you can write more details about
-                  your product. Keep you user engaged by providing meaningful
-                  information. Remember that by this time, the user is curious,
-                  otherwise he wouldn't scroll to get here. Add a button if you
-                  want the user to see more.
+                Normally, cryptocurrency doesn't really look like anything - it’s all numbers under the hood right?  Every Flake coin is absolutely unique, and each coin is an image, or sound file or movie. Each coin is an NFT!  You cannot subdivide our coins (e.g. no “satoshis”), but rather each coin is also one full NFT.   These coins can be traded 24/7/365 on exchanges, or an individual coin can be sold on any NFT auction house - because we are the only place that can mint NFTs that are also coins.  No one else has this kind of compatibility.
                 </h5>
                 <br />
-                <a
-                  href="#paper-kit"
-                  className="btn btn-danger btn-fill btn-round"
-                >
-                  See Details
-                </a>
               </div>
             </div>
             <br />
@@ -64,10 +47,9 @@ export default function Home() {
                     <i className="nc-icon nc-palette"></i>
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Beautiful Gallery</h4>
+                    <h4 className="info-title">The NFT DAO</h4>
                     <p className="description">
-                      Spend your time generating new ideas. You don't have to
-                      think of implementing.
+                    We are an organization for the arts.  The Art Flake DAO is the very first NFT collection that is community driven, where anyone can participate if they mint a coin.  We have no “pre-mine” coins are minted by the community only when art is submitted.  Any artist can come to us and we can mint a liquid NFT of their work. We are the only project where NFTs have a guaranteed immediate value and can be traded for any ERC20 token through platforms like Uniswap.
                     </p>
                     <a href="#pkp" className="btn btn-link btn-danger">
                       See more
@@ -81,10 +63,9 @@ export default function Home() {
                     <i className="nc-icon nc-bulb-63"></i>
                   </div>
                   <div className="description">
-                    <h4 className="info-title">New Ideas</h4>
+                    <h4 className="info-title">NFTs Liquid Assets </h4>
                     <p>
-                      Larger, yet dramatically thinner. More powerful, but
-                      remarkably power efficient.
+                    The art world requires you to find a bidder, finding an immediate buyer is unusual and in many cases not possible.  If you think of an NFT as a kind of magic picture frame, we give that picture frame an immediate value that it can be liquidated.  So does this mean you can use your NFT to pay for your meal at a restaurant?  Well, possibly - any time of day or night you can immediately convert your Flake into an ERC20 - and if the restaurant or business takes ERFC20 tokens, then yes!  Exchanges like PayPal will exchange erc20 tokens into cash - and then you can use a PayPal account or PayPal card to pay a vendor.
                     </p>
                     <a href="#pkp" className="btn btn-link btn-danger">
                       See more
@@ -98,10 +79,10 @@ export default function Home() {
                     <i className="nc-icon nc-chart-bar-32"></i>
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Statistics</h4>
+                    <h4 className="info-title">NFT Patronage</h4>
                     <p>
-                      Choose from a veriety of many colors resembling sugar
-                      paper pastels.
+                    It is hard being an artist. So we are launching a patronage platform that allows artists to sell their work to someone who wants to mint a Flake.   When creating a new flake, you can choose to upload your own art - or you can buy art from our Patronage Marketplace.  This is where aspiring NFT artists can list their works for a price they would like.
+
                     </p>
                     <a href="#pkp" className="btn btn-link btn-danger">
                       See more
@@ -115,10 +96,9 @@ export default function Home() {
                     <i className="nc-icon nc-sun-fog-29"></i>
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Delightful design</h4>
+                    <h4 className="info-title">Limited Edition, Deflationary</h4>
                     <p>
-                      Find unique and handmade delightful designs related items
-                      directly from our sellers.
+                    There will only ever be 1 Million Flakes ever minted. This is a hard cap set by the solidity contract that makes up the coin, this cannot be changed by anyone - not even us.  Once a Flake is created - it is yours and we cannot take it from you. It is yours to sell or trade, and display.  Once the million is up, no new coins can be minted creating market scarcity - which in theory will drive prices up.
                     </p>
                     <a href="#pkp" className="btn btn-link btn-danger">
                       See more
@@ -131,147 +111,9 @@ export default function Home() {
         </div>
         <div className="section section-dark text-center landing-section">
           <div className="container">
-            <h2 className="title">Let's talk about us</h2>
-            <div className="row">
-              <div className="col-md-4">
-                <div className="card card-profile card-plain">
-                  <div className="card-avatar">
-                    <a href="#avatar">
-                      <img
-                        src="../assets/img/faces/clem-onojeghuo-3.jpg"
-                        alt="..."
-                      />
-                    </a>
-                  </div>
-                  <div className="card-body">
-                    <a href="#paper-kit">
-                      <div className="author">
-                        <h4 className="card-title">Henry Ford</h4>
-                        <h6 className="card-category text-muted">
-                          Product Manager
-                        </h6>
-                      </div>
-                    </a>
-                    <p className="card-description text-center">
-                      Teamwork is so important that it is virtually impossible
-                      for you to reach the heights of your capabilities or make
-                      the money that you want without becoming very good at it.
-                    </p>
-                  </div>
-                  <div className="card-footer text-center">
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-twitter"
-                    >
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-dribbble"
-                    >
-                      <i className="fa fa-dribbble"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-linkedin"
-                    >
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-profile card-plain">
-                  <div className="card-avatar">
-                    <a href="#avatar">
-                      <img
-                        src="../assets/img/faces/joe-gardner-2.jpg"
-                        alt="..."
-                      />
-                    </a>
-                  </div>
-                  <div className="card-body">
-                    <a href="#paper-kit">
-                      <div className="author">
-                        <h4 className="card-title">Sophie West</h4>
-                        <h6 className="card-category text-muted">Designer</h6>
-                      </div>
-                    </a>
-                    <p className="card-description text-center">
-                      A group becomes a team when each member is sure enough of
-                      himself and his contribution to praise the skill of the
-                      others. No one can whistle a symphony. It takes an
-                      orchestra to play it.
-                    </p>
-                  </div>
-                  <div className="card-footer text-center">
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-twitter"
-                    >
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-dribbble"
-                    >
-                      <i className="fa fa-dribbble"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-linkedin"
-                    >
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-profile card-plain">
-                  <div className="card-avatar">
-                    <a href="#avatar">
-                      <img
-                        src="../assets/img/faces/erik-lucatero-2.jpg"
-                        alt="..."
-                      />
-                    </a>
-                  </div>
-                  <div className="card-body">
-                    <a href="#paper-kit">
-                      <div className="author">
-                        <h4 className="card-title">Robert Orben</h4>
-                        <h6 className="card-category text-muted">Developer</h6>
-                      </div>
-                    </a>
-                    <p className="card-description text-center">
-                      The strength of the team is each individual member. The
-                      strength of each member is the team. If you can laugh
-                      together, you can work together, silence isn’t golden,
-                      it’s deadly.
-                    </p>
-                  </div>
-                  <div className="card-footer text-center">
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-twitter"
-                    >
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-dribbble"
-                    >
-                      <i className="fa fa-dribbble"></i>
-                    </a>
-                    <a
-                      href="#pablo"
-                      className="btn btn-link btn-just-icon btn-linkedin"
-                    >
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <h2 className="title">Advanced - Support for ERC-20, ERC-1636 and ERC-721</h2>
+              <br></br>
+              <br></br>
             </div>
           </div>
         </div>
@@ -280,31 +122,7 @@ export default function Home() {
             <div className="row">
               <div className="col-md-8 ml-auto mr-auto">
                 <h2 className="text-center">Keep in touch?</h2>
-                <form className="contact-form">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Name</label>
-                      <input className="form-control" placeholder="Name" />
-                    </div>
-                    <div className="col-md-6">
-                      <label>Email</label>
-                      <input className="form-control" placeholder="Email" />
-                    </div>
-                  </div>
-                  <label>Message</label>
-                  <textarea
-                    className="form-control"
-                    rows={4}
-                    placeholder="Tell us your thoughts and feelings..."
-                  ></textarea>
-                  <div className="row">
-                    <div className="col-md-4 offset-md-4">
-                      <button className="btn btn-danger btn-lg btn-fill">
-                        Send Message
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                m@flake.art
               </div>
             </div>
           </div>
