@@ -3793,3 +3793,15 @@ pre.prettyprint {
 .panel-title a {
   font-weight: 500;
 }
+
+.padding-top {
+  padding-top: 80px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  font-size: 16px;
+}
+
+.navbar .navbar-brand {
+  font-size: 18px;
+}

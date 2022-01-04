@@ -18,7 +18,9 @@ export default function Header() {
 
   useEffect(() => {
     if(["/wallet", "/contact", "/profile"].includes(location.pathname)) {
-      setNav('bg-info');
+      setNav('');
+    } else {
+      setNav('navbar-transparent');
     }
   }, [location]);
 
