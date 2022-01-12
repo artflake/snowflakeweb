@@ -25,78 +25,62 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg nav-down navbar-absolute">
-        <div class="container">
-          <div class="navbar-translate">
-            <a
-              class="navbar-brand"
-              href="/"
-              rel="tooltip"
-              title="Flake.art"
-              data-placement="bottom"
-            >
+      <div class="container">
+        <div class="navbar-translate">
+          <a
+            class="navbar-brand"
+            href="/"
+            rel="tooltip"
+            title="Flake.art"
+            data-placement="bottom"
+          >
             Flake.art
           </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navigation"
-              aria-controls="navigation-index"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-bar bar1"></span>
-              <span class="navbar-toggler-bar bar2"></span>
-              <span class="navbar-toggler-bar bar3"></span>
-            </button>
-          </div>
-          <div
-            class="collapse navbar-collapse"
-            data-nav-image="../assets/img/blurred-image-1.jpg"
-            data-color="orange"
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation-index"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/about">
-                  About
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auction">
-                  Auction
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/exchange">
-                  Exchange
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  type="button"
-                  class="nav-link"
-                  href="/"
-                >
-                  Metamask
-                </a>
-              </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/profile">
-                    Account
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">
-                    Logout
-                  </a>
-                </li>
-            </ul>
-          </div>
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
         </div>
-      </nav>
+        <div
+          class="collapse navbar-collapse"
+          data-nav-image="../assets/img/blurred-image-1.jpg"
+          data-color="orange"
+        >
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/about"> About </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auction"> Auction </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exchange"> Exchange </a>
+            </li>
+            <li class="nav-item">
+              <a type="button" class="nav-link" href="/"> Metamask </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile"> Account </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)" onclick="logOut()"> Logout </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="wrapper padding-top">
       <div class="bg">
-        <img src="assets/img/backgrounds/bg.jpeg" />
+        <img src="background" />
       </div>
       <div class="container">
         <div class="row">
@@ -104,67 +88,42 @@
             <div class="profile">
               <div class="image-button-container">
                 <div class="image-container">
-                  <img src="assets/img/users/user1/bg/bg.png" />
+                  <img src="profile" />
                 </div>
               </div>
               <div class="title text-center">
-                <h2><b>Artificial Intelligence Art</b></h2>
+                <h2><b id="profileTitle"></b></h2>
               </div>
               <div class="created-by text-center">
                 <span>Created by</span>
-                <a href="/">aiarthouse</a>
+                <a href="/" id="username"></a>
               </div>
               <div class="price-details">
                 <div class="tab">
-                  <span class="price"><b>1.0k</b></span>
+                  <span class="price"><b id="items"></b></span>
                   <span class="price-text">items</span>
                 </div>
                 <div class="tab">
-                  <span class="price"><b>458</b></span>
+                  <span class="price"><b id="owners"></b></span>
                   <span class="price-text">owners</span>
                 </div>
                 <div class="tab">
                   <span class="price"
                     ><img class="icon" src="assets/img/ethereum.svg" />
-                    <b>0.07</b></span
-                  >
+                    <b id="floorPrice"></b
+                  ></span>
                   <span class="price-text">floor price</span>
                 </div>
                 <div class="tab">
                   <span class="price"
                     ><img class="icon" src="assets/img/ethereum.svg" />
-                    <b>351</b></span
-                  >
+                    <b id="volumeTraded"></b
+                  ></span>
                   <span class="price-text">volume traded</span>
                 </div>
               </div>
               <div class="description">
-                <div class="markdown">
-                  <p>
-                    The first ever AI Art NFT series. AI Art House is the
-                    premier marketplace for AI-generated art, now releasing a
-                    limited collection of 1000 works as one-of-a-kind
-                    collectible NFTs. Each artwork is a 1/1 piece of AI history,
-                    meaning you will own a 100% unique collectors item that
-                    nobody else in the world will ever have. As AI Art continues
-                    to advance into the future, you will forever own one of its
-                    earliest creations.
-                  </p>
-                  <p>
-                    In 2021, AI Art House has already been featured in T3,
-                    Uncrate, The Peak, and more.
-                  </p>
-                  <p>
-                    🔔 Follow @aiarthouse on Instagram, Twitter & Discord for
-                    updates & releases.
-                  </p>
-                  <p>
-                    <b
-                      >With each NFT, the NFT owner has the right to redeem a
-                      physical 12"x12" print of their work.</b
-                    >
-                  </p>
-                </div>
+                <div class="markdown" id="description"></div>
               </div>
             </div>
           </div>
@@ -204,261 +163,16 @@
             </div>
           </div>
           <div class="row">
-              <div class="col-md-12 mb-3">
-                  <b>1,000 results</b>
-              </div>
+            <div class="col-md-12 mb-3">
+              <b>1,000 results</b>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img1.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img2.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img3.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img4.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img5.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="assets/img/users/user1/nft/img6.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row" id="content">
+            
           </div>
           <div class="row mt-5 mb-5">
             <div class="col-md-12 text-center">
-              <button class="btn btn-primary">Load More</button>
+              <button class="btn btn-primary" id="loadMoreBtn" onclick="loadMore()">Load More</button>
             </div>
           </div>
         </div>
@@ -467,58 +181,165 @@
     </div>
     <!-- wrapper -->
     <footer class="footer footer-white">
-        <div class="container">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="/">
-                    Flake.art
-                  </a>
-                </li>
-                <li>
-                  <a href="/blog">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="/terms">
-                    Terms & Conditons
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>document.write(new Date().getFullYear())</script>, made
-                with <i class="fa fa-heart heart"></i> by Flake.art
-              </span>
-            </div>
+      <div class="container">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <li>
+                <a href="/"> Flake.art </a>
+              </li>
+              <li>
+                <a href="/blog"> Blog </a>
+              </li>
+              <li>
+                <a href="/terms"> Terms & Conditons </a>
+              </li>
+              <li>
+                <a href="/contact"> Contact </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright">
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              , made with <i class="fa fa-heart heart"></i> by Flake.art
+            </span>
           </div>
         </div>
-      </footer>
-    <script
-      src="assets/js/core/jquery.min.js"
-      type="text/javascript"
-    ></script>
+      </div>
+    </footer>
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script
       src="assets/js/core/bootstrap.min.js"
       type="text/javascript"
     ></script>
     <script>
-        window.page_data = {
-            profile: {
-                name: "aiarthouse"
-            },
-            collection: {
-                title: "Artificial Intelligence Art"
-            }
-        };
+      const NO_OF_ITEMS = 6;
+      let allProducts = [];
+      let totalProducts = 0;
+
+      window.onload = () => {
+        init();
+      };
+
+      function isLoggedIn() {
+        const token = localStorage.getItem('isLoggedIn');
+        
+        return !!token;
+      }
+
+      function init() {
+        const authUrls = document.querySelectorAll('.auth');
+        const noAuthUrls = document.querySelectorAll('.noauth');
+        
+        if(!isLoggedIn()) {
+          window.location.href = "/login";
+        }
+
+        fetch("data.json")
+          .then((res) => res.json())
+          .then((response) => {
+            const { profile = {}, art = [], total = 0} = response;
+            const profileTitle = document.getElementById("profileTitle");
+            const username = document.getElementById("username");
+            const items = document.getElementById("items");
+            const owners = document.getElementById("owners");
+            const floorPrice = document.getElementById("floorPrice");
+            const volumeTraded = document.getElementById("volumeTraded");
+            const description = document.getElementById("description");
+            const content = document.getElementById("content");
+
+            profileTitle.innerText = profile.title;
+            username.innerText = profile.username;
+            items.innerText = profile.items;
+            owners.innerText = profile.owners;
+            floorPrice.innerText = profile.floorPrice;
+            volumeTraded.innerText = profile.volumeTraded;
+            description.innerHTML = profile.description;
+
+            allProducts = [...art];
+            totalProducts = total;
+
+            content.innerHTML = renderCard(allProducts.slice(0, NO_OF_ITEMS), total);
+            chekLoadMoreBtn(content, total);
+          });
+      }
+
+      function logOut() {
+        localStorage.clear();
+        window.location.href = "/login";
+      }
+
+      function chekLoadMoreBtn(content, total) {
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        if(total <= content.querySelectorAll('.col-md-4').length) {
+          loadMoreBtn.style = "display: none";
+        } else {
+          loadMoreBtn.style = "display: inline-block";
+        }
+      }
+
+      function loadMore() {
+        const content = document.getElementById("content");
+        const start = content.querySelectorAll('.col-md-4').length;
+        content.innerHTML += renderCard(allProducts.slice(start, NO_OF_ITEMS + start), totalProducts);
+        chekLoadMoreBtn(content, totalProducts);
+      }
+
+      function renderCard(products, total) {
+        let html = '';
+
+        products.forEach(({properties}) => {
+              html += `
+              <div class="col-md-4">
+                <div class="card card-blog">
+                  <div class="card-image">
+                    <a href="/art.html">
+                      <img
+                        class="img img-raised"
+                        src="${properties.image.description}"
+                      />
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-row">
+                      <span class="user">${properties.profileTitle.description}</span>
+                      <span class="price-title">Price</span>
+                    </div>
+                    <div class="card-row">
+                      <span class="name">${properties.name.description}</span>
+                      <span class="price"
+                        ><img class="icon" src="assets/img/ethereum.svg" />
+                        ${properties.price.description}</span
+                      >
+                    </div>
+                    <div class="card-row-right">
+                      <span class="last">Last</span>
+                      <span class="price-small"
+                        ><img class="icon" src="assets/img/ethereum.svg" />
+                        ${properties.lastPrice.description}</span
+                      >
+                    </div>
+                    <hr />
+                    <div class="card-footer">
+                      <div class="author">
+                        <a href="#pablo"> Buy </a>
+                      </div>
+                      <div class="stats">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i> ${properties.favorite.description}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          return html;
+      }
     </script>
   </body>
 </html>
