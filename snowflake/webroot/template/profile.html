@@ -18,10 +18,10 @@
       rel="stylesheet"
     />
     <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/paper-kit.css?v=2.3.1" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/paper-kit.css?v=2.3.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <link href="../assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg nav-down navbar-absolute">
@@ -68,11 +68,21 @@
             <li class="nav-item">
               <a type="button" class="nav-link" href="/"> Metamask </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item auth">
               <a class="nav-link" href="/profile"> Account </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item auth">
               <a class="nav-link" href="javascript:void(0)" onclick="logOut()"> Logout </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/login">
+                Login
+              </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/signup">
+                Create Account
+              </a>
             </li>
           </ul>
         </div>
@@ -109,14 +119,14 @@
                 </div>
                 <div class="tab">
                   <span class="price"
-                    ><img class="icon" src="assets/img/ethereum.svg" />
+                    ><img class="icon" src="../assets/img/ethereum.svg" />
                     <b id="floorPrice"></b
                   ></span>
                   <span class="price-text">floor price</span>
                 </div>
                 <div class="tab">
                   <span class="price"
-                    ><img class="icon" src="assets/img/ethereum.svg" />
+                    ><img class="icon" src="../assets/img/ethereum.svg" />
                     <b id="volumeTraded"></b
                   ></span>
                   <span class="price-text">volume traded</span>
@@ -235,8 +245,14 @@
         const authUrls = document.querySelectorAll('.auth');
         const noAuthUrls = document.querySelectorAll('.noauth');
         
-        if(!isLoggedIn()) {
-          window.location.href = "/login";
+        if(isLoggedIn()) {
+          noAuthUrls.forEach(el => {
+            el.style.display = 'none';
+          });
+        } else {
+          authUrls.forEach(el => {
+            el.style.display = 'none';
+          });
         }
 
         fetch("data.json")
@@ -313,14 +329,14 @@
                     <div class="card-row">
                       <span class="name">${properties.name.description}</span>
                       <span class="price"
-                        ><img class="icon" src="assets/img/ethereum.svg" />
+                        ><img class="icon" src="../assets/img/ethereum.svg" />
                         ${properties.price.description}</span
                       >
                     </div>
                     <div class="card-row-right">
                       <span class="last">Last</span>
                       <span class="price-small"
-                        ><img class="icon" src="assets/img/ethereum.svg" />
+                        ><img class="icon" src="../assets/img/ethereum.svg" />
                         ${properties.lastPrice.description}</span
                       >
                     </div>
