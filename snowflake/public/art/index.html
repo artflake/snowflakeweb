@@ -18,10 +18,10 @@
       rel="stylesheet"
     />
     <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/paper-kit.css?v=2.3.1" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/paper-kit.css?v=2.3.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="assets/demo/demo.css" rel="stylesheet" />
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg nav-down navbar-absolute">
@@ -52,7 +52,7 @@
           </div>
           <div
             class="collapse navbar-collapse"
-            data-nav-image="../assets/img/blurred-image-1.jpg"
+            data-nav-image="/assets/img/blurred-image-1.jpg"
             data-color="orange"
           >
             <ul class="navbar-nav ml-auto">
@@ -80,16 +80,22 @@
                   Metamask
                 </a>
               </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/profile">
-                    Account
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">
-                    Logout
-                  </a>
-                </li>
+              <li class="nav-item auth">
+                <a class="nav-link" href="/profile"> Account </a>
+              </li>
+              <li class="nav-item auth">
+                <a class="nav-link" href="javascript:void(0)" onclick="logOut()"> Logout </a>
+              </li>
+              <li class="nav-item noauth">
+                <a class="nav-link" href="/login">
+                  Login
+                </a>
+              </li>
+              <li class="nav-item noauth">
+                <a class="nav-link" href="/signup">
+                  Create Account
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -106,7 +112,7 @@
                       <a href="#pablo">
                         <img
                           class="img img-raised"
-                          src="assets/img/users/user1/nft/img1.png"
+                          id="art-image"
                         />
                       </a>
                     </div>
@@ -154,24 +160,11 @@
                         >
                           <div class="card-body">
                             <p class="name">
-                              Created by <a href="/">aiarthouse</a>
+                              Created by <a href="/" id="createdby">aiarthouse</a>
                             </p>
-                            <p>
-                              AI Art House has minted each 1/1 artwork, meaning
-                              you will own a 100% unique collector’s item that
-                              nobody else in the world will ever have.
-                            </p>
-                            <p>
-                              With each NFT, the original owner has the right to
-                              redeem a physical 12"x12" print of their work. Our
-                              advanced AI model has been trained to analyze
-                              millions of paintings from famous artists such as
-                              Pablo Picasso, Mark Rothko, and Claude Monet.
-                              Learning from these artists' style and form, the
-                              AI has produced a limited collection of
-                              museum-quality artworks that have never before
-                              been seen by the public.
-                            </p>
+                            <div id="artDescription">
+
+                            </div>
                           </div>
                         </div>
                         <div
@@ -199,30 +192,8 @@
                           role="tabpanel"
                           aria-labelledby="headingTwo"
                         >
-                          <div class="card-body">
-                            <p>
-                              The first ever AI Art NFT series. AI Art House is
-                              the premier marketplace for AI-generated art, now
-                              releasing a limited collection of 1000 works as
-                              one-of-a-kind collectible NFTs. Each artwork is a
-                              1/1 piece of AI history, meaning you will own a
-                              100% unique collectors item that nobody else in
-                              the world will ever have. As AI Art continues to
-                              advance into the future, you will forever own one
-                              of its earliest creations.
-                            </p>
-                            <p>
-                              In 2021, AI Art House has already been featured in
-                              T3, Uncrate, The Peak, and more.
-                            </p>
-                            <p>
-                              🔔Follow @aiarthouse on Instagram, Twitter &
-                              Discord for updates & releases.
-                            </p>
-                            <p>
-                              With each NFT, the NFT owner has the right to
-                              redeem a physical 12"x12" print of their work.
-                            </p>
+                          <div class="card-body" id="description">
+                            
                           </div>
                         </div>
                         <div
@@ -253,23 +224,23 @@
                           <div class="card-body">
                             <div class="card-row pb-2 pt-2">
                               <span>Contract Address</span>
-                              <a href="/">sd4td67xsd82he426t</a>
+                              <a href="/" id="address"></a>
                             </div>
                             <div class="card-row pb-2 pt-2">
                               <span>Token ID</span>
-                              <span>562300912376772</span>
+                              <span id="tokenId"></span>
                             </div>
                             <div class="card-row pb-2 pt-2">
                               <span>Token Standard</span>
-                              <span>ERC-1155</span>
+                              <span id="tokenStandard"></span>
                             </div>
                             <div class="card-row pb-2 pt-2">
                               <span>Blockchain</span>
-                              <span>Ethereum</span>
+                              <span id="blockchain"></span>
                             </div>
                             <div class="card-row pb-2 pt-2">
                               <span>Metadata</span>
-                              <span>Centralized</span>
+                              <span id="metadata"></span>
                             </div>
                           </div>
                         </div>
@@ -283,19 +254,19 @@
             <div class="col-md-7 art-details">
               <div class="row">
                 <div class="col-md-12">
-                  <h3><a class="" href="/">Artificial Intelligence Art</a></h3>
+                  <h3><a class="" href="/" id="title"></a></h3>
                 </div>
                 <div class="col-md-12">
-                  <h3 class="title">AI Art House #0696</h3>
+                  <h3 class="title" id="art-name">AI Art House #0696</h3>
                 </div>
                 <div class="col-md-12 user-info">
-                  <span>Owned by <a href="/">GETIT1</a></span>
+                  <span>Owned by <a href="/" id="username"></a></span>
                   <span
-                    ><i class="fa fa-eye" aria-hidden="true"></i> 146
-                    views</span
+                    ><i class="fa fa-eye" aria-hidden="true"></i> 
+                   <span id="views"></span> views</span
                   >
                   <span
-                    ><i class="fa fa-heart" aria-hidden="true"></i> 11
+                    ><i class="fa fa-heart" aria-hidden="true"></i> <span id="favorites"></span>
                     favorites</span
                   >
                 </div>
@@ -312,9 +283,9 @@
                   >
                     <span class="price-title mt-1 mb-1">Current price</span>
                     <div class="mt-1 mb-1 d-flex align-items-center">
-                      <img class="icon" src="assets/img/ethereum.svg" />
-                      <span class="value ml-2 mr-2">0.0697</span>
-                      <span class="price">($265.16)</span>
+                      <img class="icon" src="/assets/img/ethereum.svg" />
+                      <span class="value ml-2 mr-2" id="price"></span>
+                      <span class="price" id="price-usd"></span>
                     </div>
                     <div class="mt-1 mb-1">
                       <button class="btn btn-primary mr-1">Buy now</button>
@@ -375,7 +346,7 @@
                                     <td>
                                       <img
                                         class="icon"
-                                        src="assets/img/ethereum.svg"
+                                        src="/assets/img/ethereum.svg"
                                       /><strong>0.0697</strong> <span>ETH</span>
                                     </td>
                                     <td>$279.47</td>
@@ -391,7 +362,7 @@
                                     <td>
                                       <img
                                         class="icon"
-                                        src="assets/img/ethereum.svg"
+                                        src="/assets/img/ethereum.svg"
                                       /><strong>0.0697</strong> <span>ETH</span>
                                     </td>
                                     <td>$279.47</td>
@@ -407,7 +378,7 @@
                                     <td>
                                       <img
                                         class="icon"
-                                        src="assets/img/ethereum.svg"
+                                        src="/assets/img/ethereum.svg"
                                       /><strong>0.0697</strong> <span>ETH</span>
                                     </td>
                                     <td>$279.47</td>
@@ -519,7 +490,7 @@
                               <td>
                                 <img
                                   class="icon"
-                                  src="assets/img/ethereum.svg"
+                                  src="/assets/img/ethereum.svg"
                                 />
                                 <strong>0.0697</strong> <span>ETH</span>
                               </td>
@@ -532,7 +503,7 @@
                               <td>
                                 <img
                                   class="icon"
-                                  src="assets/img/ethereum.svg"
+                                  src="/assets/img/ethereum.svg"
                                 />
                                 <strong>0.0697</strong> <span>ETH</span>
                               </td>
@@ -545,7 +516,7 @@
                               <td>
                                 <img
                                   class="icon"
-                                  src="assets/img/ethereum.svg"
+                                  src="/assets/img/ethereum.svg"
                                 />
                                 <strong>0.0697</strong> <span>ETH</span>
                               </td>
@@ -558,7 +529,7 @@
                                 <td>
                                   <img
                                     class="icon"
-                                    src="assets/img/ethereum.svg"
+                                    src="/assets/img/ethereum.svg"
                                   />
                                   <strong>0.0697</strong> <span>ETH</span>
                                 </td>
@@ -571,7 +542,7 @@
                                 <td>
                                   <img
                                     class="icon"
-                                    src="assets/img/ethereum.svg"
+                                    src="/assets/img/ethereum.svg"
                                   />
                                   <strong>0.0697</strong> <span>ETH</span>
                                 </td>
@@ -584,7 +555,7 @@
                                 <td>
                                   <img
                                     class="icon"
-                                    src="assets/img/ethereum.svg"
+                                    src="/assets/img/ethereum.svg"
                                   />
                                   <strong>0.0697</strong> <span>ETH</span>
                                 </td>
@@ -597,7 +568,7 @@
                                 <td>
                                   <img
                                     class="icon"
-                                    src="assets/img/ethereum.svg"
+                                    src="/assets/img/ethereum.svg"
                                   />
                                   <strong>0.0697</strong> <span>ETH</span>
                                 </td>
@@ -629,7 +600,7 @@
                   <a href="#pablo">
                     <img
                       class="img img-raised"
-                      src="assets/img/users/user1/nft/img1.png"
+                      src="/assets/img/users/user1/nft/img1.png"
                     />
                   </a>
                 </div>
@@ -641,14 +612,14 @@
                   <div class="card-row">
                     <span class="name">AI Art House #0478</span>
                     <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.1</span
                     >
                   </div>
                   <div class="card-row-right">
                     <span class="last">Last</span>
                     <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.369</span
                     >
                   </div>
@@ -670,7 +641,7 @@
                   <a href="#pablo">
                     <img
                       class="img img-raised"
-                      src="assets/img/users/user1/nft/img2.png"
+                      src="/assets/img/users/user1/nft/img2.png"
                     />
                   </a>
                 </div>
@@ -682,14 +653,14 @@
                   <div class="card-row">
                     <span class="name">AI Art House #0478</span>
                     <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.1</span
                     >
                   </div>
                   <div class="card-row-right">
                     <span class="last">Last</span>
                     <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.369</span
                     >
                   </div>
@@ -711,7 +682,7 @@
                   <a href="#pablo">
                     <img
                       class="img img-raised"
-                      src="assets/img/users/user1/nft/img3.png"
+                      src="/assets/img/users/user1/nft/img3.png"
                     />
                   </a>
                 </div>
@@ -723,14 +694,14 @@
                   <div class="card-row">
                     <span class="name">AI Art House #0478</span>
                     <span class="price"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.1</span
                     >
                   </div>
                   <div class="card-row-right">
                     <span class="last">Last</span>
                     <span class="price-small"
-                      ><img class="icon" src="assets/img/ethereum.svg" />
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
                       0.369</span
                     >
                   </div>
@@ -790,12 +761,83 @@
         </div>
       </footer>
     <script
-      src="assets/js/core/jquery.min.js"
+      src="/assets/js/core/jquery.min.js"
       type="text/javascript"
     ></script>
     <script
-      src="assets/js/core/bootstrap.min.js"
+      src="/assets/js/core/bootstrap.min.js"
       type="text/javascript"
     ></script>
+    <script>
+
+      window.onload = () => {
+        init();
+      };
+
+      function isLoggedIn() {
+        const token = localStorage.getItem('isLoggedIn');
+        
+        return !!token;
+      }
+
+      function init() {
+        const authUrls = document.querySelectorAll('.auth');
+        const noAuthUrls = document.querySelectorAll('.noauth');
+        
+        if(isLoggedIn()) {
+          noAuthUrls.forEach(el => {
+            el.style.display = 'none';
+          });
+        } else {
+          authUrls.forEach(el => {
+            el.style.display = 'none';
+          });
+        }
+
+        fetch("data.json")
+          .then((res) => res.json())
+          .then((response) => {
+            const {properties} = response;
+            const artImage = document.getElementById('art-image');
+            const title = document.getElementById('title');
+            const artName = document.getElementById('art-name');
+            const username = document.getElementById('username');
+            const views = document.getElementById('views');
+            const favorites = document.getElementById('favorites');
+            const price = document.getElementById('price');
+            const priceUsd = document.getElementById('price-usd');
+            const createdby = document.getElementById('createdby');
+            const artDescription = document.getElementById('artDescription');
+            const description = document.getElementById('description');
+            const address = document.getElementById('address');
+            const tokenId = document.getElementById('tokenId');
+            const tokenStandard = document.getElementById('tokenStandard');
+            const blockchain = document.getElementById('blockchain');
+            const metadata = document.getElementById('metadata');
+
+            artImage.src = properties.image.description;
+            title.innerText = properties.profileTitle.description;
+            artName.innerText = properties.name.description;
+            username.innerText = properties.user.description;
+            views.innerText = properties.views.description;
+            favorites.innerText = properties.favorite.description;
+            price.innerText = properties.price.description;
+            priceUsd.innerText = `($${properties.priceUsd.description})`;
+            createdby.innerText = properties.createdby.description;
+            artDescription.innerHTML = properties.artDescription.description;
+            description.innerHTML = properties.description.description;
+            address.innerText = properties.address.description;
+            tokenId.innerText = properties.tokenId.description;
+            tokenStandard.innerText = properties.tokenStandard.description;
+            blockchain.innerText = properties.blockchain.description;
+            metadata.innerText = properties.metadata.description;
+          });
+      }
+
+      function logOut() {
+        localStorage.clear();
+        window.location.href = "/login";
+      }
+    </script>
   </body>
 </html>
