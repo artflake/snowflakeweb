@@ -104,33 +104,9 @@
               <div class="title text-center">
                 <h2><b id="profileTitle"></b></h2>
               </div>
-              <div class="created-by text-center">
+              <div class="created-by text-center mb-2">
                 <span>Created by</span>
                 <a href="/" id="username"></a>
-              </div>
-              <div class="price-details">
-                <div class="tab">
-                  <span class="price"><b id="items"></b></span>
-                  <span class="price-text">items</span>
-                </div>
-                <div class="tab">
-                  <span class="price"><b id="owners"></b></span>
-                  <span class="price-text">owners</span>
-                </div>
-                <div class="tab">
-                  <span class="price"
-                    ><img class="icon" src="/assets/img/ethereum.svg" />
-                    <b id="floorPrice"></b
-                  ></span>
-                  <span class="price-text">floor price</span>
-                </div>
-                <div class="tab">
-                  <span class="price"
-                    ><img class="icon" src="/assets/img/ethereum.svg" />
-                    <b id="volumeTraded"></b
-                  ></span>
-                  <span class="price-text">volume traded</span>
-                </div>
               </div>
               <div class="description">
                 <div class="markdown" id="description"></div>
@@ -261,19 +237,11 @@
             const { profile = {}, art = [], total = 0} = response;
             const profileTitle = document.getElementById("profileTitle");
             const username = document.getElementById("username");
-            const items = document.getElementById("items");
-            const owners = document.getElementById("owners");
-            const floorPrice = document.getElementById("floorPrice");
-            const volumeTraded = document.getElementById("volumeTraded");
             const description = document.getElementById("description");
             const content = document.getElementById("content");
 
             profileTitle.innerText = profile.title;
             username.innerText = profile.username;
-            items.innerText = profile.items;
-            owners.innerText = profile.owners;
-            floorPrice.innerText = profile.floorPrice;
-            volumeTraded.innerText = profile.volumeTraded;
             description.innerHTML = profile.description;
 
             allProducts = [...art];

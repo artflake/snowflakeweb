@@ -65,6 +65,310 @@
         "metadata": {
             "type": "string",
             "description": "Centralized"
-        }
+        },
+        "listings": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            }
+        ],
+        "activity": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            }
+        ],
+        "art": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0478"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img1.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0479"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img2.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0480"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img3.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            }
+        ]
     }
 }

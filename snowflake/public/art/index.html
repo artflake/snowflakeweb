@@ -25,81 +25,67 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg nav-down navbar-absolute">
-        <div class="container">
-          <div class="navbar-translate">
-            <a
-              class="navbar-brand"
-              href="/"
-              rel="tooltip"
-              title="Flake.art"
-              data-placement="bottom"
-            >
+      <div class="container">
+        <div class="navbar-translate">
+          <a
+            class="navbar-brand"
+            href="/"
+            rel="tooltip"
+            title="Flake.art"
+            data-placement="bottom"
+          >
             Flake.art
           </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navigation"
-              aria-controls="navigation-index"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-bar bar1"></span>
-              <span class="navbar-toggler-bar bar2"></span>
-              <span class="navbar-toggler-bar bar3"></span>
-            </button>
-          </div>
-          <div
-            class="collapse navbar-collapse"
-            data-nav-image="/assets/img/blurred-image-1.jpg"
-            data-color="orange"
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation-index"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/about">
-                  About
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/auction">
-                  Auction
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/exchange">
-                  Exchange
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  type="button"
-                  class="nav-link"
-                  href="/"
-                >
-                  Metamask
-                </a>
-              </li>
-              <li class="nav-item auth">
-                <a class="nav-link" href="/profile"> Account </a>
-              </li>
-              <li class="nav-item auth">
-                <a class="nav-link" href="javascript:void(0)" onclick="logOut()"> Logout </a>
-              </li>
-              <li class="nav-item noauth">
-                <a class="nav-link" href="/login">
-                  Login
-                </a>
-              </li>
-              <li class="nav-item noauth">
-                <a class="nav-link" href="/signup">
-                  Create Account
-                </a>
-              </li>
-            </ul>
-          </div>
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
         </div>
-      </nav>
+        <div
+          class="collapse navbar-collapse"
+          data-nav-image="/assets/img/blurred-image-1.jpg"
+          data-color="orange"
+        >
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/about"> About </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auction"> Auction </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exchange"> Exchange </a>
+            </li>
+            <li class="nav-item">
+              <a type="button" class="nav-link" href="/"> Metamask </a>
+            </li>
+            <li class="nav-item auth">
+              <a class="nav-link" href="/profile"> Account </a>
+            </li>
+            <li class="nav-item auth">
+              <a class="nav-link" href="javascript:void(0)" onclick="logOut()">
+                Logout
+              </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/login"> Login </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/signup"> Create Account </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="main padding-top">
       <div class="section">
         <div class="container">
@@ -110,10 +96,7 @@
                   <div class="card custom-card">
                     <div class="card-image">
                       <a href="#pablo">
-                        <img
-                          class="img img-raised"
-                          id="art-image"
-                        />
+                        <img class="img img-raised" id="art-image" />
                       </a>
                     </div>
                     <div class="card-body">
@@ -160,11 +143,10 @@
                         >
                           <div class="card-body">
                             <p class="name">
-                              Created by <a href="/" id="createdby">aiarthouse</a>
+                              Created by
+                              <a href="/" id="createdby">aiarthouse</a>
                             </p>
-                            <div id="artDescription">
-
-                            </div>
+                            <div id="artDescription"></div>
                           </div>
                         </div>
                         <div
@@ -192,9 +174,7 @@
                           role="tabpanel"
                           aria-labelledby="headingTwo"
                         >
-                          <div class="card-body" id="description">
-                            
-                          </div>
+                          <div class="card-body" id="description"></div>
                         </div>
                         <div
                           class="card-header card-collapse"
@@ -262,12 +242,12 @@
                 <div class="col-md-12 user-info">
                   <span>Owned by <a href="/" id="username"></a></span>
                   <span
-                    ><i class="fa fa-eye" aria-hidden="true"></i> 
-                   <span id="views"></span> views</span
+                    ><i class="fa fa-eye" aria-hidden="true"></i>
+                    <span id="views"></span> views</span
                   >
                   <span
-                    ><i class="fa fa-heart" aria-hidden="true"></i> <span id="favorites"></span>
-                    favorites</span
+                    ><i class="fa fa-heart" aria-hidden="true"></i>
+                    <span id="favorites"></span> favorites</span
                   >
                 </div>
                 <div class="col-md-12">
@@ -341,55 +321,7 @@
                                     <th></th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <img
-                                        class="icon"
-                                        src="/assets/img/ethereum.svg"
-                                      /><strong>0.0697</strong> <span>ETH</span>
-                                    </td>
-                                    <td>$279.47</td>
-                                    <td>-</td>
-                                    <td><a href="/">GETITI</a></td>
-                                    <td>
-                                      <button class="btn btn-outline-primary">
-                                        Buy
-                                      </button>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <img
-                                        class="icon"
-                                        src="/assets/img/ethereum.svg"
-                                      /><strong>0.0697</strong> <span>ETH</span>
-                                    </td>
-                                    <td>$279.47</td>
-                                    <td>-</td>
-                                    <td><a href="/">GETITI</a></td>
-                                    <td>
-                                      <button class="btn btn-outline-primary">
-                                        Buy
-                                      </button>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <img
-                                        class="icon"
-                                        src="/assets/img/ethereum.svg"
-                                      /><strong>0.0697</strong> <span>ETH</span>
-                                    </td>
-                                    <td>$279.47</td>
-                                    <td>-</td>
-                                    <td><a href="/">GETITI</a></td>
-                                    <td>
-                                      <button class="btn btn-outline-primary">
-                                        Buy
-                                      </button>
-                                    </td>
-                                  </tr>
+                                <tbody id="listings">
                                 </tbody>
                               </table>
                             </div>
@@ -484,98 +416,8 @@
                               <th>Date</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                              <td>
-                                <img
-                                  class="icon"
-                                  src="/assets/img/ethereum.svg"
-                                />
-                                <strong>0.0697</strong> <span>ETH</span>
-                              </td>
-                              <td><a href="/">GETITI</a></td>
-                              <td></td>
-                              <td>5 days ago</td>
-                            </tr>
-                            <tr>
-                              <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                              <td>
-                                <img
-                                  class="icon"
-                                  src="/assets/img/ethereum.svg"
-                                />
-                                <strong>0.0697</strong> <span>ETH</span>
-                              </td>
-                              <td><a href="/">GETITI</a></td>
-                              <td></td>
-                              <td>5 days ago</td>
-                            </tr>
-                            <tr>
-                              <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                              <td>
-                                <img
-                                  class="icon"
-                                  src="/assets/img/ethereum.svg"
-                                />
-                                <strong>0.0697</strong> <span>ETH</span>
-                              </td>
-                              <td><a href="/">GETITI</a></td>
-                              <td></td>
-                              <td>5 days ago</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                                <td>
-                                  <img
-                                    class="icon"
-                                    src="/assets/img/ethereum.svg"
-                                  />
-                                  <strong>0.0697</strong> <span>ETH</span>
-                                </td>
-                                <td><a href="/">GETITI</a></td>
-                                <td></td>
-                                <td>5 days ago</td>
-                              </tr>
-                              <tr>
-                                <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                                <td>
-                                  <img
-                                    class="icon"
-                                    src="/assets/img/ethereum.svg"
-                                  />
-                                  <strong>0.0697</strong> <span>ETH</span>
-                                </td>
-                                <td><a href="/">GETITI</a></td>
-                                <td></td>
-                                <td>5 days ago</td>
-                              </tr>
-                              <tr>
-                                <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                                <td>
-                                  <img
-                                    class="icon"
-                                    src="/assets/img/ethereum.svg"
-                                  />
-                                  <strong>0.0697</strong> <span>ETH</span>
-                                </td>
-                                <td><a href="/">GETITI</a></td>
-                                <td></td>
-                                <td>5 days ago</td>
-                              </tr>
-                              <tr>
-                                <td><i class="fa fa-tag" aria-hidden="true"></i> List</td>
-                                <td>
-                                  <img
-                                    class="icon"
-                                    src="/assets/img/ethereum.svg"
-                                  />
-                                  <strong>0.0697</strong> <span>ETH</span>
-                                </td>
-                                <td><a href="/">GETITI</a></td>
-                                <td></td>
-                                <td>5 days ago</td>
-                              </tr>
+                          <tbody id="activities">
+                            
                           </tbody>
                         </table>
                       </div>
@@ -594,226 +436,99 @@
               <h4 class="more-title">More from this collection</h4>
               <br />
             </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="/assets/img/users/user1/nft/img1.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="/assets/img/users/user1/nft/img2.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-blog">
-                <div class="card-image">
-                  <a href="#pablo">
-                    <img
-                      class="img img-raised"
-                      src="/assets/img/users/user1/nft/img3.png"
-                    />
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div class="card-row">
-                    <span class="user">Artificial Intelligence Art</span>
-                    <span class="price-title">Price</span>
-                  </div>
-                  <div class="card-row">
-                    <span class="name">AI Art House #0478</span>
-                    <span class="price"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.1</span
-                    >
-                  </div>
-                  <div class="card-row-right">
-                    <span class="last">Last</span>
-                    <span class="price-small"
-                      ><img class="icon" src="/assets/img/ethereum.svg" />
-                      0.369</span
-                    >
-                  </div>
-                  <hr />
-                  <div class="card-footer">
-                    <div class="author">
-                      <a href="#pablo"> Buy </a>
-                    </div>
-                    <div class="stats">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 5
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-12">
+              <div class="row" id="arts"></div>
             </div>
             <div class="col-md-12 text-center mt-3 mb-3">
-              <button class="btn btn-primary">View Collection</button>
+              <button class="btn btn-primary" onclick="window.location.href='/user/profile.html'">View Collection</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <footer class="footer footer-white">
-        <div class="container">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="/">
-                    Flake.art
-                  </a>
-                </li>
-                <li>
-                  <a href="/blog">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="/terms">
-                    Terms & Conditons
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>document.write(new Date().getFullYear())</script>, made
-                with <i class="fa fa-heart heart"></i> by Flake.art
-              </span>
-            </div>
+      <div class="container">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <li>
+                <a href="/"> Flake.art </a>
+              </li>
+              <li>
+                <a href="/blog"> Blog </a>
+              </li>
+              <li>
+                <a href="/terms"> Terms & Conditons </a>
+              </li>
+              <li>
+                <a href="/contact"> Contact </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright">
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              , made with <i class="fa fa-heart heart"></i> by Flake.art
+            </span>
           </div>
         </div>
-      </footer>
-    <script
-      src="/assets/js/core/jquery.min.js"
-      type="text/javascript"
-    ></script>
+      </div>
+    </footer>
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script
       src="/assets/js/core/bootstrap.min.js"
       type="text/javascript"
     ></script>
     <script>
-
       window.onload = () => {
         init();
       };
 
       function isLoggedIn() {
-        const token = localStorage.getItem('isLoggedIn');
-        
+        const token = localStorage.getItem("isLoggedIn");
+
         return !!token;
       }
 
       function init() {
-        const authUrls = document.querySelectorAll('.auth');
-        const noAuthUrls = document.querySelectorAll('.noauth');
-        
-        if(isLoggedIn()) {
-          noAuthUrls.forEach(el => {
-            el.style.display = 'none';
+        const authUrls = document.querySelectorAll(".auth");
+        const noAuthUrls = document.querySelectorAll(".noauth");
+
+        if (isLoggedIn()) {
+          noAuthUrls.forEach((el) => {
+            el.style.display = "none";
           });
         } else {
-          authUrls.forEach(el => {
-            el.style.display = 'none';
+          authUrls.forEach((el) => {
+            el.style.display = "none";
           });
         }
 
         fetch("data.json")
           .then((res) => res.json())
           .then((response) => {
-            const {properties} = response;
-            const artImage = document.getElementById('art-image');
-            const title = document.getElementById('title');
-            const artName = document.getElementById('art-name');
-            const username = document.getElementById('username');
-            const views = document.getElementById('views');
-            const favorites = document.getElementById('favorites');
-            const price = document.getElementById('price');
-            const priceUsd = document.getElementById('price-usd');
-            const createdby = document.getElementById('createdby');
-            const artDescription = document.getElementById('artDescription');
-            const description = document.getElementById('description');
-            const address = document.getElementById('address');
-            const tokenId = document.getElementById('tokenId');
-            const tokenStandard = document.getElementById('tokenStandard');
-            const blockchain = document.getElementById('blockchain');
-            const metadata = document.getElementById('metadata');
+            const { properties } = response;
+            const { listings = [], activity = [], art = [] } = properties;
+
+            const artImage = document.getElementById("art-image");
+            const title = document.getElementById("title");
+            const artName = document.getElementById("art-name");
+            const username = document.getElementById("username");
+            const views = document.getElementById("views");
+            const favorites = document.getElementById("favorites");
+            const price = document.getElementById("price");
+            const priceUsd = document.getElementById("price-usd");
+            const createdby = document.getElementById("createdby");
+            const artDescription = document.getElementById("artDescription");
+            const description = document.getElementById("description");
+            const address = document.getElementById("address");
+            const tokenId = document.getElementById("tokenId");
+            const tokenStandard = document.getElementById("tokenStandard");
+            const blockchain = document.getElementById("blockchain");
+            const metadata = document.getElementById("metadata");
 
             artImage.src = properties.image.description;
             title.innerText = properties.profileTitle.description;
@@ -831,7 +546,117 @@
             tokenStandard.innerText = properties.tokenStandard.description;
             blockchain.innerText = properties.blockchain.description;
             metadata.innerText = properties.metadata.description;
+
+            renderListing(listings);
+            renderActivities(activity);
+            renderArts(art);
           });
+      }
+
+      function renderListing(listings) {
+        let html = "";
+        const listingsContainer = document.getElementById('listings');
+
+        listings.forEach((el) => {
+          const {properties} = el;
+
+          html += `<tr>
+                      <td>
+                        <img
+                          class="icon"
+                          src="/assets/img/ethereum.svg"
+                        /><strong>${properties.price.description}</strong> <span>ETH</span>
+                      </td>
+                      <td>$${properties.priceUsd.description}</td>
+                      <td>${properties.expiration.description || '-'}</td>
+                      <td><a href="/">${properties.from.description}</a></td>
+                      <td>
+                        <button class="btn btn-outline-primary">
+                          Buy
+                        </button>
+                      </td>
+                    </tr>`;
+        });
+        listingsContainer.innerHTML = html;
+      }
+
+      function renderActivities(activities) {
+        let html = "";
+        const activitiesContainer = document.getElementById('activities');
+
+        activities.forEach((el) => {
+          const {properties} = el;
+
+          html += `<tr>
+                      <td>
+                        <i class="fa fa-tag" aria-hidden="true"></i>
+                        ${properties.event.description}
+                      </td>
+                      <td>
+                        <img
+                          class="icon"
+                          src="/assets/img/ethereum.svg"
+                        />
+                        <strong>${properties.price.description}</strong> <span>ETH</span>
+                      </td>
+                      <td><a href="/">${properties.from.description}</a></td>
+                      <td>${properties.to.description}</td>
+                      <td>${properties.date.description}</td>
+                    </tr>`;
+        });
+        activitiesContainer.innerHTML = html;
+      }
+
+      function renderArts(arts) {
+        let html = "";
+        const artsContainer = document.getElementById('arts');
+
+        arts.forEach((el) => {
+          const {properties} = el;
+
+          html += `<div class="col-md-4">
+              <div class="card card-blog">
+                <div class="card-image">
+                  <a href="#pablo">
+                    <img
+                      class="img img-raised"
+                      src="${properties.image.description}"
+                    />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <div class="card-row">
+                    <span class="user">${properties.profileTitle.description}</span>
+                    <span class="price-title">Price</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="name">${properties.name.description}</span>
+                    <span class="price"
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
+                      ${properties.price.description}</span
+                    >
+                  </div>
+                  <div class="card-row-right">
+                    <span class="last">Last</span>
+                    <span class="price-small"
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
+                      ${properties.lastPrice.description}</span
+                    >
+                  </div>
+                  <hr />
+                  <div class="card-footer">
+                    <div class="author">
+                      <a href="#pablo"> Buy </a>
+                    </div>
+                    <div class="stats">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i> ${properties.favorite.description}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        });
+        artsContainer.innerHTML = html;
       }
 
       function logOut() {
