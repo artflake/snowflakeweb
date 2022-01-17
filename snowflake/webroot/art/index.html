@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <title>Profile</title>
+    <!--     Fonts and icons     -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS Files -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/paper-kit.css?v=2.3.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/assets/demo/demo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg nav-down navbar-absolute">
+      <div class="container">
+        <div class="navbar-translate">
+          <a
+            class="navbar-brand"
+            href="/"
+            rel="tooltip"
+            title="Flake.art"
+            data-placement="bottom"
+          >
+            Flake.art
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation-index"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
+        </div>
+        <div
+          class="collapse navbar-collapse"
+          data-nav-image="/assets/img/blurred-image-1.jpg"
+          data-color="orange"
+        >
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/about"> About </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auction"> Auction </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exchange"> Exchange </a>
+            </li>
+            <li class="nav-item">
+              <a type="button" class="nav-link" href="/"> Metamask </a>
+            </li>
+            <li class="nav-item auth">
+              <a class="nav-link" href="/profile"> Account </a>
+            </li>
+            <li class="nav-item auth">
+              <a class="nav-link" href="javascript:void(0)" onclick="logOut()">
+                Logout
+              </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/login"> Login </a>
+            </li>
+            <li class="nav-item noauth">
+              <a class="nav-link" href="/signup"> Create Account </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="main padding-top">
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card custom-card">
+                    <div class="card-image">
+                      <a href="#pablo">
+                        <img class="img img-raised" id="art-image" />
+                      </a>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="fa fa-heart-o" aria-hidden="true"></i> 5
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div id="acordeon">
+                    <div
+                      id="accordion"
+                      role="tablist"
+                      aria-multiselectable="true"
+                    >
+                      <div class="card no-transition">
+                        <div
+                          class="card-header card-collapse"
+                          role="tab"
+                          id="headingOne"
+                        >
+                          <h5 class="mb-0 panel-title">
+                            <a
+                              class="collapsed"
+                              data-toggle="collapse"
+                              data-parent="#accordion"
+                              href="#collapseOne"
+                              aria-expanded="false"
+                              aria-controls="collapseOne"
+                            >
+                              Description
+                              <i class="nc-icon nc-minimal-down"></i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseOne"
+                          class="collapse show"
+                          role="tabpanel"
+                          aria-labelledby="headingOne"
+                        >
+                          <div class="card-body">
+                            <p class="name">
+                              Created by
+                              <a href="/" id="createdby">aiarthouse</a>
+                            </p>
+                            <div id="artDescription"></div>
+                          </div>
+                        </div>
+                        <div
+                          class="card-header card-collapse"
+                          role="tab"
+                          id="headingTwo"
+                        >
+                          <h5 class="mb-0 panel-title">
+                            <a
+                              class="collapsed"
+                              data-toggle="collapse"
+                              data-parent="#accordion"
+                              href="#collapseTwo"
+                              aria-expanded="false"
+                              aria-controls="collapseTwo"
+                            >
+                              About Artificial Intelligence Art
+                              <i class="nc-icon nc-minimal-down"></i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingTwo"
+                        >
+                          <div class="card-body" id="description"></div>
+                        </div>
+                        <div
+                          class="card-header card-collapse"
+                          role="tab"
+                          id="headingThree"
+                        >
+                          <h5 class="mb-0 panel-title">
+                            <a
+                              class="collapsed"
+                              data-toggle="collapse"
+                              data-parent="#accordion"
+                              href="#collapseThree"
+                              aria-expanded="false"
+                              aria-controls="collapseThree"
+                            >
+                              Details
+                              <i class="nc-icon nc-minimal-down"></i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseThree"
+                          class="collapse"
+                          role="tabpanel"
+                          aria-labelledby="headingThree"
+                        >
+                          <div class="card-body">
+                            <div class="card-row pb-2 pt-2">
+                              <span>Contract Address</span>
+                              <a href="/" id="address"></a>
+                            </div>
+                            <div class="card-row pb-2 pt-2">
+                              <span>Token ID</span>
+                              <span id="tokenId"></span>
+                            </div>
+                            <div class="card-row pb-2 pt-2">
+                              <span>Token Standard</span>
+                              <span id="tokenStandard"></span>
+                            </div>
+                            <div class="card-row pb-2 pt-2">
+                              <span>Blockchain</span>
+                              <span id="blockchain"></span>
+                            </div>
+                            <div class="card-row pb-2 pt-2">
+                              <span>Metadata</span>
+                              <span id="metadata"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--  end acordeon -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 art-details">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3><a class="" href="/" id="title"></a></h3>
+                </div>
+                <div class="col-md-12">
+                  <h3 class="title" id="art-name">AI Art House #0696</h3>
+                </div>
+                <div class="col-md-12 user-info">
+                  <span>Owned by <a href="/" id="username"></a></span>
+                  <span
+                    ><i class="fa fa-eye" aria-hidden="true"></i>
+                    <span id="views"></span> views</span
+                  >
+                  <span
+                    ><i class="fa fa-heart" aria-hidden="true"></i>
+                    <span id="favorites"></span> favorites</span
+                  >
+                </div>
+                <div class="col-md-12">
+                  <div
+                    class="
+                      buy-info
+                      d-flex
+                      flex-column
+                      justify-content-center
+                      mt-3
+                      mb-3
+                    "
+                  >
+                    <span class="price-title mt-1 mb-1">Current price</span>
+                    <div class="mt-1 mb-1 d-flex align-items-center">
+                      <img class="icon" src="/assets/img/ethereum.svg" />
+                      <span class="value ml-2 mr-2" id="price"></span>
+                      <span class="price" id="price-usd"></span>
+                    </div>
+                    <div class="mt-1 mb-1">
+                      <button class="btn btn-primary mr-1">Buy now</button>
+                      <button class="btn btn-outline-primary">
+                        Make offer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div id="acordeon2">
+                    <div
+                      id="accordionListing"
+                      class="accordion"
+                      role="tablist"
+                      aria-multiselectable="true"
+                    >
+                      <div class="card no-transition">
+                        <div
+                          class="card-header card-collapse"
+                          role="tab"
+                          id="headingListing"
+                        >
+                          <h5 class="mb-0 panel-title">
+                            <a
+                              class="collapsed"
+                              data-toggle="collapse"
+                              data-parent="#accordionListing"
+                              href="#collapseList"
+                              aria-expanded="false"
+                              aria-controls="collapseList"
+                            >
+                              Listings
+                              <i class="nc-icon nc-minimal-down"></i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseList"
+                          class="collapse show"
+                          role="tabpanel"
+                          aria-labelledby="headingListing"
+                        >
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th>Price</th>
+                                    <th>USD Price</th>
+                                    <th>Expiration</th>
+                                    <th>From</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="listings">
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="accordionOffers"
+                      class="accordion"
+                      role="tablist"
+                      aria-multiselectable="true"
+                    >
+                      <div class="card no-transition">
+                        <div
+                          class="card-header card-collapse"
+                          role="tab"
+                          id="headingOffers"
+                        >
+                          <h5 class="mb-0 panel-title">
+                            <a
+                              class="collapsed"
+                              data-toggle="collapse"
+                              data-parent="#accordionOffers"
+                              href="#collapseOffers"
+                              aria-expanded="false"
+                              aria-controls="collapseOffers"
+                            >
+                              Offers
+                              <i class="nc-icon nc-minimal-down"></i>
+                            </a>
+                          </h5>
+                        </div>
+                        <div
+                          id="collapseOffers"
+                          class="collapse show"
+                          role="tabpanel"
+                          aria-labelledby="headingOffers"
+                        >
+                          <div class="card-body">
+                            <p class="no-text">No offers yet</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div
+                id="accordionActivity"
+                class="accordion"
+                role="tablist"
+                aria-multiselectable="true"
+              >
+                <div class="card no-transition">
+                  <div
+                    class="card-header card-collapse"
+                    role="tab"
+                    id="headingActivity"
+                  >
+                    <h5 class="mb-0 panel-title">
+                      <a
+                        class="collapsed"
+                        data-toggle="collapse"
+                        data-parent="#accordionActivity"
+                        href="#collapseActivity"
+                        aria-expanded="false"
+                        aria-controls="collapseActivity"
+                      >
+                        Item Activity
+                        <i class="nc-icon nc-minimal-down"></i>
+                      </a>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseActivity"
+                    class="collapse show"
+                    role="tabpanel"
+                    aria-labelledby="headingActivity"
+                  >
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Event</th>
+                              <th>Price</th>
+                              <th>From</th>
+                              <th>To</th>
+                              <th>Date</th>
+                            </tr>
+                          </thead>
+                          <tbody id="activities">
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="more-title">More from this collection</h4>
+              <br />
+            </div>
+            <div class="col-md-12">
+              <div class="row" id="arts"></div>
+            </div>
+            <div class="col-md-12 text-center mt-3 mb-3">
+              <button class="btn btn-primary" onclick="window.location.href='/user/profile.html'">View Collection</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer footer-white">
+      <div class="container">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <li>
+                <a href="/"> Flake.art </a>
+              </li>
+              <li>
+                <a href="/blog"> Blog </a>
+              </li>
+              <li>
+                <a href="/terms"> Terms & Conditons </a>
+              </li>
+              <li>
+                <a href="/contact"> Contact </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright">
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              , made with <i class="fa fa-heart heart"></i> by Flake.art
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script
+      src="/assets/js/core/bootstrap.min.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      window.onload = () => {
+        init();
+      };
+
+      function isLoggedIn() {
+        const token = localStorage.getItem("isLoggedIn");
+
+        return !!token;
+      }
+
+      function init() {
+        const authUrls = document.querySelectorAll(".auth");
+        const noAuthUrls = document.querySelectorAll(".noauth");
+
+        if (isLoggedIn()) {
+          noAuthUrls.forEach((el) => {
+            el.style.display = "none";
+          });
+        } else {
+          authUrls.forEach((el) => {
+            el.style.display = "none";
+          });
+        }
+
+        fetch("data.json")
+          .then((res) => res.json())
+          .then((response) => {
+            const { properties } = response;
+            const { listings = [], activity = [], art = [] } = properties;
+
+            const artImage = document.getElementById("art-image");
+            const title = document.getElementById("title");
+            const artName = document.getElementById("art-name");
+            const username = document.getElementById("username");
+            const views = document.getElementById("views");
+            const favorites = document.getElementById("favorites");
+            const price = document.getElementById("price");
+            const priceUsd = document.getElementById("price-usd");
+            const createdby = document.getElementById("createdby");
+            const artDescription = document.getElementById("artDescription");
+            const description = document.getElementById("description");
+            const address = document.getElementById("address");
+            const tokenId = document.getElementById("tokenId");
+            const tokenStandard = document.getElementById("tokenStandard");
+            const blockchain = document.getElementById("blockchain");
+            const metadata = document.getElementById("metadata");
+
+            artImage.src = properties.image.description;
+            title.innerText = properties.profileTitle.description;
+            artName.innerText = properties.name.description;
+            username.innerText = properties.user.description;
+            views.innerText = properties.views.description;
+            favorites.innerText = properties.favorite.description;
+            price.innerText = properties.price.description;
+            priceUsd.innerText = `($${properties.priceUsd.description})`;
+            createdby.innerText = properties.createdby.description;
+            artDescription.innerHTML = properties.artDescription.description;
+            description.innerHTML = properties.description.description;
+            address.innerText = properties.address.description;
+            tokenId.innerText = properties.tokenId.description;
+            tokenStandard.innerText = properties.tokenStandard.description;
+            blockchain.innerText = properties.blockchain.description;
+            metadata.innerText = properties.metadata.description;
+
+            renderListing(listings);
+            renderActivities(activity);
+            renderArts(art);
+          });
+      }
+
+      function renderListing(listings) {
+        let html = "";
+        const listingsContainer = document.getElementById('listings');
+
+        listings.forEach((el) => {
+          const {properties} = el;
+
+          html += `<tr>
+                      <td>
+                        <img
+                          class="icon"
+                          src="/assets/img/ethereum.svg"
+                        /><strong>${properties.price.description}</strong> <span>ETH</span>
+                      </td>
+                      <td>$${properties.priceUsd.description}</td>
+                      <td>${properties.expiration.description || '-'}</td>
+                      <td><a href="/">${properties.from.description}</a></td>
+                      <td>
+                        <button class="btn btn-outline-primary">
+                          Buy
+                        </button>
+                      </td>
+                    </tr>`;
+        });
+        listingsContainer.innerHTML = html;
+      }
+
+      function renderActivities(activities) {
+        let html = "";
+        const activitiesContainer = document.getElementById('activities');
+
+        activities.forEach((el) => {
+          const {properties} = el;
+
+          html += `<tr>
+                      <td>
+                        <i class="fa fa-tag" aria-hidden="true"></i>
+                        ${properties.event.description}
+                      </td>
+                      <td>
+                        <img
+                          class="icon"
+                          src="/assets/img/ethereum.svg"
+                        />
+                        <strong>${properties.price.description}</strong> <span>ETH</span>
+                      </td>
+                      <td><a href="/">${properties.from.description}</a></td>
+                      <td>${properties.to.description}</td>
+                      <td>${properties.date.description}</td>
+                    </tr>`;
+        });
+        activitiesContainer.innerHTML = html;
+      }
+
+      function renderArts(arts) {
+        let html = "";
+        const artsContainer = document.getElementById('arts');
+
+        arts.forEach((el) => {
+          const {properties} = el;
+
+          html += `<div class="col-md-4">
+              <div class="card card-blog">
+                <div class="card-image">
+                  <a href="#pablo">
+                    <img
+                      class="img img-raised"
+                      src="${properties.image.description}"
+                    />
+                  </a>
+                </div>
+                <div class="card-body">
+                  <div class="card-row">
+                    <span class="user">${properties.profileTitle.description}</span>
+                    <span class="price-title">Price</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="name">${properties.name.description}</span>
+                    <span class="price"
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
+                      ${properties.price.description}</span
+                    >
+                  </div>
+                  <div class="card-row-right">
+                    <span class="last">Last</span>
+                    <span class="price-small"
+                      ><img class="icon" src="/assets/img/ethereum.svg" />
+                      ${properties.lastPrice.description}</span
+                    >
+                  </div>
+                  <hr />
+                  <div class="card-footer">
+                    <div class="author">
+                      <a href="#pablo"> Buy </a>
+                    </div>
+                    <div class="stats">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i> ${properties.favorite.description}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        });
+        artsContainer.innerHTML = html;
+      }
+
+      function logOut() {
+        localStorage.clear();
+        window.location.href = "/login";
+      }
+    </script>
+  </body>
+</html>
