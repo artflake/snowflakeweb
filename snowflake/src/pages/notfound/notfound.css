@@ -1,11 +1,11 @@
-h4 {
+.not-found h4 {
   color: #253858;
   margin-bottom: 0.8rem;
   position: relative;
   font-family: "Raleway", sans-serif;
   font-size: 1.5rem;
 }
-p {
+.not-found p {
   margin-top: 0;
   margin-bottom: 1rem;
   display: block;
@@ -16,22 +16,22 @@ p {
   color: rgb(113, 120, 126);
   font-family: "Lato", sans-serif;
 }
-.btn-primary:hover {
+.not-found .btn-primary:hover {
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
 }
-.btn-primary {
+.not-found .btn-primary {
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
 }
-.btn-round {
+.not-found .btn-round {
   border-radius: 30px !important;
   text-decoration: none;
 }
 
-.btn {
+.not-found .btn {
   font-size: 15px;
   font-weight: 600;
   padding: 9px 25px;
@@ -39,7 +39,7 @@ p {
   box-shadow: 0 3px 8px 0 rgba(41, 49, 89, 0.15),
     inset 0 0 0 1px hsla(0, 0%, 100%, 0.1);
 }
-.btn {
+.not-found .btn {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -57,18 +57,18 @@ p {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.btn:not(:disabled):not(.disabled) {
+.not-found .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
 /*[404 error page]
 --------------------------*/
-.error-content {
+.not-found.error-content {
   padding: 0 0 70px;
 }
-.error-text {
+.not-found .error-text {
   text-align: center;
 }
-.error {
+.not-found .error {
   font-size: 180px;
   font-weight: 100;
 }
@@ -214,7 +214,7 @@ p {
   border-radius: 100%;
   background: rgba(0, 0, 0, 0.2);
 }
-.not-exist {
+.not-found  .not-exist {
     color: #253858;
     font-weight: 500;
 }
