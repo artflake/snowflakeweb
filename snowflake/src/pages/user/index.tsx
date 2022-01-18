@@ -133,7 +133,7 @@ export default function User() {
               <div key={i} className="col-md-4">
                 <div className="card card-blog">
                   <div className="card-image">
-                    <Link to="/art/">
+                    <Link to="/user/1/">
                       <img
                         className="img img-raised"
                         src={properties.image.description}
