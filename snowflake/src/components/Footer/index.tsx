@@ -44,6 +44,11 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link to="/user/">
+                  Profiles
+                </Link>
+              </li>
             </ul>
           </nav>
           <div className="credits ml-auto">

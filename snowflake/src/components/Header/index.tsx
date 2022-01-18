@@ -19,9 +19,9 @@ export default function Header() {
   useEffect(() => {
     console.log(location.pathname);
     if (
-      ["/wallet", "/contact", "/profile", "/user/", "/art/"].includes(
+      ["/wallet", "/contact", "/profile", "/user/"].includes(
         location.pathname
-      )
+      ) || location.pathname.includes("/user/")
     ) {
       setNav("");
     } else {
