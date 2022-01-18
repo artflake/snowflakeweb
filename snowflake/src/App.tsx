@@ -20,6 +20,8 @@ import About from "./pages/about";
 import Wallet from "./pages/wallet";
 import ResetPassword from "./pages/resetpassword";
 import Profile from "./pages/profile";
+import User from "./pages/user";
+import Art from "./pages/art";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
@@ -78,6 +80,8 @@ function App() {
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="user" element={<User />} />
+        <Route path="art" element={<Art />} />
         <Route
           path="activation"
           element={

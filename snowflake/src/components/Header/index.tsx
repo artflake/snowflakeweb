@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "redux/hooks";
 
@@ -14,13 +14,18 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [nav, setNav] = useState('navbar-transparent');
+  const [nav, setNav] = useState("navbar-transparent");
 
   useEffect(() => {
-    if(["/wallet", "/contact", "/profile"].includes(location.pathname)) {
-      setNav('');
+    console.log(location.pathname);
+    if (
+      ["/wallet", "/contact", "/profile", "/user/", "/art/"].includes(
+        location.pathname
+      )
+    ) {
+      setNav("");
     } else {
-      setNav('navbar-transparent');
+      setNav("navbar-transparent");
     }
   }, [location]);
 
@@ -98,22 +103,18 @@ export default function Header() {
                 Exchange
               </Link>
             </li>
-            <li className="nav-item">
-              <a
-                onClick={selectWallet}
-                type="button"
-                className="nav-link"
-                href="/"
-              >
-                Metamask
-              </a>
-            </li>
+
             {!isloggedIn ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">
+                  <a
+                    onClick={selectWallet}
+                    type="button"
+                    className="nav-link"
+                    href="/"
+                  >
                     Login
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/signup">
@@ -123,16 +124,16 @@ export default function Header() {
               </>
             ) : (
               <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Account
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a onClick={logOut} className="nav-link" href="/">
-                  Logout
-                </a>
-              </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/profile">
+                    Account
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <a onClick={logOut} className="nav-link" href="/">
+                    Logout
+                  </a>
+                </li>
               </>
             )}
           </ul>

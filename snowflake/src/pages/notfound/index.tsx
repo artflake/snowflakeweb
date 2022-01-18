@@ -4,7 +4,7 @@ import "./notfound.css";
 
 export default function NotFound() {
   return (
-    <div className="error-content">
+    <div className="error-content not-found">
       <div className="container">
         <div className="row">
           <div className="col-md-12 ">
