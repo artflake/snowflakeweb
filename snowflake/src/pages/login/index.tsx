@@ -19,7 +19,7 @@ interface State {
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
+  const location: any = useLocation();
 
   const [state, setState] = useState<State>({
     email: "",
