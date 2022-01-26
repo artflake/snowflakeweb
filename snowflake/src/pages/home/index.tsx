@@ -203,7 +203,7 @@ export default function Home() {
           </div>
         </div>
         <div className="section landing-section section-dark text-center">
-          <h1 className="mb-5 contact pl-2 pr-2">contact@flakeart.com</h1>
+          <h1 className="mb-5 contact pl-2 pr-2">contact@flake.art</h1>
         </div>
       </div>
     </>

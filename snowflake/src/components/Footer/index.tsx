@@ -30,7 +30,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/blog">
+                <Link to="/blogs">
                   Blog
                 </Link>
               </li>
@@ -40,13 +40,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link to="/user/">
-                  Profiles
+                <Link to="/faq">
+                  FAQ
                 </Link>
               </li>
             </ul>

@@ -17,9 +17,8 @@ export default function Header() {
   const [nav, setNav] = useState("navbar-transparent");
 
   useEffect(() => {
-    console.log(location.pathname);
     if (
-      ["/wallet", "/contact", "/profile", "/user/"].includes(
+      ["/wallet", "/contact", "/profile", "/user/", "/blogs"].includes(
         location.pathname
       ) || location.pathname.includes("/user/")
     ) {

@@ -22,14 +22,16 @@ import ResetPassword from "./pages/resetpassword";
 import Profile from "./pages/profile";
 import User from "./pages/user";
 import Art from "./pages/art";
+import Faq from "./pages/faq";
+import Terms from "pages/terms";
+import NotFound from "pages/notfound";
+import Activation from "pages/activation";
+import Blogs from "pages/blogs";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
 import { getToken } from "./utils";
 import { login } from "./redux/reducers/authSlice";
-import NotFound from "pages/notfound";
-import Contact from "pages/contact";
-import Activation from "pages/activation";
 
 function App() {
   const dispatch = useDispatch();
@@ -79,9 +81,11 @@ function App() {
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
         <Route path="user" element={<User />} />
         <Route path="user/:id" element={<Art />} />
+        <Route path="faq" element={<Faq />} />
+        <Route path="terms" element={<Terms />} />
+        <Route path="blogs" element={<Blogs />} />
         <Route
           path="activation"
           element={
