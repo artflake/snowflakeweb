@@ -26,7 +26,6 @@ import Faq from "./pages/faq";
 import Terms from "pages/terms";
 import NotFound from "pages/notfound";
 import Activation from "pages/activation";
-import Blogs from "pages/blogs";
 
 //Web3
 import { useWeb3 } from "./web3/useWeb3";
@@ -85,7 +84,6 @@ function App() {
         <Route path="user/:id" element={<Art />} />
         <Route path="faq" element={<Faq />} />
         <Route path="terms" element={<Terms />} />
-        <Route path="blogs" element={<Blogs />} />
         <Route
           path="activation"
           element={

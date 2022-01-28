@@ -30,11 +30,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/blogs">
-                  Blog
-                </Link>
-              </li>
-              <li>
                 <Link to="/terms">
                   Terms & Conditons
                 </Link>

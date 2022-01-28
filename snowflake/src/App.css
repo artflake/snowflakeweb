@@ -36,3 +36,16 @@
 .notification .title {
   margin: 0px;
 }
+
+.card-body.auto-height {
+  max-height: 100%;
+}
+
+.link {
+  color: #51bcda !important;
+  font-weight: 900;
+}
+
+.card-row2.description .name {
+  color: #707a83;
+}

@@ -10,3 +10,11 @@ export function getToken() {
 export function removeToken() {
     return window.localStorage.clear();
 }
+
+export function textTrim(str: string = '', length: number = 100): string {
+    if(!str) {
+        return '';
+    }
+
+    return str.substr(0, length) + '...';
+}
