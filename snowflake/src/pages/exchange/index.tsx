@@ -1,14 +1,21 @@
 import "./polyfills";
 import "@reach/dialog/styles.css";
 import "inter-ui";
+import * as Interface from "@uniswap/interface";
 
 import React from "react";
 
-// import { Providers, App, serviceWorkerRegistration } from "@uniswap/interface";
+// const Interface = require("@uniswap/interface");
+// import Interface, {
+//   Providers,
+//   App,
+//   serviceWorkerRegistration,
+// } from "@uniswap/interface";
 
-if (!!window.ethereum) {
-  window.ethereum.autoRefreshOnNetworkChange = false;
-}
+console.log("Interface", Interface);
+// if (!!window.ethereum) {
+//   window.ethereum.autoRefreshOnNetworkChange = false;
+// }
 export default function Exchange() {
   return (
     // <Providers>

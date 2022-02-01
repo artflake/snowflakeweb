@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@lingui/cli": "3.9.0",
+    "@lingui/macro": "3.9.0",
+    "@lingui/react": "3.9.0",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
@@ -11,7 +14,7 @@
     "@types/node": "^16.11.12",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
-    "@uniswap/interface": "artflake/interface#snowflake-modules",
+    "@uniswap/interface": "artflake/interface#snowflake-modules2",
     "bnc-onboard": "^1.35.4",
     "classnames": "^2.3.1",
     "ethers": "^5.5.2",
@@ -25,6 +28,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "redux": "^4.1.2",
+    "styled-components": "5.3.0",
     "typescript": "4.4.2",
     "web-vitals": "^1.1.2"
   },
@@ -52,5 +56,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "@svgr/babel-preset": "^6.2.0"
+  }
 }
