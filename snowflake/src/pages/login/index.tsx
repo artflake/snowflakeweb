@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "redux/hooks";
+import { useDispatch, useSelector } from "redux/hooks";
 import classnames from "classnames";
 import { unwrapResult } from "@reduxjs/toolkit";
-import {NotificationManager} from 'react-notifications';
+import { NotificationManager } from "react-notifications";
 
 import { SITE_NAME } from "../../utils/constants";
 import { loginRequest } from "../../redux/reducers/authSlice";
@@ -20,6 +20,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location: any = useLocation();
+  const onboard = useSelector((state) => state.web3.onboard);
 
   const [state, setState] = useState<State>({
     email: "",
@@ -29,9 +30,9 @@ export default function Login() {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if(location && location.state && location.state.message) {
-      NotificationManager.success(location.state.message, 'Success', 3000);
-      navigate('/login', {state: {}});
+    if (location && location.state && location.state.message) {
+      NotificationManager.success(location.state.message, "Success", 3000);
+      navigate("/login", { state: {} });
     }
   }, [location, navigate]);
 
@@ -40,6 +41,19 @@ export default function Login() {
       ...state,
       [name]: e.target.value,
     });
+  };
+
+  const selectWallet = async (e) => {
+    e.preventDefault();
+
+    try {
+      const selected = await onboard?.walletSelect();
+      if (selected) {
+        await onboard?.walletCheck();
+      }
+    } catch {
+      console.log("unable to connect to web3");
+    }
   };
 
   const isValid = (): boolean => {
@@ -58,17 +72,19 @@ export default function Login() {
 
     if (isValid()) {
       setLoading(true);
-      dispatch(loginRequest({
-        email: state.email,
-        password: state.password
-      }))
+      dispatch(
+        loginRequest({
+          email: state.email,
+          password: state.password,
+        })
+      )
         .then(unwrapResult)
         .then((res) => {
           setToken(res.data.data);
           navigate("/wallet");
         })
         .catch((err) => {
-          NotificationManager.error(err.message, 'Error!', 3000);
+          NotificationManager.error(err.message, "Error!", 3000);
           setLoading(false);
         });
     }
@@ -125,6 +141,14 @@ export default function Login() {
                     className="btn btn-danger btn-block btn-round"
                   >
                     {loading ? "Loading..." : "Login"}
+                  </button>
+                  <div className="text-center my-3">Or</div>
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-block btn-round"
+                    onClick={selectWallet}
+                  >
+                    Login with metamask
                   </button>
                 </form>
                 <div className="forgot">

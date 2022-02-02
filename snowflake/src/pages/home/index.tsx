@@ -1,23 +1,31 @@
-import React from "react";
-import "./Home.css";
-/* <a 
-                href=""
-                className="btn btn-neutral btn-round"
-              >
-                <i className="fa fa-play"></i>Watch video
-              </a> */
-export default function Home() {
-  const handleClick = (name) => {
-    const element = document.getElementById(`${name}`);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    }
-  };
+import React, { useState, useEffect } from "react";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
+import "./Home.css";
+import Art from "components/Art";
+
+interface State {
+  artList: any[];
+}
+
+export default function Home() {
+  const [state, setState] = useState<State>({
+    artList: [],
+  });
+
+  useEffect(() => {
+    fetch("/assets/data/featured.json")
+      .then((res) => res.json())
+      .then((response) => {
+        setState({
+          artList: [...response, ...response],
+        });
+      });
+  }, []);
+
+  const { artList } = state;
   return (
     <>
       <div className="page-header" data-parallax="true">
@@ -39,95 +47,58 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <ul className="bottom-links">
-          <h3
-            className="scroll-link"
-            id="core-trigger"
-            onClick={() => handleClick("core")}
-          >
-            The Core
-          </h3>
-          <h3
-            className="scroll-link"
-            id="team-trigger"
-            onClick={() => handleClick("team")}
-          >
-            The Team
-          </h3>
-        </ul>
       </div>
       <div className="wrapper">
         <div className="section text-center landing-section" id="core">
-          <div className="">
-            <div className="row">
-              <div className="col-md-8 ml-auto mr-auto">
-                <h2 id="core" className="title">
-                  The Core
-                </h2>
-                <br />
-              </div>
+          <div className="related-articles">
+            <h3 className="title">Featured arts</h3>
+            <legend></legend>
+            <div className="container">
+              {artList.length && (
+                <OwlCarousel items={3} margin={8} autoplay={true}>
+                  {artList.map(({ properties }, i) => (
+                    <Art
+                      key={i}
+                      image={properties.image.description}
+                      profileTitle={properties.profileTitle.description}
+                      name={properties.name.description}
+                      user={properties.user.description}
+                      description={properties.description.description}
+                      profileImage={properties.profileImage.description}
+                      featured
+                    />
+                  ))}
+                </OwlCarousel>
+              )}
             </div>
-
-            <div className="row icon-section">
-              <div className="col-md-3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <svg id="icon-leaf" viewBox="0 0 32 32" className="icomoon">
-                      {" "}
-                      <path d="M31.604 4.203c-3.461-2.623-8.787-4.189-14.247-4.189-6.754 0-12.257 2.358-15.099 6.469-1.335 1.931-2.073 4.217-2.194 6.796-0.108 2.296 0.278 4.835 1.146 7.567 2.965-8.887 11.244-15.847 20.79-15.847 0 0-8.932 2.351-14.548 9.631-0.003 0.004-0.078 0.097-0.207 0.272-1.128 1.509-2.111 3.224-2.846 5.166-1.246 2.963-2.4 7.030-2.4 11.931h4c0 0-0.607-3.819 0.449-8.212 1.747 0.236 3.308 0.353 4.714 0.353 3.677 0 6.293-0.796 8.231-2.504 1.736-1.531 2.694-3.587 3.707-5.764 1.548-3.325 3.302-7.094 8.395-10.005 0.292-0.167 0.48-0.468 0.502-0.804s-0.126-0.659-0.394-0.862z"></path>
-                    </svg>
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">Environment</h4>
+          </div>
+        </div>
+        {/* <div className="section landing-section">
+          <div className="container text-center">
+            <div className="row">
+              <div className="col-md-12">
+                <h3 className="title">The Art Flake DAO</h3>
+                <div className="row">
+                  <div className="col-md-6">
+                    <h4 className="mb-3">Tech One Liner:</h4>
                     <p>
-                      A commitment to the sustainable production of healthy
-                      proteins.
+                      The only real NFT coin, where every coin, is a unique
+                      piece of art.
                     </p>
                   </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <svg id="icon-lab" className="icomoon" viewBox="0 0 32 32">
-                      <path d="M29.884 25.14l-9.884-16.47v-6.671h1c0.55 0 1-0.45 1-1s-0.45-1-1-1h-10c-0.55 0-1 0.45-1 1s0.45 1 1 1h1v6.671l-9.884 16.47c-2.264 3.773-0.516 6.86 3.884 6.86h20c4.4 0 6.148-3.087 3.884-6.86zM7.532 20l6.468-10.779v-7.221h4v7.221l6.468 10.779h-16.935z"></path>
-                    </svg>
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">Biology</h4>
+                  <div className="col-md-6">
+                    <h4 className="mb-3">Crypto One Liner:</h4>
                     <p>
-                      Advanced bioreactors for the creation of food, medicine
-                      and materials - all derived from sugar.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <svg
-                      stroke="currentColor"
-                      strokeWidth="12"
-                      className="icomoon"
-                      id="circuit-brain"
-                      viewBox="0 -5 502 520"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="m485.698 303.655c0-29.417-14.255-56.128-37.938-72.41 28.932-35.361 18.765-90.896-20.431-114.003 9.025-42.397-30.592-81.667-72.898-72.328-8.57-47.604-71.049-61.337-98.732-21.785-27.702-39.572-90.176-25.79-98.732 21.785-42.312-9.34-81.923 29.936-72.898 72.327-3.275 1.99-6.407 4.227-9.363 6.69-4.243 3.535-4.817 9.841-1.281 14.084 3.535 4.243 9.841 4.816 14.084 1.281 3.268-2.723 6.821-5.071 10.586-6.997h23.417l12.132 21.013c-16.565 19.067-2.699 49.586 22.795 49.482 13.037 0 24.158-8.359 28.286-20h60.975v141.727h-30.603l-12.133-21.014c18.21-21.329-.478-54.024-28.278-48.98l-15.01-25.998c-1.786-3.094-5.087-5-8.66-5h-67.53c-3.938-3.968-7.259-8.463-9.895-13.406-2.598-4.872-8.655-6.718-13.529-4.117-4.873 2.599-6.716 8.656-4.117 13.529 2.212 4.148 4.78 8.062 7.683 11.715-54.445 36.5-48.865 121.639 9.94 150.744-1.752 20.496 4.92 41.147 18.33 56.718 10.396 12.109 24.264 20.681 39.575 24.571 17.228 56.541 94.027 65.737 124.225 15.605 30.218 50.157 107.014 40.906 124.225-15.605 15.312-3.891 29.18-12.462 39.575-24.571 13.41-15.57 20.083-36.222 18.33-56.718 29.322-14.969 47.87-44.928 47.87-78.339zm-57.79-80.125h-37.525c-3.573 0-6.874 1.906-8.66 5l-15.01 25.998c-14.474-2.867-29.233 6.096-33.77 19.498h-67.245v-30.016h25.809c3.573 0 6.874-1.906 8.66-5l17.671-30.607c1.787-3.094 1.787-6.906 0-10l-17.671-30.607c-1.786-3.094-5.087-5-8.66-5h-25.809v-79.286h25.726l12.132 21.013c-18.209 21.328.479 54.022 28.278 48.979l15.011 25.999c1.786 3.094 5.087 5 8.66 5h88.979c-.32 14.661-6.283 28.642-16.576 39.029zm-56.678 60.495c0 5.514-4.486 10-10 10-13.266-.549-13.262-19.453 0-20 5.514 0 10 4.486 10 10zm-105.532-101.229h20.036l11.897 20.607-11.897 20.607h-20.036zm60.654-48.791c-5.514 0-10-4.486-10-10 .55-13.266 19.452-13.263 20 0-.001 5.514-4.487 10-10 10zm-25.854-114.149c19.188 0 34.8 15.611 34.8 34.8v3.728c0 3.41 1.738 6.586 4.611 8.424 2.872 1.838 6.483 2.084 9.58.655 33.077-15.323 68.785 17.153 56.685 51.535-1.697 4.852.56 10.2 5.22 12.368 14.229 6.621 24.895 18.754 29.917 33.136h-80.032l-12.132-21.013c18.209-21.329-.479-54.024-28.278-48.98l-15.01-25.998c-1.786-3.094-5.087-5-8.66-5h-31.5v-8.854c-.001-19.19 15.61-34.801 34.799-34.801zm-197.005 92.443c-5.862-32.603 28.476-58.935 58.415-44.837 3.096 1.431 6.708 1.182 9.58-.655 2.873-1.838 4.611-5.014 4.611-8.424v-3.728c1.917-46.178 67.7-46.142 69.6 0v36.02h-15.475c-11.59-31.316-57.648-23.816-58.286 10 .641 33.821 46.702 41.311 58.286 10h15.475v52.12h-60.975c-4.535-13.401-19.297-22.365-33.769-19.497l-15.011-25.999c-1.786-3.094-5.087-5-8.66-5zm108.444-11.624c0 5.514-4.486 10-10 10-13.266-.549-13.262-19.453 0-20 5.514 0 10 4.487 10 10zm-55.5 82.121c-5.514 0-10-4.486-10-10 .549-13.266 19.453-13.262 20 0 0 5.513-4.486 10-10 10zm33.731 101.229c0 5.514-4.486 10-10 10-13.266-.549-13.262-19.453 0-20 5.514 0 10 4.486 10 10zm6.93 207.83c-23.105 0-43.148-16.416-47.658-39.033-.816-4.091-4.085-7.246-8.202-7.915-28.62-4.576-49.19-29.935-47.886-58.924h66.833l12.133 21.014c-4.49 5.245-7.205 12.053-7.205 19.482 1.647 39.796 58.357 39.79 60 0 .196-18.521-17.338-33.047-35.483-29.497l-15.011-25.999c-1.786-3.094-5.087-5-8.66-5h-79.486c-21.745-9.492-36.672-29.275-40.048-52.328h20.989c11.59 31.316 57.648 23.816 58.286-10-.641-33.821-46.702-41.311-58.286-10h-20.994c3.106-21.336 16.073-39.865 35.487-50.125h63.333l12.132 21.013c-18.208 21.328.479 54.021 28.277 48.979l15.011 26c1.786 3.094 5.087 5 8.66 5h36.376v98.733c.002 26.798-21.8 48.6-48.598 48.6zm-1.985-75.376c5.514 0 10 4.486 10 10-.549 13.266-19.453 13.262-20 0 0-5.514 4.486-10 10-10zm-109.413-112.824c0-5.514 4.486-10 10-10 13.266.549 13.262 19.453 0 20-5.514 0-10-4.486-10-10zm228.598 188.2c-26.798 0-48.6-21.802-48.6-48.6v-68.746h23.069c5.369 16.244 25.513 24.967 41.213 17.069l31.782 31.782v30.379c-4.862 22.143-24.673 38.116-47.464 38.116zm2.755-117.346c-5.514 0-10-4.486-10-10.001.549-13.265 19.453-13.261 20 0 0 5.515-4.485 10.001-10 10.001zm64.709 67.249v-22.54c0-2.652-1.054-5.195-2.929-7.071l-34.711-34.711c9.622-19.409-5.313-43.21-27.07-42.927-13.037 0-24.159 8.359-28.286 20h-23.069v-60.483h67.246c4.128 11.64 15.249 19.999 28.286 19.999 25.498.104 39.357-30.425 22.795-49.483l12.132-21.013h33.332c26.84 13.806 41.249 45.134 34.672 74.607h-68.918c-5.523 0-10 4.478-10 10v29.547c0 3.572 1.906 6.874 5 8.66l27.516 15.886c2.967 25.856-12.429 50.612-35.996 59.529zm45.77-76.979-22.288-12.868v-13.773h51.133c-6.648 11.329-16.57 20.665-28.845 26.641z"></path>
-                      <path d="m58.143 180.317c13.268-.528 13.258-19.476 0-20h-.007c-13.268.53-13.25 19.478.007 20z"></path>
-                    </svg>
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">AI</h4>
-                    <p>
-                      Machine Learning to automate our farms and guide evolution
+                      An asset that is compatible with both ERC20 and ERC721
+                      ecosystems, it is both a coin and an NFT - backed by a
+                      single ledger.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div
           className="section section-dark text-center landing-section"
@@ -203,7 +174,7 @@ export default function Home() {
           </div>
         </div>
         <div className="section landing-section section-dark text-center">
-          <h1 className="mb-5 contact pl-2 pr-2">contact@flakeart.com</h1>
+          <h1 className="mb-5 contact pl-2 pr-2">contact@flake.art</h1>
         </div>
       </div>
     </>

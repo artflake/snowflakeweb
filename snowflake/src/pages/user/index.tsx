@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
+
+import Art from "../../components/Art";
 
 interface Profile {
   description: string;
@@ -130,72 +131,28 @@ export default function User() {
           </div>
           <div className="row">
             {artList.map(({ properties }, i) => (
-              <div key={i} className="col-md-4">
-                <div className="card card-blog">
-                  <div className="card-image">
-                    <Link to="/user/1/">
-                      <img
-                        className="img img-raised"
-                        src={properties.image.description}
-                        alt="art"
-                      />
-                    </Link>
-                  </div>
-                  <div className="card-body">
-                    <div className="card-row">
-                      <span className="user">
-                        {properties.profileTitle.description}
-                      </span>
-                      <span className="price-title">Price</span>
-                    </div>
-                    <div className="card-row">
-                      <span className="name">
-                        {properties.name.description}
-                      </span>
-                      <span className="price d-flex justify-content-center align-items-center">
-                        <img
-                          className="icon mr-1"
-                          src="/assets/img/ethereum.svg"
-                          alt="price"
-                        />
-                        {properties.price.description}
-                      </span>
-                    </div>
-                    <div className="card-row-right">
-                      <span className="last">Last</span>
-                      <span className="price-small d-flex justify-content-center align-items-center">
-                        <img
-                          className="icon"
-                          src="/assets/img/ethereum.svg"
-                          alt="last-price"
-                        />
-                        {properties.lastPrice.description}
-                      </span>
-                    </div>
-                    <hr />
-                    <div className="card-footer">
-                      <div className="author">
-                        <a href="#pablo"> Buy </a>
-                      </div>
-                      <div className="stats">
-                        <i className="fa fa-heart-o" aria-hidden="true"></i>{" "}
-                        {properties.favorite.description}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Art
+                key={i}
+                image={properties.image.description}
+                profileTitle={properties.profileTitle.description}
+                name={properties.name.description}
+                price={properties.price.description}
+                lastPrice={properties.lastPrice.description}
+                favorite={properties.favorite.description}
+              />
             ))}
           </div>
           <div className="row mt-5 mb-5">
             <div className="col-md-12 text-center">
-              {artList.length<total?<button
-                className="btn btn-primary"
-                id="loadMoreBtn"
-                onClick={loadMore}
-              >
-                Load More
-              </button>:null}
+              {artList.length < total ? (
+                <button
+                  className="btn btn-primary"
+                  id="loadMoreBtn"
+                  onClick={loadMore}
+                >
+                  Load More
+                </button>
+              ) : null}
             </div>
           </div>
         </div>

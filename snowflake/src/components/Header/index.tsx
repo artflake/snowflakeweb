@@ -8,7 +8,6 @@ import { logout } from "../../redux/reducers/authSlice";
 import { removeToken } from "../../utils";
 
 export default function Header() {
-  const onboard = useSelector((state) => state.web3.onboard);
   const isloggedIn = useSelector(({ login }) => login.loggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,9 +16,8 @@ export default function Header() {
   const [nav, setNav] = useState("navbar-transparent");
 
   useEffect(() => {
-    console.log(location.pathname);
     if (
-      ["/wallet", "/contact", "/profile", "/user/"].includes(
+      ["/wallet", "/contact", "/profile", "/user/", "/blogs"].includes(
         location.pathname
       ) || location.pathname.includes("/user/")
     ) {
@@ -28,20 +26,6 @@ export default function Header() {
       setNav("navbar-transparent");
     }
   }, [location]);
-
-  const selectWallet = async (e) => {
-    e.preventDefault();
-
-    try {
-      const selected = await onboard?.walletSelect();
-      console.log("selected", selected);
-      if (selected) {
-        await onboard?.walletCheck();
-      }
-    } catch {
-      console.log("unable to connect to web3");
-    }
-  };
 
   const logOut = (e) => {
     e.preventDefault();
@@ -107,14 +91,12 @@ export default function Header() {
             {!isloggedIn ? (
               <>
                 <li className="nav-item">
-                  <a
-                    onClick={selectWallet}
-                    type="button"
+                  <Link
                     className="nav-link"
-                    href="/"
+                    to="/login"
                   >
                     Login
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/signup">
