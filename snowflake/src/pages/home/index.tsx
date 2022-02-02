@@ -1,4 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import "./Home.css";
 import Art from "components/Art";
@@ -17,7 +20,7 @@ export default function Home() {
       .then((res) => res.json())
       .then((response) => {
         setState({
-          artList: response,
+          artList: [...response, ...response],
         });
       });
   }, []);
@@ -51,23 +54,51 @@ export default function Home() {
             <h3 className="title">Featured arts</h3>
             <legend></legend>
             <div className="container">
-              <div className="row">
-                {artList.map(({ properties }, i) => (
-                  <Art
-                    key={i}
-                    image={properties.image.description}
-                    profileTitle={properties.profileTitle.description}
-                    name={properties.name.description}
-                    user={properties.user.description}
-                    description={properties.description.description}
-                    profileImage={properties.profileImage.description}
-                    featured
-                  />
-                ))}
-              </div>
+              {artList.length && (
+                <OwlCarousel items={3} margin={8} autoplay={true}>
+                  {artList.map(({ properties }, i) => (
+                    <Art
+                      key={i}
+                      image={properties.image.description}
+                      profileTitle={properties.profileTitle.description}
+                      name={properties.name.description}
+                      user={properties.user.description}
+                      description={properties.description.description}
+                      profileImage={properties.profileImage.description}
+                      featured
+                    />
+                  ))}
+                </OwlCarousel>
+              )}
             </div>
           </div>
         </div>
+        {/* <div className="section landing-section">
+          <div className="container text-center">
+            <div className="row">
+              <div className="col-md-12">
+                <h3 className="title">The Art Flake DAO</h3>
+                <div className="row">
+                  <div className="col-md-6">
+                    <h4 className="mb-3">Tech One Liner:</h4>
+                    <p>
+                      The only real NFT coin, where every coin, is a unique
+                      piece of art.
+                    </p>
+                  </div>
+                  <div className="col-md-6">
+                    <h4 className="mb-3">Crypto One Liner:</h4>
+                    <p>
+                      An asset that is compatible with both ERC20 and ERC721
+                      ecosystems, it is both a coin and an NFT - backed by a
+                      single ledger.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
 
         <div
           className="section section-dark text-center landing-section"

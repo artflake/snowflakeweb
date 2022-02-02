@@ -29,8 +29,7 @@ export default function Art({
   featured,
 }: IProps) {
   return (
-    <div className="col-md-4">
-      <div className="card card-blog">
+      <div className={`card card-blog ${featured? 'no-animation': ''}`}>
         <div className="card-image">
           <Link to="/user/1/">
             <img className="img img-raised" src={image} alt="art" />
@@ -101,6 +100,5 @@ export default function Art({
           )}
         </div>
       </div>
-    </div>
   );
 }

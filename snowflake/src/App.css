@@ -49,3 +49,24 @@
 .card-row2.description .name {
   color: #707a83;
 }
+
+.no-animation.card:not(.card-plain):hover {
+  -webkit-transform: none;
+  transform: none;
+  box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+}
+
+.bbb_viewed_nav {
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: none;
+}
+
+.bbb_viewed_nav .fa {
+  font-size: 20px;
+}
+
+.flex-1 {
+  flex: 1;
+}

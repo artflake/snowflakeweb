@@ -3542,6 +3542,23 @@ pre.prettyprint {
   margin-top: -64px;
 }
 
+.image-container-small {
+  height: 65px;
+  width: 65px;
+  background-color: #e5e8eb;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+
+.image-button-container-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: -54px;
+}
+
 .profile img {
   object-fit: cover;
   height: 100%;
@@ -3649,7 +3666,7 @@ pre.prettyprint {
   font-size: 13px;
 }
 
-.card-row .name, .card-row .price {
+.card-row .name, .card-row .price, .card-row2 .name {
   color: #353840;
   font-weight: 600;
   font-size: 13px;
@@ -3804,4 +3821,10 @@ pre.prettyprint {
 
 .navbar .navbar-brand {
   font-size: 18px;
+}
+
+.card-row2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
