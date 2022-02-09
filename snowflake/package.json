@@ -53,5 +53,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "@types/bootstrap": "^5.1.9",
+    "@types/jquery": "^3.5.13"
+  }
 }

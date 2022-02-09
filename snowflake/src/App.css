@@ -70,3 +70,36 @@
 .flex-1 {
   flex: 1;
 }
+
+.tabs .tab {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 0px;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.tabs .tab2 {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 15px;
+  padding: 5px 10px;
+}
+
+.tabs .tab.active {
+  padding-right: 0;
+  border-bottom: 3px solid #66615b;
+}
+
+.tabs .tab2.active {
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.profile-image-table {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}

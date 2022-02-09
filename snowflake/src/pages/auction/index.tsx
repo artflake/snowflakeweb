@@ -1,971 +1,247 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import "./Auction.css";
 
+const profiles = [
+  {
+    rank: 1,
+    image:
+      "https://f8n-production.imgix.net/creators/profile/uysnl09wx-azerty-png-q823jc.png?q=45&w=50&h=50&auto=format%2Ccompress&fit=crop&dpr=2",
+    name: "Missing Watcher",
+    username: "@missingwatcher",
+    uniqueCollectors: 1,
+    nftSold: 1,
+    primarySales: {
+      etherium: 14.52,
+      price: 45285.85,
+    },
+    secondarySales: {
+      etherium: 0,
+      price: 0.0,
+    },
+  },
+  {
+    rank: 2,
+    image:
+      "https://f8n-production.imgix.net/creators/profile/twsx9352x-avata-png-sko4ok.png?q=45&w=50&h=50&auto=format%2Ccompress&fit=crop&dpr=2",
+    name: "Missing Watcher",
+    username: "@missingwatcher",
+    uniqueCollectors: 1,
+    nftSold: 1,
+    primarySales: {
+      etherium: 14.52,
+      price: 45285.85,
+    },
+    secondarySales: {
+      etherium: 0,
+      price: 0.0,
+    },
+  },
+  {
+    rank: 3,
+    image:
+      "https://f8n-production.imgix.net/creators/profile/k3e4u0maj-dsc02476-jpg-y28ca6.jpg?q=45&w=50&h=50&auto=format%2Ccompress&fit=crop&dpr=2",
+    name: "Missing Watcher",
+    username: "@missingwatcher",
+    uniqueCollectors: 1,
+    nftSold: 1,
+    primarySales: {
+      etherium: 14.52,
+      price: 45285.85,
+    },
+    secondarySales: {
+      etherium: 0,
+      price: 0.0,
+    },
+  },
+  {
+    rank: 4,
+    image:
+      "https://f8n-production.imgix.net/creators/profile/k90m5l32t-tttt-jpg-j3l3q6.jpg?q=45&w=50&h=50&auto=format%2Ccompress&fit=crop&dpr=2",
+    name: "Missing Watcher",
+    username: "@missingwatcher",
+    uniqueCollectors: 1,
+    nftSold: 1,
+    primarySales: {
+      etherium: 14.52,
+      price: 45285.85,
+    },
+    secondarySales: {
+      etherium: 0,
+      price: 0.0,
+    },
+  },
+  {
+    rank: 5,
+    image:
+      "https://f8n-production.imgix.net/creators/profile/w0fmvmhpq-pfp-nips-jpg-j29s0z.jpg?q=45&w=50&h=50&auto=format%2Ccompress&fit=crop&dpr=2",
+    name: "Missing Watcher",
+    username: "@missingwatcher",
+    uniqueCollectors: 1,
+    nftSold: 1,
+    primarySales: {
+      etherium: 14.52,
+      price: 45285.85,
+    },
+    secondarySales: {
+      etherium: 0,
+      price: 0.0,
+    },
+  },
+];
 export default function Auction() {
+  const [active, setActive] = useState("Creators");
+  const [activeDay, setActiveDay] = useState(null);
+
   useEffect(() => {
-    if(!window.pk) {
+    if (!window.pk) {
       window.pk.initSliders();
     }
   });
 
+  const changeTab = (active) => {
+    setActive(active);
+  };
+
+  const changeDaysTab = (activeDay) => {
+    setActiveDay(activeDay);
+  };
+
   return (
-    <>
-      <div
-        className="page-header"
-        style={{
-          backgroundImage: "url(../assets/img/ecommerce/balmain_runway.jpg)",
-        }}
-      >
-        <div className="filter"></div>
-        <div className="content-center">
-          <div className="container text-center">
-            <h1>Brace yourself!</h1>
-            <h3>25% Off and Free global delivery for all products</h3>
-          </div>
-        </div>
-      </div>
-      <div className="wrapper">
-        <div className="section latest-offers">
-          <div className="container">
-            <h3 className="section-title">Latest Offers</h3>
-            <div className="row">
-              <div className="col-md-4">
-                <div className="card card-product card-plain">
-                  <div className="card-image">
-                    <a href="#paper-kit">
-                      <img
-                        src="../assets/img/ecommerce/balmain_5.jpg"
-                        alt=""
-                        className="img-rounded img-responsive"
-                      />
-                    </a>
-                    <div className="card-body">
-                      <div className="card-description">
-                        <h5 className="card-title">Green Velvet Dress</h5>
-                        <p className="card-description">
-                          This is a limited edition dress for the fall
-                          collection. Comes in 3 colours.
-                        </p>
-                      </div>
-                      <div className="price">
-                        <s>3.520 &euro;</s>{" "}
-                        <span className="text-danger">2.900 &euro;</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-product card-plain">
-                  <div className="card-image">
-                    <a href="#paper-kit">
-                      <img
-                        src="../assets/img/ecommerce/balmain_3.jpg"
-                        alt=""
-                        className="img-rounded img-responsive"
-                      />
-                    </a>
-                    <div className="card-body">
-                      <div className="card-description">
-                        <h5 className="card-title">Crepe and Organza Dress</h5>
-                        <p className="card-description">
-                          This is a limited edition dress for the fall
-                          collection. Comes in 3 colours.
-                        </p>
-                      </div>
-                      <div className="price">
-                        <s>2.675 &euro;</s>{" "}
-                        <span className="text-danger">2.000 &euro;</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-product card-plain">
-                  <div className="card-image">
-                    <a href="#paper-kit">
-                      <img
-                        src="../assets/img/ecommerce/balmain_4.jpg"
-                        alt=""
-                        className="img-rounded img-responsive"
-                      />
-                    </a>
-                    <div className="card-body">
-                      <div className="card-description">
-                        <h5 className="card-title">Lace Mini Dress</h5>
-                        <p className="card-description">
-                          This is a limited edition dress for the fall
-                          collection. Comes in 3 colours.
-                        </p>
-                      </div>
-                      <div className="price">
-                        <s>3.915 &euro;</s>{" "}
-                        <span className="text-danger">3.125 &euro;</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="section section-gray">
-          <div className="container">
-            <h3 className="section-title">Find what you need</h3>
-            <div className="row">
-              <div className="col-md-3">
-                <div className="card card-refine">
-                  <div
-                    className="panel-group"
-                    id="accordion"
-                    aria-multiselectable="true"
-                    aria-expanded="true"
-                  >
-                    <div
-                      className="card-header card-collapse"
-                      role="tab"
-                      id="priceRanger"
-                    >
-                      <h5 className="mb-0 panel-title">
-                        <a
-                          className=""
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#priceRange"
-                          aria-expanded="true"
-                          aria-controls="collapseOne"
-                        >
-                          Price Range
-                          <i className="nc-icon nc-minimal-down"></i>
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="priceRange"
-                      className="collapse show"
-                      role="tabpanel"
-                      aria-labelledby="headingOne"
-                    >
-                      <div className="card-body">
-                        <div
-                          id="sliderDouble"
-                          className="slider slider-info noUi-target noUi-ltr noUi-horizontal noUi-background"
-                        ></div>
-                      </div>
-                    </div>
-                    <div
-                      className="card-header card-collapse"
-                      role="tab"
-                      id="clothingGear"
-                    >
-                      <h5 className="mb-0 panel-title">
-                        <a
-                          className=""
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#clothing"
-                          aria-expanded="true"
-                          aria-controls="collapseSecond"
-                        >
-                          Clothing
-                          <i className="nc-icon nc-minimal-down"></i>
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="clothing"
-                      className="collapse"
-                      role="tabpanel"
-                      aria-labelledby="headingOne"
-                    >
-                      <div className="card-body">
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                              checked
-                            />
-                            Blazers
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Casual Shirts
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Formal Shirts
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Jeans
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Polos
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Pyjamas
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Shorts
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Trousers
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="card-header card-collapse"
-                      role="tab"
-                      id="designer"
-                    >
-                      <h5 className="mb-0 panel-title">
-                        <a
-                          className=""
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#refineDesigner"
-                          aria-expanded="true"
-                          aria-controls="collapseThree"
-                        >
-                          Designer
-                          <i className="nc-icon nc-minimal-down"></i>
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="refineDesigner"
-                      className="collapse"
-                      role="tabpanel"
-                      aria-labelledby="headingOne"
-                    >
-                      <div className="card-body">
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                              onChange={() => {}}
-                            />
-                            All
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            Acne Studio
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Alex Mill
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Alexander McQueen
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Alfred Dunhill
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            AMI
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Berena
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Berluti
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Burberry Prorsum
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Berluti
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Calvin Klein
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Club Monaco
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Dolce & Gabbana
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Gucci
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Kolor
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Lanvin
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Loro Piana
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Massimo Alba
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="card-header card-collapse"
-                      role="tab"
-                      id="color"
-                    >
-                      <h5 className="mb-0 panel-title">
-                        <a
-                          className=""
-                          data-toggle="collapse"
-                          data-parent="#accordion"
-                          href="#colorMaker"
-                          aria-expanded="true"
-                          aria-controls="collapseTree"
-                        >
-                          Colour
-                          <i className="nc-icon nc-minimal-down"></i>
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="colorMaker"
-                      className="collapse"
-                      role="tabpanel"
-                      aria-labelledby="headingOne"
-                    >
-                      <div className="card-body">
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                              onChange={() => {}}
-                            />
-                            All
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Blue
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Brown
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Gray
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Green
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Neutrals
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                        <div className="form-check">
-                          <label className="form-check-label">
-                            <input
-                              className="form-check-input"
-                              type="checkbox"
-                              value=""
-                              onChange={() => {}}
-                            />
-                            Purple
-                            <span className="form-check-sign"></span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-9">
-                <div className="products">
-                  <div className="row">
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_1.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">One Shoulder Dress</h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>2.900 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_2.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">Stretch-Knit Dress</h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>1.700 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_2.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">
-                                Chrystal Sheer Dress
-                              </h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>1.500 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_2.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">One Shoulder Dress</h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>2.600 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_8.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">Glass Beads Skirt</h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>7.500 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-sm-4">
-                      <div className="card card-product card-plain">
-                        <div className="card-image">
-                          <a href="#paper-kit">
-                            <img
-                              src="../assets/img/ecommerce/balmain_8.jpg"
-                              alt=""
-                              className="img-rounded img-responsive"
-                            />
-                          </a>
-                          <div className="card-body">
-                            <div className="card-description">
-                              <h5 className="card-title">Velvet Mini Dress</h5>
-                              <p className="card-description">
-                                Dresses & Skirts
-                              </p>
-                            </div>
-                            <div className="price">
-                              <h5>3.500 &euro;</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-3 offset-md-4">
-                      <button
-                        //@ts-ignore
-                        rel="tooltip"
-                        title="This is a morphing button"
-                        className="btn btn-round btn-outline-default"
-                        id="successBtn"
-                        data-toggle="morphing"
-                        data-rotation-color="gray"
-                      >
-                        Load more...
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="section section-blog">
+    <div className="wrapper padding-top auction">
+      <div className="main">
+        <div className="section section-white">
           <div className="container">
             <div className="row">
-              <div className="col-md-4">
-                <div className="card card-blog">
-                  <div className="card-image">
-                    <a href="#pablo">
-                      <img
-                        className="img img-raised"
-                        src="../assets/img/sections/miguel-perales.jpg"
-                        alt=""
-                      />
-                    </a>
+              <div className="col-md-12">
+                <h1><strong>Trending Creators</strong></h1>
+              </div>
+              <div className="col-md-12 mt-5">
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="tabs">
+                    <strong
+                      className={`tab ${active === "Creators" ? "active" : ""}`}
+                      onClick={() => changeTab("Creators")}
+                    >
+                      Creators
+                    </strong>
+                    <strong
+                      className={`tab ${
+                        active === "Collectors" ? "active" : ""
+                      }`}
+                      onClick={() => changeTab("Collectors")}
+                    >
+                      Collectors
+                    </strong>
+                    <strong
+                      className={`tab ${
+                        active === "Collections" ? "active" : ""
+                      }`}
+                      onClick={() => changeTab("Collections")}
+                    >
+                      Collections
+                    </strong>
                   </div>
-                  <div className="card-body">
-                    <h6 className="card-category text-info">Enterprise</h6>
-                    <h5 className="card-title">
-                      <a href="#pablo">LinkedIn’s new desktop app arrives</a>
-                    </h5>
-                    <p className="card-description">
-                      LinkedIn is today launching its official desktop
-                      application for Windows 10, allowing the professional
-                      social networking service to... <br />
-                    </p>
-                    <hr />
-                    <div className="card-footer">
-                      <div className="author">
-                        <a href="#pablo">
-                          <img
-                            src="../assets/img/faces/ayo-ogunseinde-2.jpg"
-                            alt=""
-                            className="avatar img-raised"
-                          />
-                          <span>Mike John</span>
-                        </a>
-                      </div>
-                      <div className="stats">
-                        <i className="fa fa-clock-o" aria-hidden="true"></i> 5
-                        min read
-                      </div>
-                    </div>
+                  <div className="tabs">
+                    <strong
+                      className={`tab2 ${activeDay === "1d" ? "active" : ""}`}
+                      onClick={() => changeDaysTab("1d")}
+                    >
+                      1d
+                    </strong>
+                    <strong
+                      className={`tab2 ${activeDay === "7d" ? "active" : ""}`}
+                      onClick={() => changeDaysTab("7d")}
+                    >
+                      7d
+                    </strong>
+                    <strong
+                      className={`tab2 ${activeDay === "30d" ? "active" : ""}`}
+                      onClick={() => changeDaysTab("30d")}
+                    >
+                      30d
+                    </strong>
+                    <strong
+                      className={`tab2 ${activeDay === "all" ? "active" : ""}`}
+                      onClick={() => changeDaysTab("all")}
+                    >
+                      All Time
+                    </strong>
                   </div>
                 </div>
               </div>
-              <div className="col-md-4">
-                <div className="card card-blog">
-                  <div className="card-image">
-                    <a href="#pablo">
-                      <img
-                        className="img img-raised"
-                        src="../assets/img/sections/roger-keller.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div className="card-body">
-                    <h6 className="card-category text-success">Startups</h6>
-                    <h5 className="card-title">
-                      <a href="#pablo">
-                        MIT’s Cheetah 3 robot is built to save lives
-                      </a>
-                    </h5>
-                    <p className="card-description">
-                      The latest version of MIT’s Cheetah robot made its stage
-                      debut today at TC Sessions: Robotics in Cambridge, Mass.
-                      It’s a familiar project... <br />
-                    </p>
-                    <hr />
-                    <div className="card-footer">
-                      <div className="author">
-                        <a href="#pablo">
-                          <img
-                            src="../assets/img/faces/kaci-baum-2.jpg"
-                            alt=""
-                            className="avatar img-raised"
-                          />
-                          <span>Nickie Kelly</span>
-                        </a>
-                      </div>
-                      <div className="stats">
-                        <i className="fa fa-clock-o" aria-hidden="true"></i> 5
-                        min read
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-blog">
-                  <div className="card-image">
-                    <a href="#pablo">
-                      <img
-                        className="img img-raised"
-                        src="../assets/img/sections/joshua-earlesz.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div className="card-body">
-                    <h6 className="card-category text-danger">
-                      <i
-                        className="fa fa-free-code-camp"
-                        aria-hidden="true"
-                      ></i>{" "}
-                      Enterprise
-                    </h6>
-                    <h5 className="card-title">
-                      <a href="#pablo">
-                        Lionel Richie says “Hello” to startup investors
-                      </a>
-                    </h5>
-                    <p className="card-description">
-                      Because developing a doctor-on-demand service that would
-                      allow personalized medical visits, booked through an app
-                      on a user’s phone is... <br />
-                    </p>
-                    <hr />
-                    <div className="card-footer">
-                      <div className="author">
-                        <a href="#pablo">
-                          <img
-                            src="../assets/img/faces/erik-lucatero-2.jpg"
-                            alt=""
-                            className="avatar img-raised"
-                          />
-                          <span>Mike John</span>
-                        </a>
-                      </div>
-                      <div className="stats">
-                        <i className="fa fa-clock-o" aria-hidden="true"></i> 5
-                        min read
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="subscribe-line subscribe-line-black">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-9 col-sm-8">
-                <form className="">
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      value=""
-                      onChange={() => {}}
-                      className="form-control"
-                      placeholder="Enter your email..."
-                    />
-                  </div>
-                </form>
-              </div>
-              <div className="col-md-3 col-sm-4">
-                <button
-                  type="button"
-                  className="btn btn-neutral btn-block btn-lg"
-                >
-                  Join Newsletter
-                </button>
+              <div className="col-md-12 mt-4">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th colSpan={2}></th>
+                      <th>Unique Collectors</th>
+                      <th>NFTs Sold</th>
+                      <th className="text-right">Primary Sales</th>
+                      <th className="text-right">Secondary Sales</th>
+                      <th className="text-right">Total Sales</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {profiles.map((profile, key) => (
+                      <TableRow key={key} {...profile} />
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
+const TableRow = (props) => (
+  <tr>
+    <td>
+      <span className="rank">#{props.rank}</span>
+    </td>
+    <td>
+      <img className="profile-image-table" alt="profile" src={props.image} />
+    </td>
+    <td>
+      <div className="d-flex flex-column">
+        <span className="name">{props.name}</span>
+        <span className="username">{props.username}</span>
+      </div>
+    </td>
+    <td>
+      <span className="table-text">{props.uniqueCollectors}</span>
+    </td>
+    <td>
+      <span className="table-text">{props.nftSold}</span>
+    </td>
+    <td className="text-right">
+      <div className="d-flex flex-column">
+        <span className="table-text">{props.primarySales.etherium} ETH</span>
+        <span className="table-subtext">
+          ${props.primarySales.price.toFixed(2)}
+        </span>
+      </div>
+    </td>
+    <td className="text-right">
+      <div className="d-flex flex-column">
+        <span className="table-text">{props.secondarySales.etherium} ETH</span>
+        <span className="table-subtext">
+          ${props.secondarySales.price.toFixed(2)}
+        </span>
+      </div>
+    </td>
+    <td className="text-right">
+      <div className="d-flex flex-column">
+        <span className="table-text">
+          {props.primarySales.etherium + props.secondarySales.etherium} ETH
+        </span>
+        <span className="table-subtext">
+          ${(props.primarySales.price + props.secondarySales.price).toFixed(2)}
+        </span>
+      </div>
+    </td>
+  </tr>
+);

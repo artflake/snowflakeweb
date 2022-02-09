@@ -17,7 +17,7 @@ export default function Header() {
 
   useEffect(() => {
     if (
-      ["/wallet", "/contact", "/profile", "/user/", "/blogs"].includes(
+      ["/wallet", "/contact", "/profile", "/user/", "/blogs", "/auction"].includes(
         location.pathname
       ) || location.pathname.includes("/user/")
     ) {
