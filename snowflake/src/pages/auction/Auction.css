@@ -1,0 +1,43 @@
+.auction .rank {
+    color: #666666;
+    font-size: 18px;
+    font-weight: 900;
+}
+.auction .name {
+    font-size: 20px;
+    font-weight: 900;
+}
+.auction .username {
+    color: #666666;
+    font-size: 16px;
+    font-weight: 700;
+}
+.auction .table-text {
+    font-size: 20px;
+    font-weight: 900;
+}
+.auction .table-subtext {
+    font-size: 16px;
+    font-weight: 700;
+    color: #666666;
+}
+.auction table tbody tr {
+    box-shadow: 0px 10px 10px #eee; 
+    height: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.auction table thead th {
+    font-size: 14px;
+    font-weight: 900;
+    color: #666666;
+}
+.auction table thead tr {
+    height: 70px;
+}
+.auction table tbody tr:not(:first-child) td {
+    border: none;
+}
+.auction table tbody tr td {
+    padding: 12px 12px;
+}
