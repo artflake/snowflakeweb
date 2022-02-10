@@ -43,7 +43,7 @@ export default function Footer() {
           </nav>
           <div className="credits ml-auto">
             <span className="copyright">
-              © <script>document.write(new Date().getFullYear())</script>, made
+              © 2022, made
               with <i className="fa fa-heart heart"></i> by {SITE_NAME}
             </span>
           </div>

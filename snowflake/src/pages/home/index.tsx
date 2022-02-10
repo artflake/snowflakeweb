@@ -39,17 +39,15 @@ export default function Home() {
         <div className="content-center">
           <div className="container">
             <div className="motto">
-              <h1 className="title">The only Art Coin.</h1>
-              <h3 className="description">
-                Use anywhere you can use an a Coin or NFT.
-              </h3>
+              <h1 className="title">Click below to access our light paper</h1>
+              <a className="btn btn-primary" rel="noreferrer" target="_blank" href="https://google.com/">Read now</a>
               <br />
             </div>
           </div>
         </div>
       </div>
       <div className="wrapper">
-        <div className="section text-center landing-section" id="core">
+        {/* <div className="section text-center landing-section" id="core">
           <div className="related-articles">
             <h3 className="title">Featured arts</h3>
             <legend></legend>
@@ -72,7 +70,7 @@ export default function Home() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
         {/* <div className="section landing-section">
           <div className="container text-center">
             <div className="row">
@@ -104,7 +102,7 @@ export default function Home() {
           className="section section-dark text-center landing-section"
           id="team"
         >
-          <div className="container">
+          {/* <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <h2 id="team" className="title mt-3 mb-5">
@@ -148,7 +146,7 @@ export default function Home() {
                       <a href="#avatar">
                         <img
                           style={{ objectFit: "cover" }}
-                          src="assets/img/faces/donnelly-headshot.jpeg"
+                          src="assets/img/faces/mack.jpeg"
                           alt="Founder"
                         />
                       </a>
@@ -156,22 +154,21 @@ export default function Home() {
                     <div className="card-body">
                       <a href="/">
                         <div className="author">
-                          <h4 className="card-title">Donnelly West PhD.</h4>
+                          <h4 className="card-title">Mack</h4>
                           <h6 className="card-category text-muted">
-                            Head of Science
+                            Co-founder
                           </h6>
                         </div>
                       </a>
                       <p className="card-description text-center">
-                        Previously at Bayer AG, Dr. West uses Molecular Biology
-                        to solve big problems.
+                        
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="section landing-section section-dark text-center">
           <h1 className="mb-5 contact pl-2 pr-2">contact@flake.art</h1>
