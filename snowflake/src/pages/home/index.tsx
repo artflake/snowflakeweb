@@ -39,8 +39,10 @@ export default function Home() {
         <div className="content-center">
           <div className="container">
             <div className="motto">
-              <h1 className="title">Click below to access our light paper</h1>
-              <a className="btn btn-primary" rel="noreferrer" target="_blank" href="https://google.com/">Read now</a>
+              <h1 className="title">The only Art Coin.</h1>
+              <h3 className="description">
+                Use anywhere you can use an a Coin or NFT.
+              </h3>
               <br />
             </div>
           </div>
@@ -98,11 +100,11 @@ export default function Home() {
           </div>
         </div> */}
 
-        <div
+        {/*<div
           className="section section-dark text-center landing-section"
           id="team"
         >
-          {/* <div className="container">
+           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <h2 id="team" className="title mt-3 mb-5">
@@ -168,7 +170,16 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div> 
+        </div>*/}
+        <div
+          className="light-paper text-center d-flex justify-content-center align-items-center"
+          style={{ backgroundImage: "url(/assets/img/light-bulb.jpeg)" }}
+        >
+          <div className="blur">
+            <div className="title">Click below to access our light paper</div>
+            <a href="https://google.com/" target="_blank" rel="noreferrer" className="read-more">Read more</a>
+          </div>
         </div>
         <div className="section landing-section section-dark text-center">
           <h1 className="mb-5 contact pl-2 pr-2">contact@flake.art</h1>

@@ -49,3 +49,31 @@
     width: auto;
   }
 }
+.light-paper {
+  height: 800px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.blur {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.light-paper .title {
+  font-size: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 3px;
+}
+.read-more, .read-more:hover {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 3px;
+}
