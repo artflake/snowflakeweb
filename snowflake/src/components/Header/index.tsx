@@ -71,7 +71,7 @@ export default function Header() {
           data-nav-image="../assets/img/blurred-image-1.jpg"
           data-color="orange"
         >
-          <ul className="navbar-nav ml-auto">
+          {/* <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About
@@ -118,7 +118,7 @@ export default function Header() {
                 </li>
               </>
             )}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </nav>
