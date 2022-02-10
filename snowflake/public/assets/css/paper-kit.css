@@ -9580,6 +9580,7 @@ video {
   position: absolute;
   width: 102%;
   object-fit: cover;
+  height: 100%;
 }
 
 @media all and (-ms-high-contrast: none),

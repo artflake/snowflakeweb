@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <div className="page-header" data-parallax="true">
-        <video autoPlay muted loop id="myVideo">
+        <video autoPlay muted loop id="titleVideo">
           <source
             src="../assets/video/Snowflake_Overlay.mp4"
             type="video/mp4"
