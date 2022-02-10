@@ -52,7 +52,7 @@ export default function Header() {
           >
             {SITE_NAME}
           </Link>
-          <button
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -64,7 +64,7 @@ export default function Header() {
             <span className="navbar-toggler-bar bar1"></span>
             <span className="navbar-toggler-bar bar2"></span>
             <span className="navbar-toggler-bar bar3"></span>
-          </button>
+          </button> */}
         </div>
         <div
           className="collapse navbar-collapse"
