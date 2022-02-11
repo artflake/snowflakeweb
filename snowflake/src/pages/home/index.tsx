@@ -178,7 +178,7 @@ export default function Home() {
         >
           <div className="blur">
             <div className="title">Click below to access our light paper</div>
-            <a href="https://google.com/" target="_blank" rel="noreferrer" className="read-more">Read more</a>
+            <a href="/Art Flake Light Paper.pdf" target="_blank" rel="noreferrer" className="read-more">Read more</a>
           </div>
         </div>
         <div className="section landing-section section-dark text-center">
