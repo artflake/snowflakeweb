@@ -139,6 +139,7 @@ export default function User() {
                 price={properties.price.description}
                 lastPrice={properties.lastPrice.description}
                 favorite={properties.favorite.description}
+                user={(profile && profile.username) || ""}
               />
             ))}
           </div>

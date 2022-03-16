@@ -80,8 +80,8 @@ function App() {
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
-        <Route path="user" element={<User />} />
-        <Route path="user/:id" element={<Art />} />
+        <Route path="user/:id" element={<User />} />
+        <Route path="art/:id" element={<Art />} />
         <Route path="faq" element={<Faq />} />
         <Route path="terms" element={<Terms />} />
         <Route
