@@ -16,10 +16,11 @@ export default function Header() {
   const [nav, setNav] = useState("navbar-transparent");
 
   useEffect(() => {
+    console.log(location.pathname)
     if (
       ["/wallet", "/contact", "/profile", "/user/", "/art/", "/blogs", "/auction"].includes(
         location.pathname
-      ) || location.pathname.includes("/user/") || location.pathname.includes("/art/") 
+      ) || location.pathname.includes("/eduardo/") || location.pathname.includes("/gen/") 
     ) {
       setNav("");
     } else {
