@@ -80,8 +80,6 @@ function App() {
         <Route path="auction" element={<Auction />} />
         <Route path="exchange" element={<Exchange />} />
         <Route path="about" element={<About />} />
-        <Route path="user/:id" element={<User />} />
-        <Route path="art/:id" element={<Art />} />
         <Route path="faq" element={<Faq />} />
         <Route path="terms" element={<Terms />} />
         <Route
@@ -109,6 +107,8 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/:user/:id" element={<Art />} />
+        <Route path="/:id" element={<User />} />
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" />} />
       </Routes>

@@ -11,6 +11,7 @@ interface IProps {
   lastPrice?: number;
   favorite?: number;
   user?: string;
+  id?:number;
   description?: string;
   profileImage?: string;
   featured?: boolean;
@@ -24,6 +25,7 @@ export default function Art({
   lastPrice,
   favorite,
   user,
+  id,
   description,
   profileImage,
   featured,
@@ -32,7 +34,7 @@ export default function Art({
     <div className="col-md-4">
       <div className={`card card-blog ${featured ? "no-animation" : ""}`}>
         <div className="card-image">
-          <Link to={`/art/${user}/`}>
+          <Link to={`/${user}/${id}/`}>
             <img className="img img-raised" src={image} alt="art" />
           </Link>
         </div>
