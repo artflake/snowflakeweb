@@ -145,7 +145,7 @@ export default function User() {
             ))}
           </div>
           <div className="row mt-5 mb-5">
-            <div className="col-md-12 text-center">
+            <div className="col-md-12 text-center ">
               {artList.length < total ? (
                 <button
                   className="btn btn-primary"
