@@ -39,7 +39,7 @@ export default function Home() {
         <div className="content-center">
           <div className="container">
             <div className="motto">
-              <h1 className="title">The only Art Coin.</h1>
+              <h1 className="title">The only Art Coins.</h1>
               <h3 className="description">
                 Use anywhere you can use an a Coin or NFT.
               </h3>
@@ -178,7 +178,14 @@ export default function Home() {
         >
           <div className="blur">
             <div className="title">Click below to access our light paper</div>
-            <a href="/Art Flake Light Paper.pdf" target="_blank" rel="noreferrer" className="read-more">Read more</a>
+            <a
+              href="/Art Flake Light Paper.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="read-more"
+            >
+              Read more
+            </a>
           </div>
         </div>
         <div className="section landing-section section-dark text-center">
