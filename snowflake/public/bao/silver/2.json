@@ -1,14 +1,12 @@
 {
-  "name": "B DAO #2",
-  "description": "B DAO Silver Member",
+  "name": "B DAO Membership",
+  "description": "Silver Member of BDAO",
   "image": "https://flake.art/bao/images/silver.png",
   "id": 2,
   "attributes": [
-    [
-      {
-        "trait_type": "member",
-        "value": "silver"
-      }
-    ]
+    {
+      "trait_type": "member",
+      "value": "silver"
+    }
   ]
 }
