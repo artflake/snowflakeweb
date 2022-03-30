@@ -39,7 +39,7 @@ export default function Home() {
         <div className="content-center">
           <div className="container">
             <div className="motto">
-              <h1 className="title">The only Art Coins.</h1>
+              <h1 className="title">The only Art Coin.</h1>
               <h3 className="description">
                 Use anywhere you can use an a Coin or NFT.
               </h3>
