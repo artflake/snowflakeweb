@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Flake Dao Member",
+    "description": "Lifetime Dao membership plus early access to OG 5K Snowflakes",
+    "image": "https://flake.art/dao/media/diamond.png",
+    "background_color": "000000",
+    "animation_url": "https://flake.art/dao/media/diamond.mp4",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "diamond"
+      }
+    ]
+  },
+  {
+    "name": "Flake Dao Member",
+    "description": "Lifetime Dao membership plus early access to Flake NFT Coins",
+    "image": "https://flake.art/dao/media/gold.png",
+    "background_color": "000000",
+    "animation_url": "https://flake.art/dao/media/gold.mp4",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "gold"
+      }
+    ]
+  },
+  {
+    "name": "Flake Dao Member",
+    "description": "Lifetime Dao membership",
+    "image": "https://flake.art/dao/media/silver.png",
+    "background_color": "000000",
+    "animation_url": "https://flake.art/dao/media/silver.mp4",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "silver"
+      }
+    ]
+  }
+]

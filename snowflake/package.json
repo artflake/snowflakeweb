@@ -5,10 +5,12 @@
   "private": true,
   "scripts": {
     "start": "http-server webroot",
-    "build": "cpy 'flake-wup.webflow/**/**' webroot"
+    "build": "cpy 'flake-wup.webflow/**/**' webroot",
+    "build:dao": "del webroot/dao && cpy dao webroot"
   },
   "dependencies": {
     "cpy-cli": "^4.1.0",
+    "del-cli": "^4.0.1",
     "http-server": "^14.1.0"
   }
 }
