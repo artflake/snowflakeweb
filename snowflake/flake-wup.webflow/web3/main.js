@@ -46240,7 +46240,7 @@ function derived(stores, fn, initial_value) {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/webflow/";
+/******/ 		__webpack_require__.p = "/flake-wup.webflow/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
