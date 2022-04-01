@@ -4,13 +4,40 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "http-server webroot",
-    "build": "cpy 'flake-wup.webflow/**/**' webroot",
-    "build:dao": "del webroot/dao && cpy dao webroot"
+    "start": "webpack serve",
+    "build": "cpy 'webflow/**/**' webroot",
+    "build:dao": "del webroot/dao && cpy dao webroot",
+    "build:webpack": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack"
   },
   "dependencies": {
+    "@web3-onboard/core": "^2.1.0",
+    "@web3-onboard/injected-wallets": "^2.0.2",
+    "@web3-onboard/ledger": "^2.0.1",
+    "@web3-onboard/trezor": "^2.0.2",
+    "@web3-onboard/walletconnect": "^2.0.1",
+    "@web3-onboard/walletlink": "^2.0.0",
     "cpy-cli": "^4.1.0",
     "del-cli": "^4.0.1",
     "http-server": "^14.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "assert": "^2.0.0",
+    "babel-loader": "^8.2.4",
+    "buffer": "^6.0.3",
+    "cross-env": "^7.0.3",
+    "crypto-browserify": "^3.12.0",
+    "http": "^0.0.1-security",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "util": "^0.12.4",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
