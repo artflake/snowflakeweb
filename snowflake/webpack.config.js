@@ -26,7 +26,8 @@ module.exports = {
     path: path.join(__dirname, "/flake-wup.webflow/web3"),
     filename: "[name].js",
     chunkFilename: "[name].[id].js",
-    publicPath: "/flake-wup.webflow/",
+    // publicPath: "/flake-wup.webflow/",
+    clean: true,
   },
   module: {
     rules: [
