@@ -1,0 +1,14 @@
+{
+  "name": "snowflake",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "http-server webroot",
+    "build": "cpy flake-wup.webflow/** webroot --flat"
+  },
+  "dependencies": {
+    "cpy-cli": "^4.1.0",
+    "http-server": "^14.1.0"
+  }
+}

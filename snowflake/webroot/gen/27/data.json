@@ -1,0 +1,374 @@
+{
+    "title": "Asset Metadata",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "AI Art House #0478"
+        },
+        "description": {
+            "type": "string",
+            "description": "<p>The first ever AI Art NFT series. AI Art House is the premier marketplace for AI-generated art, now releasing a limited collection of 1000 works as one-of-a-kind collectible NFTs. Each artwork is a 1/1 piece of AI history, meaning you will own a 100% unique collectors item that nobody else in the world will ever have. As AI Art continues to advance into the future, you will forever own one of its earliest creations.</p><p>In 2021, AI Art House has already been featured in T3, Uncrate, The Peak, and more.</p><p>🔔 Follow @aiarthouse on Instagram, Twitter &amp; Discord for updates &amp; releases.</p><p>With each NFT, the NFT owner has the right to redeem a physical 12\"x12\" print of their work.</p>"
+        },
+        "image": {
+            "type": "string",
+            "description": "/gen/flakes/27.png"
+        },
+        "profileTitle": {
+            "type": "string",
+            "description": "Artificial Intelligence Art"
+        },
+        "price": {
+            "type": "number",
+            "description": 0.0234
+        },
+        "priceUsd": {
+            "type": "number",
+            "description": 235.16
+        },
+        "favorite": {
+            "type": "number",
+            "description": 5
+        },
+        "user": {
+            "type": "string",
+            "description": "GETIT1"
+        },
+        "views": {
+            "type": "number",
+            "description": 146
+        },
+        "createdby": {
+            "type": "string",
+            "description": "aiarthouse"
+        },
+        "artDescription": {
+            "type": "string",
+            "description": "<p>AI Art House has minted each 1/1 artwork, meaning you will own a 100% unique collector’s item that nobody else in the world will ever have.</p><p>With each NFT, the original owner has the right to redeem a physical 12\"x12\" print of their work. Our advanced AI model has been trained to analyze millions of paintings from famous artists such as Pablo Picasso, Mark Rothko, and Claude Monet. Learning from these artists' style and form, the AI has produced a limited collection of museum-quality artworks that have never before been seen by the public.</p>"
+        },
+        "address": {
+            "type": "string",
+            "description": "sd4td67xsd82he426t"
+        },
+        "tokenId": {
+            "type": "string",
+            "description": "562300912376772"
+        },
+        "tokenStandard": {
+            "type": "string",
+            "description": "ERC-1155"
+        },
+        "blockchain": {
+            "type": "string",
+            "description": "Ethereum"
+        },
+        "metadata": {
+            "type": "string",
+            "description": "Centralized"
+        },
+        "listings": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "priceUsd": {
+                        "type": "number",
+                        "description": 279.47
+                    },
+                    "expiration": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    }
+                }
+            }
+        ],
+        "activity": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "price": {
+                        "type": "number",
+                        "description": 0.0697
+                    },
+                    "event": {
+                        "type": "string",
+                        "description": "List"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "5 days ago"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "GETITI"
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": ""
+                    }
+                }
+            }
+        ],
+        "art": [
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0478"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img1.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0479"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img2.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            },
+            {
+                "title": "Asset Metadata",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "AI Art House #0480"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "/assets/img/users/user1/nft/img3.png"
+                    },
+                    "profileTitle": {
+                        "type": "string",
+                        "description": "Artificial Intelligence Art"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": 0.1
+                    },
+                    "lastPrice": {
+                        "type": "number",
+                        "description": 0.369
+                    },
+                    "favorite": {
+                        "type": "number",
+                        "description": 5
+                    }
+                }
+            }
+        ]
+    }
+}
