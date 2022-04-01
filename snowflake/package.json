@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "http-server webroot",
-    "build": "cpy flake-wup.webflow/** webroot --flat"
+    "build": "cpy 'flake-wup.webflow/**/**' webroot"
   },
   "dependencies": {
     "cpy-cli": "^4.1.0",
