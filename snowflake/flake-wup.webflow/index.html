@@ -335,7 +335,7 @@
                     <div class="nav_link-text">FAQ</div>
                   </a>
                 </div>
-                <div class="btn-wrapper">
+                <!-- <div class="btn-wrapper">
                   <a
                     data-w-id="4aaaff3c-d830-5e0d-0707-166701ec1440"
                     href="#"
@@ -343,6 +343,22 @@
                   >
                     <div class="btn_layout">
                       <div class="text-4">Join our Discord</div>
+                    </div>
+                    <div class="btn_bg"></div>
+                    <div class="btn_bg-hover"></div>
+                  </a>
+                </div> -->
+                <div class="btn-wrapper">
+                  <a
+                    data-w-id="4aaaff3c-d830-5e0d-0707-166701ec1440"
+                    href="#"
+                    class="btn w-inline-block"
+                    id="connectBtn"
+                  >
+                    <div class="btn_layout">
+                      <div id="connectText" class="text-4">
+                        Connect Metamask
+                      </div>
                     </div>
                     <div class="btn_bg"></div>
                     <div class="btn_bg-hover"></div>
@@ -468,15 +484,11 @@
                   </div>
                 </div>
                 <div class="purchase_form-block w-form">
-                  <form
-                    id="email-form"
-                    name="email-form"
-                    data-name="Email Form"
-                    method="get"
-                    class="purchase_form"
-                  >
+                  <form id="email-form" name="email-form" class="purchase_form">
                     <div class="purchase_cards-wrapper">
-                      <label class="purchase_card cc-diamond w-radio"
+                      <label
+                        id="diamondCard"
+                        class="purchase_card cc-diamond w-radio"
                         ><img
                           src="images/card_diamond.png"
                           loading="lazy"
@@ -591,7 +603,10 @@
                           class="purchase_card-label w-form-label"
                           for="diamond"
                         ></span> </label
-                      ><label class="purchase_card cc-gold w-radio">
+                      ><label
+                        id="goldCard"
+                        class="purchase_card cc-gold w-radio"
+                      >
                         <div class="purchase_card-recommended">
                           <div class="text-2 cc-bold">Recommended!</div>
                         </div>
@@ -715,7 +730,9 @@
                           class="purchase_card-label w-form-label"
                           for="gold"
                         ></span> </label
-                      ><label class="purchase_card cc-silver w-radio"
+                      ><label
+                        id="silverCard"
+                        class="purchase_card cc-silver w-radio"
                         ><img
                           src="images/card_silver.png"
                           loading="lazy"
@@ -848,6 +865,7 @@
                       </div>
                       <div class="purchase_btn-wrapper">
                         <input
+                          id="mintBtn"
                           type="submit"
                           value="Buy now"
                           data-wait="Please wait..."
