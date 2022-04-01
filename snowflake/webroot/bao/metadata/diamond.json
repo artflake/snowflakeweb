@@ -1,0 +1,11 @@
+{
+  "name": "DAO Membership",
+  "description": "Diamond Member of DAO",
+  "image": "https://flake.art/bao/images/diamond.png",
+  "attributes": [
+    {
+      "trait_type": "member",
+      "value": "diamond"
+    }
+  ]
+}
