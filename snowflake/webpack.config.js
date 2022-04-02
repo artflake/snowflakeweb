@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-const TerserPlugin = require("terser-webpack-plugin");
 
 const mode = process.env.NODE_ENV || "development";
 const prod = mode === "production";
@@ -50,10 +49,6 @@ module.exports = {
     asyncWebAssembly: true,
   },
   mode,
-  optimization: {
-    minimize: prod,
-    minimizer: [new TerserPlugin()],
-  },
   plugins: [
     new webpack.ProvidePlugin({
       process: "process",

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server webroot",
     "serve": "webpack serve",
-    "build": "cpy 'flake-v5/**/**' webroot",
+    "build": "del webroot/web3 && cpy 'flake-v5/**/**' webroot",
     "build:dao": "del webroot/dao && cpy dao webroot",
     "build:webpack": "cross-env NODE_ENV=production webpack",
     "dev": "webpack"
@@ -37,7 +37,6 @@
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
-    "terser-webpack-plugin": "^5.3.1",
     "util": "^0.12.4",
     "webpack": "^5.71.0",
     "webpack-cli": "^4.9.2",
