@@ -23,10 +23,10 @@ module.exports = {
     mainFields: ["browser", "module", "main"],
   },
   output: {
-    path: path.join(__dirname, "/flake-wup.webflow/web3"),
+    path: path.join(__dirname, "/flake-v3/web3"),
     filename: "[name].js",
     chunkFilename: "[name].[id].js",
-    // publicPath: "/flake-wup.webflow/",
+    // publicPath: "/flake-v3/",
     clean: true,
   },
   module: {
@@ -58,8 +58,8 @@ module.exports = {
     hot: false,
     liveReload: true,
     static: {
-      directory: path.join(__dirname, "flake-wup.webflow"),
+      directory: path.join(__dirname, "flake-v3"),
     },
-    watchFiles: ["flake-wup.webflow/web3/**"],
+    watchFiles: ["flake-v3/web3/**"],
   },
 };
