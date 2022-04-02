@@ -14,7 +14,7 @@ let daoContract;
 let address;
 let userBalance;
 let typeSelected;
-let quantity;
+let quantity = 1;
 
 const injected = injectedModule();
 const walletConnect = walletConnectModule();
@@ -30,7 +30,7 @@ const modules = [injected, walletConnect, walletLink, ledger, trezor];
 const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/f6d110a8a5904705b2eb97815ba53e85`;
 const RINKEBY_RPC_URL = `https://rinkeby.infura.io/v3/f6d110a8a5904705b2eb97815ba53e85`;
 
-// const flakeDaoRinkeby = "0xD598c46D78D73451D08a0f3cc2e483B5E9f45438";
+const flakeDaoAddress = "0x550022D4d6643a2211107a2bAddFdba42D7A3412";
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
@@ -66,19 +66,23 @@ const { unsubscribe } = walletsSub.subscribe((wallets) => {
       JSON.stringify(connectedWallets)
     );
     if (wallets[0]?.provider) {
+      // set provider
       ethersProvider = new ethers.providers.Web3Provider(
         wallets[0].provider,
         "any"
       );
-
+      // set signer
       ethersSigner = ethersProvider.getSigner();
-
+      // set address
       address = wallets[0].accounts[0]?.address;
+      // set user balance
       userBalance = wallets[0].accounts[0]?.balance;
+      // set account in connect btn
       $("#connectText").text(address.slice(0, 5) + "....." + address.slice(-4));
-      if (flakeDaoRinkeby) {
+      // set dao contract
+      if (flakeDaoAddress) {
         daoContract = new ethers.Contract(
-          flakeDaoRinkeby,
+          flakeDaoAddress,
           [
             "function mint(address _owner, uint256 _quantity, uint256 _level) public payable",
           ],
@@ -91,7 +95,6 @@ const { unsubscribe } = walletsSub.subscribe((wallets) => {
       daoContract = null;
       address = null;
       typeSelected = null;
-      quantity = null;
       userBalance = null;
       $("#connectText").text("Connect Metamask");
     }
@@ -112,14 +115,17 @@ async function connectWallet(skipPrev) {
     } else if (previouslyConnectedWallets) {
       // Connect the most recently connected wallet (first in the array)
 
-      await onboard.connectWallet({
-        autoSelect: previouslyConnectedWallets[0],
-      });
+      // await onboard.connectWallet({
+      //   autoSelect: previouslyConnectedWallets[0],
+      // });
 
       // You can also auto connect "silently" and disable all onboard modals to avoid them flashing on page load
-      // await onboard.connectWallet({
-      //   autoSelect: { label: previouslyConnectedWallets[0], disableModals: true },
-      // });
+      await onboard.connectWallet({
+        autoSelect: {
+          label: previouslyConnectedWallets[0],
+          disableModals: true,
+        },
+      });
     }
   } catch (err) {
     console.log(err.message);
@@ -127,7 +133,7 @@ async function connectWallet(skipPrev) {
 }
 
 setTimeout(() => {
-  connectWallet();
+  connectWallet(false);
 }, 4000);
 
 // code
@@ -159,7 +165,9 @@ $("#mintBtn").on("click", function (e) {
   console.log("quantity", quantity);
   console.log("address", address);
   console.log("typeSelected", typeSelected);
-  if (quantity && address && daoContract) {
+  if (!address) {
+    connectWallet(true);
+  } else if (quantity && quantity > 0 && address && daoContract) {
     if (typeSelected === 0) {
       const price = utils.parseEther("1");
       const value = price.mul(quantity);
@@ -190,13 +198,9 @@ $("#mintBtn").on("click", function (e) {
         })
         .catch((err) => console.log(err.message));
     }
-  } else if (!address) {
-    connectWallet(true);
   }
 });
 
 $("#email-form").on("submit", function (e) {
   return false;
 });
-
-console.log($("connectBtn"));
