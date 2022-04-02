@@ -156,9 +156,6 @@ $("#amount").on("input", function (e) {
 });
 
 $("#mintBtn").on("click", function (e) {
-  console.log("quantity", quantity);
-  console.log("address", address);
-  console.log("typeSelected", typeSelected);
   if (!address) {
     connectWallet(true);
   } else if (quantity && quantity > 0 && address && daoContract) {
