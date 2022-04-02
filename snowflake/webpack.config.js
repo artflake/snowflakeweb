@@ -23,10 +23,10 @@ module.exports = {
     mainFields: ["browser", "module", "main"],
   },
   output: {
-    path: path.join(__dirname, "/flake-v3/web3"),
+    path: path.join(__dirname, "/flake-v5/web3"),
     filename: "[name].js",
     chunkFilename: "[name].[id].js",
-    // publicPath: "/flake-v3/",
+    // publicPath: "/flake-v5/",
     clean: true,
   },
   module: {
@@ -58,8 +58,8 @@ module.exports = {
     hot: false,
     liveReload: true,
     static: {
-      directory: path.join(__dirname, "flake-v3"),
+      directory: path.join(__dirname, "flake-v5"),
     },
-    watchFiles: ["flake-v3/web3/**"],
+    watchFiles: ["flake-v5/web3/**"],
   },
 };

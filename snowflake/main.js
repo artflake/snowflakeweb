@@ -102,12 +102,16 @@ const { unsubscribe } = walletsSub.subscribe((wallets) => {
 
 async function connectWallet(skipPrev) {
   try {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
     const previouslyConnectedWallets = JSON.parse(
       window.localStorage.getItem("connectedWallets")
     );
 
-    if (previouslyConnectedWallets && !skipPrev) {
+    if (skipPrev) {
+      await onboard.connectWallet();
+    } else if (previouslyConnectedWallets) {
       // Connect the most recently connected wallet (first in the array)
+
       await onboard.connectWallet({
         autoSelect: previouslyConnectedWallets[0],
       });
@@ -116,15 +120,15 @@ async function connectWallet(skipPrev) {
       // await onboard.connectWallet({
       //   autoSelect: { label: previouslyConnectedWallets[0], disableModals: true },
       // });
-    } else {
-      await onboard.connectWallet();
     }
   } catch (err) {
     console.log(err.message);
   }
 }
 
-connectWallet();
+setTimeout(() => {
+  connectWallet();
+}, 4000);
 
 // code
 
@@ -132,19 +136,18 @@ const $ = window.$;
 
 $("#connectBtn").on("click", function (e) {
   e.preventDefault();
-  $("html, body").animate({ scrollTop: 0 }, "slow");
   connectWallet(true);
 });
 
-$("#diamondCard").on("click", function (e) {
+$("#diamond").on("click", function (e) {
   typeSelected = 0;
 });
 
-$("#goldCard").on("click", function (e) {
+$("#gold").on("click", function (e) {
   typeSelected = 1;
 });
 
-$("#silverCard").on("click", function (e) {
+$("#silver").on("click", function (e) {
   typeSelected = 2;
 });
 
@@ -155,7 +158,6 @@ $("#amount").on("input", function (e) {
 $("#mintBtn").on("click", function (e) {
   console.log("quantity", quantity);
   console.log("address", address);
-  console.log("userbalance", userBalance);
   console.log("typeSelected", typeSelected);
   if (quantity && address && daoContract) {
     if (typeSelected === 0) {
@@ -188,6 +190,8 @@ $("#mintBtn").on("click", function (e) {
         })
         .catch((err) => console.log(err.message));
     }
+  } else if (!address) {
+    connectWallet(true);
   }
 });
 
