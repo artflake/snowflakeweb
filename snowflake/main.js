@@ -114,12 +114,6 @@ async function connectWallet(skipPrev) {
       await onboard.connectWallet();
     } else if (previouslyConnectedWallets) {
       // Connect the most recently connected wallet (first in the array)
-
-      // await onboard.connectWallet({
-      //   autoSelect: previouslyConnectedWallets[0],
-      // });
-
-      // You can also auto connect "silently" and disable all onboard modals to avoid them flashing on page load
       await onboard.connectWallet({
         autoSelect: {
           label: previouslyConnectedWallets[0],
@@ -134,7 +128,7 @@ async function connectWallet(skipPrev) {
 
 setTimeout(() => {
   connectWallet(false);
-}, 4000);
+});
 
 // code
 
