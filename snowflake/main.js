@@ -30,7 +30,7 @@ const modules = [injected, walletConnect, walletLink, ledger, trezor];
 const MAINNET_RPC_URL = `https://mainnet.infura.io/v3/f6d110a8a5904705b2eb97815ba53e85`;
 const RINKEBY_RPC_URL = `https://rinkeby.infura.io/v3/f6d110a8a5904705b2eb97815ba53e85`;
 
-const flakeDaoAddress = "0x550022D4d6643a2211107a2bAddFdba42D7A3412";
+const flakeDaoAddress = "0x2C279fFC179493832A92910312a07D98167Cd87c";
 
 const onboard = Onboard({
   wallets: modules, // created in previous step
