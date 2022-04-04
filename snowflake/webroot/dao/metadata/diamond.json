@@ -1,0 +1,13 @@
+{
+  "name": "Flake Dao Diamond Member",
+  "description": "Lifetime Dao membership plus early access to OG 5K Snowflakes",
+  "image": "https://flake.art/dao/media/diamond.png",
+  "background_color": "000000",
+  "animation_url": "https://flake.art/dao/media/diamond.mp4",
+  "attributes": [
+    {
+      "trait_type": "member",
+      "value": "diamond"
+    }
+  ]
+}

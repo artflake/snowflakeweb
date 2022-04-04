@@ -1,0 +1,35 @@
+[
+  {
+    "name": "DAO Membership",
+    "description": "Diamond Member of DAO",
+    "image": "https://flake.art/bao/images/diamond.png",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "diamond"
+      }
+    ]
+  },
+  {
+    "name": "DAO Membership",
+    "description": "Gold Member of DAO",
+    "image": "https://flake.art/bao/images/gold.png",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "gold"
+      }
+    ]
+  },
+  {
+    "name": "DAO Membership",
+    "description": "Silver Member of DAO",
+    "image": "https://flake.art/bao/images/silver.png",
+    "attributes": [
+      {
+        "trait_type": "member",
+        "value": "silver"
+      }
+    ]
+  }
+]
