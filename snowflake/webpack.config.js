@@ -46,8 +46,6 @@ module.exports = {
                 {
                   useBuiltIns: "entry",
                   corejs: "3.21.1",
-                  // targets: "> 0.25%, not dead",
-                  // browserslistEnv
                 },
               ],
             ],
