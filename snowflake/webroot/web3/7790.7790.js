@@ -1,1 +1,1 @@
-(self.webpackChunksnowflake=self.webpackChunksnowflake||[]).push([[7790,8329,4343],{27790:()=>{}}]);
+(self.webpackChunksnowflake=self.webpackChunksnowflake||[]).push([[7790,8329,4343],{27790:function(){}}]);

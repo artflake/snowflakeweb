@@ -18,6 +18,7 @@
     "@web3-onboard/trezor": "^2.0.2",
     "@web3-onboard/walletconnect": "^2.0.1",
     "@web3-onboard/walletlink": "^2.0.0",
+    "core-js": "3.21.1",
     "cpy-cli": "^4.1.0",
     "del-cli": "^4.0.1",
     "ethers": "^5.6.2",

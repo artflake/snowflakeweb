@@ -30,6 +30,7 @@ module.exports = {
     chunkFilename: "[name].[id].js",
     // publicPath: "/flake-v5/",
     clean: true,
+    asyncChunks: true,
   },
   module: {
     rules: [
@@ -39,7 +40,17 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  useBuiltIns: "entry",
+                  corejs: "3.21.1",
+                  // targets: "> 0.25%, not dead",
+                  // browserslistEnv
+                },
+              ],
+            ],
           },
         },
       },

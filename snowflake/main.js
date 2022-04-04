@@ -1,3 +1,6 @@
+import "core-js";
+import "regenerator-runtime/runtime";
+
 import Onboard from "@web3-onboard/core";
 import injectedModule from "@web3-onboard/injected-wallets";
 import walletLinkModule from "@web3-onboard/walletlink";
