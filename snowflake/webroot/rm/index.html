@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flake Testnet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .copy-button {
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .copy-button:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 18px;
+      }
+      .copy-button {
+        padding: 20px 40px;
+        font-size: 20px;
+      }
+    }
+  </style>
+  <script>
+    function copyToClipboard(elementId) {
+      var element = document.getElementById(elementId);
+      var range = document.createRange();
+      range.selectNode(element);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      document.execCommand("copy");
+      window.getSelection().removeAllRanges();
+    }
+  </script>
+</head>
+<body>
+  <h2>NFT Contract:</h2>
+  <p id="nftContract">0xd67130a1Bc25745904dFdFA33C5eE1D8f114a5b1</p>
+  <button class="copy-button" onclick="copyToClipboard('nftContract')">Copy</button>
+
+  <h2>ERC-20 Contract:</h2>
+  <p id="erc20Contract">0xC0FAed6d0684C9768f44893d008911849D9b02D5</p>
+  <button class="copy-button" onclick="copyToClipboard('erc20Contract')">Copy</button>
+
+  <script>
+    var copyButtons = document.getElementsByClassName("copy-button");
+    Array.from(copyButtons).forEach(function(button) {
+      button.addEventListener('click', function() {
+        button.innerHTML = "Copied!";
+        setTimeout(function() {
+          button.innerHTML = "Copy";
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
